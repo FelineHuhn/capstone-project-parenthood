@@ -25,4 +25,5 @@ const Headline = styled.h1`
 const SpotList = styled.ul`
   list-style: none;
   max-width: 500px;
+  padding: 0;
 `;
