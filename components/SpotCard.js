@@ -3,8 +3,6 @@ import Image from "next/image";
 import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 
 export default function SpotCard(spot) {
-  console.log(spot);
-
   return (
     <>
       <Card>
