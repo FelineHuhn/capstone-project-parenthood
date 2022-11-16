@@ -4,7 +4,6 @@ import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 
 export default function SpotCard(spot) {
   return (
-    <>
       <Card>
         <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
         <SpotInfos>
@@ -12,7 +11,6 @@ export default function SpotCard(spot) {
           <h4>"{spot.spot.name}"</h4>
         </SpotInfos>
       </Card>
-    </>
   );
 }
 
