@@ -4,7 +4,7 @@ import spots from "../helpers/mockSpots";
 
 export default function Home() {
   return (
-    <>
+    <main>
       <Headline>ParentHood Spots</Headline>
 
       <SpotList>
@@ -14,7 +14,7 @@ export default function Home() {
             <SpotCard spot={spot} key={spot.name}></SpotCard>
           ))}
       </SpotList>
-    </>
+    </main>
   );
 }
 
