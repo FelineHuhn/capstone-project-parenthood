@@ -6,6 +6,7 @@ export default function Home() {
   return (
     <>
       <Headline>ParentHood Spots</Headline>
+
       <SpotList>
         {spots
           ?.sort((a, b) => a.name.localeCompare(b.name))
@@ -23,4 +24,5 @@ const Headline = styled.h1`
 
 const SpotList = styled.ul`
   list-style: none;
+  max-width: 500px;
 `;

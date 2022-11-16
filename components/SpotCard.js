@@ -17,6 +17,7 @@ export default function SpotCard(spot) {
 }
 
 const Card = styled.li`
+  background-color: white;
   border: 1px solid black;
   border-radius: 10px;
   margin: 20px 20px 0px -20px;
