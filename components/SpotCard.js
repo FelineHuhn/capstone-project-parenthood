@@ -4,13 +4,13 @@ import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 
 export default function SpotCard(spot) {
   return (
-      <Card>
-        <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
-        <SpotInfos>
-          <h3>{spot.spot.category}</h3>
-          <h4>"{spot.spot.name}"</h4>
-        </SpotInfos>
-      </Card>
+    <Card>
+      <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
+      <SpotInfos>
+        <SpotCategory>{spot.spot.category}</SpotCategory>
+        <SpotName>"{spot.spot.name}"</SpotName>
+      </SpotInfos>
+    </Card>
   );
 }
 
@@ -35,12 +35,12 @@ const SpotInfos = styled.article`
   margin-right: 10px;
   margin-top: -10px;
   text-align: right;
+`;
 
-  h3 {
-    color: darkgreen;
-  }
+const SpotCategory = styled.h3`
+  color: darkgreen;
+`;
 
-  h4 {
-    margin-top: -10px;
-  }
+const SpotName = styled.h4`
+  color: dimgray;
 `;

@@ -6,11 +6,7 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         margin: 0;
         background-color: oldlace;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-         Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         }
 
     * {

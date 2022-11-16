@@ -4,22 +4,28 @@ import spots from "../helpers/mockSpots";
 
 export default function Home() {
   return (
-    <main>
+    <Main>
       <Headline>ParentHood Spots</Headline>
-
       <SpotList>
         {spots
-          ?.sort((a, b) => a.name.localeCompare(b.name))
-          ?.map((spot) => (
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((spot) => (
             <SpotCard spot={spot} key={spot.name}></SpotCard>
           ))}
       </SpotList>
-    </main>
+    </Main>
   );
 }
 
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Headline = styled.h1`
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
 
 const SpotList = styled.ul`
