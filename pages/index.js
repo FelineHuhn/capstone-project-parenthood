@@ -1,4 +1,3 @@
-import { PHASE_PRODUCTION_BUILD } from "next/dist/shared/lib/constants";
 import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
 import spots from "../helpers/mockSpots";
