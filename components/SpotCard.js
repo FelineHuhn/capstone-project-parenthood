@@ -2,13 +2,13 @@ import styled from "styled-components";
 import Image from "next/image";
 import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 
-export default function SpotCard(spot) {
+export default function SpotCard({spot}) {
   return (
     <Card>
       <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
       <SpotInfos>
-        <SpotCategory>{spot.spot.category}</SpotCategory>
-        <SpotName>"{spot.spot.name}"</SpotName>
+        <SpotCategory>{spot.category}</SpotCategory>
+        <SpotName>"{spot.name}"</SpotName>
       </SpotInfos>
     </Card>
   );
