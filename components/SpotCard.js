@@ -18,8 +18,8 @@ export default function SpotCard({ spot }) {
           type="button"
           variant="details"
           onClick={() => {
-            setState(() => {
-              if (state === "hide") {
+            setState((prevState) => {
+              if (prevState === "hide") {
                 return "show";
               } else {
                 return "hide";
