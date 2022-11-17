@@ -3,12 +3,12 @@ import Image from "next/image";
 import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 import Button from "./Button";
 import SpotDetails from "./SpotDetails";
-import { useState } from "react";
+// import { useState } from "react";
 
-const inititalState = "hide";
+// const inititalState = "hide";
 
 export default function SpotCard({ spot }) {
-  const [state, setState] = useState(inititalState);
+  // const [state, setState] = useState(inititalState);
 
   return (
     <Card>
@@ -33,16 +33,16 @@ const Card = styled.li`
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin: 0 10px 20px 10px;
 `;
 
 const SpotImage = styled(Image)`
+  width: 40%;
+  height: 40%;
   margin: 10px;
-  width: 45%;
-  height: 45%;
   border: 1px solid black;
   border-radius: 5px;
 `;

@@ -6,27 +6,29 @@ export default function SpotDetails({ spot }) {
     <>
       <DetailsSection>
         <DetailsHeadline>Details</DetailsHeadline>
-        <SubHeadline>Adresse:</SubHeadline>
-        <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
-        <SubHeadline>Wetterempfehlung:</SubHeadline>
-        <DetailsList>
+        <h4>Adresse:</h4>
+        <DetailsSubList>
+          <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
+        </DetailsSubList>
+        <h4>Wetterempfehlung:</h4>
+        <DetailsSubList>
           {spot.weather.map((weather) => {
             return <li>{weather}</li>;
           })}
-        </DetailsList>
-        <SubHeadline>Altersempfehlung:</SubHeadline>
-        <DetailsList>
+        </DetailsSubList>
+        <h4>Altersempfehlung:</h4>
+        <DetailsSubList>
           {spot.age.map((age) => {
             return <li>{age}</li>;
           })}
-        </DetailsList>
-        <SubHeadline>Tags:</SubHeadline>
-        <DetailsList>
+        </DetailsSubList>
+        <h4>Tags:</h4>
+        <DetailsSubList>
           {spot.tags.map((tag) => {
             return <li>#{tag}</li>;
           })}
-        </DetailsList>
-        <SubHeadline>Weitere Infos:</SubHeadline>
+        </DetailsSubList>
+        <h4>Weitere Infos:</h4>
         <DetailsParagraph>{spot.infos}</DetailsParagraph>
       </DetailsSection>
     </>
@@ -34,24 +36,30 @@ export default function SpotDetails({ spot }) {
 }
 
 const DetailsSection = styled.section`
-  padding: 0px 20px 20px 20px;
-  border-top: 1px solid black;
+  padding: 10px;
+  font-size: 14px;
+  border-top: 1px solid grey;
 `;
 
 const DetailsHeadline = styled.h3`
   color: darkgreen;
+  font-size: 18px;
 `;
 
-const SubHeadline = styled.h4``;
-
-const DetailsParagraph = styled.p`
-  padding: 5px;
-  border: 1px dotted black;
-`;
-
-const DetailsList = styled.ul`
+const DetailsSubList = styled.ul`
+  font-size: 16px;
   padding: 5px;
   list-style: none;
+  padding: 0 10px 0 10px;
 `;
 
-const AddresseLink = styled(Link)``;
+const DetailsParagraph = styled.p`
+  text-align: justify;
+  padding: 0 10px 0 10px;
+`;
+
+const AddresseLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+`;
