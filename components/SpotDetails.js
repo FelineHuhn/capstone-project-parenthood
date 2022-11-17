@@ -3,35 +3,33 @@ import Link from "next/link";
 
 export default function SpotDetails({ spot }) {
   return (
-    <>
-      <DetailsSection>
-        <DetailsHeadline>Details</DetailsHeadline>
-        <h4>Adresse:</h4>
-        <DetailsSubList>
-          <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
-        </DetailsSubList>
-        <h4>Wetterempfehlung:</h4>
-        <DetailsSubList>
-          {spot.weather.map((weather) => {
-            return <li>{weather}</li>;
-          })}
-        </DetailsSubList>
-        <h4>Altersempfehlung:</h4>
-        <DetailsSubList>
-          {spot.age.map((age) => {
-            return <li>{age}</li>;
-          })}
-        </DetailsSubList>
-        <h4>Tags:</h4>
-        <DetailsSubList>
-          {spot.tags.map((tag) => {
-            return <li>#{tag}</li>;
-          })}
-        </DetailsSubList>
-        <h4>Weitere Infos:</h4>
-        <DetailsParagraph>{spot.infos}</DetailsParagraph>
-      </DetailsSection>
-    </>
+    <DetailsSection>
+      <DetailsHeadline>Details</DetailsHeadline>
+      <h3>Adresse:</h3>
+      <DetailsSubList>
+        <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
+      </DetailsSubList>
+      <h3>Wetterempfehlung:</h3>
+      <DetailsSubList>
+        {spot.weather.map((weather) => {
+          return <li>{weather}</li>;
+        })}
+      </DetailsSubList>
+      <h3>Altersempfehlung:</h3>
+      <DetailsSubList>
+        {spot.age.map((age) => {
+          return <li>{age}</li>;
+        })}
+      </DetailsSubList>
+      <h3>Tags:</h3>
+      <DetailsSubList>
+        {spot.tags.map((tag) => {
+          return <li>#{tag}</li>;
+        })}
+      </DetailsSubList>
+      <h3>Weitere Infos:</h3>
+      <DetailsParagraph>{spot.infos}</DetailsParagraph>
+    </DetailsSection>
   );
 }
 
@@ -40,7 +38,7 @@ const DetailsSection = styled.section`
   font-size: 14px;
 `;
 
-const DetailsHeadline = styled.h3`
+const DetailsHeadline = styled.h2`
   color: darkgreen;
   font-size: 18px;
 `;

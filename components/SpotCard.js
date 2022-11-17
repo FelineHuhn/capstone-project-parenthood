@@ -37,8 +37,8 @@ export default function SpotCard({ spot }) {
             type="button"
             variant="cancel"
             onClick={() => {
-              setState(() => {
-                if (state === "hide") {
+              setState((prevState) => {
+                if (prevState === "hide") {
                   return "show";
                 } else {
                   return "hide";
@@ -49,9 +49,7 @@ export default function SpotCard({ spot }) {
             Schließen
           </Button>
         </>
-      ) : (
-        ""
-      )}
+      ) : null}
     </Card>
   );
 }
