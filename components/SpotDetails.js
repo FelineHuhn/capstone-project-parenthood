@@ -1,20 +1,33 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function SpotDetails({ spot }) {
   return (
     <>
       <DetailsSection>
-        <Headline>Details</Headline>
+        <DetailsHeadline>Details</DetailsHeadline>
         <SubHeadline>Adresse:</SubHeadline>
-        <Paragraph>{spot.addresse}</Paragraph>
+        <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
         <SubHeadline>Wetterempfehlung:</SubHeadline>
-        <Paragraph>{spot.weather}</Paragraph>
+        <DetailsList>
+          {spot.weather.map((weather) => {
+            return <li>{weather}</li>;
+          })}
+        </DetailsList>
         <SubHeadline>Altersempfehlung:</SubHeadline>
-        <Paragraph>{spot.age}</Paragraph>
+        <DetailsList>
+          {spot.age.map((age) => {
+            return <li>{age}</li>;
+          })}
+        </DetailsList>
         <SubHeadline>Tags:</SubHeadline>
-        <Paragraph>#{spot.tags}</Paragraph>
+        <DetailsList>
+          {spot.tags.map((tag) => {
+            return <li>#{tag}</li>;
+          })}
+        </DetailsList>
         <SubHeadline>Weitere Infos:</SubHeadline>
-        <Paragraph>{spot.infos}</Paragraph>
+        <DetailsParagraph>{spot.infos}</DetailsParagraph>
       </DetailsSection>
     </>
   );
@@ -25,13 +38,20 @@ const DetailsSection = styled.section`
   border-top: 1px solid black;
 `;
 
-const Headline = styled.h3`
+const DetailsHeadline = styled.h3`
   color: darkgreen;
 `;
 
 const SubHeadline = styled.h4``;
 
-const Paragraph = styled.p`
+const DetailsParagraph = styled.p`
   padding: 5px;
   border: 1px dotted black;
 `;
+
+const DetailsList = styled.ul`
+  padding: 5px;
+  list-style: none;
+`;
+
+const AddresseLink = styled(Link)``;
