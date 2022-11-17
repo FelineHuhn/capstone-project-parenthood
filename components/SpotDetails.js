@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function SpotDetails({ spot }) {
   return (
@@ -30,6 +31,7 @@ export default function SpotDetails({ spot }) {
         </DetailsSubList>
         <h4>Weitere Infos:</h4>
         <DetailsParagraph>{spot.infos}</DetailsParagraph>
+        <Button>Schließen</Button>
       </DetailsSection>
     </>
   );
@@ -38,7 +40,6 @@ export default function SpotDetails({ spot }) {
 const DetailsSection = styled.section`
   padding: 10px;
   font-size: 14px;
-  border-top: 1px solid grey;
 `;
 
 const DetailsHeadline = styled.h3`

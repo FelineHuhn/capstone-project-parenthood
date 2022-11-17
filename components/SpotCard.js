@@ -3,12 +3,10 @@ import Image from "next/image";
 import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 import Button from "./Button";
 import SpotDetails from "./SpotDetails";
-// import { useState } from "react";
-
-// const inititalState = "hide";
+import { useState } from "react";
 
 export default function SpotCard({ spot }) {
-  // const [state, setState] = useState(inititalState);
+  const [state, setState] = useState("hide");
 
   return (
     <Card>
@@ -17,14 +15,25 @@ export default function SpotCard({ spot }) {
         <SpotCategory>{spot.category}</SpotCategory>
         <SpotName>"{spot.name}"</SpotName>
         <Button
-        // onClick={() => {
-        //   setState("show");
-        // }}
+          type="button"
+          onClick={() => {
+            setState(() => {
+              if (state === "hide") {
+                return "show";
+              } else {
+                return "hide";
+              }
+            });
+          }}
         >
           Details
         </Button>
       </SpotInfos>
-      <SpotDetails spot={spot} key={spot.name}></SpotDetails>
+      {state === "show" ? (
+        <SpotDetails spot={spot} key={spot.name}></SpotDetails>
+      ) : (
+        ""
+      )}
     </Card>
   );
 }
