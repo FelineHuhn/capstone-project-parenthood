@@ -13,7 +13,7 @@ export default function SpotCard({ spot }) {
         <SpotName>"{spot.name}"</SpotName>
         <Button>Details</Button>
       </SpotInfos>
-      <SpotDetails></SpotDetails>
+      <SpotDetails spot={spot} key={spot.name}></SpotDetails>
     </Card>
   );
 }
@@ -25,6 +25,7 @@ const Card = styled.li`
   margin: 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const SpotImage = styled(Image)`
