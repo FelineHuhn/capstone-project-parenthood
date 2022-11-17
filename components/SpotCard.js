@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
-import Button from "./Button";
+import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 import { useState } from "react";
 
@@ -16,6 +16,7 @@ export default function SpotCard({ spot }) {
         <SpotName>"{spot.name}"</SpotName>
         <Button
           type="button"
+          variant="details"
           onClick={() => {
             setState(() => {
               if (state === "hide") {
@@ -30,7 +31,24 @@ export default function SpotCard({ spot }) {
         </Button>
       </SpotInfos>
       {state === "show" ? (
-        <SpotDetails spot={spot} key={spot.name}></SpotDetails>
+        <>
+          <SpotDetails spot={spot} state={state} key={spot.name}></SpotDetails>
+          <Button
+            type="button"
+            variant="cancel"
+            onClick={() => {
+              setState(() => {
+                if (state === "hide") {
+                  return "show";
+                } else {
+                  return "hide";
+                }
+              });
+            }}
+          >
+            Schließen
+          </Button>
+        </>
       ) : (
         ""
       )}

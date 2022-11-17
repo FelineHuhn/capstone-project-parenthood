@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export default function Button({ type, variant, onClick, children }) {
+export function Button({ type, variant, onClick, children }) {
   return (
     <>
-      <DefaultButton type={type} onClick={onClick}>
+      <DefaultButton type={type} variant={variant} onClick={onClick}>
         {children}
       </DefaultButton>
     </>
@@ -18,4 +18,16 @@ const DefaultButton = styled.button`
   &:hover {
     background-color: lightgrey;
   }
+
+  ${({ variant }) =>
+    variant === "cancel" &&
+    css`
+      margin: 10px;
+    `}
+
+  ${({ variant }) =>
+    variant === "details" &&
+    css`
+      font-weight: 600;
+    `}
 `;
