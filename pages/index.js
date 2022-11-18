@@ -23,18 +23,21 @@ export default function Home() {
     category,
     name,
     addresse,
-    weatgersuggestion,
+    weathersuggestion,
     agesuggestion,
     tags,
     information
   ) {
+    const tagsArray = tags.split(" ");
+    const weatherSuggestionArray = weathersuggestion.split(" ");
+    const ageSuggestionArray = agesuggestion.split(" ");
     const newSpot = {
       category,
       name,
       addresse,
-      weatgersuggestion,
-      agesuggestion,
-      tags,
+      weathersuggestion: weatherSuggestionArray,
+      agesuggestion: ageSuggestionArray,
+      tags: tagsArray,
       information,
     };
 
@@ -73,7 +76,7 @@ export default function Home() {
       </Button>
       {state === "show" ? (
         <>
-          <CreateSpot state={state} addSpot={addSpot}></CreateSpot>
+          <CreateSpot addSpot={addSpot} state={state} spot={spots}></CreateSpot>
         </>
       ) : null}
     </Main>
@@ -94,6 +97,6 @@ const Headline = styled.h1`
 
 const SpotList = styled.ul`
   list-style: none;
-  max-width: 450px;
+  max-width: 375px;
   padding: 0;
 `;

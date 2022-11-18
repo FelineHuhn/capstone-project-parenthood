@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function SpotDetails({ spot }) {
+  console.log(spot);
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
@@ -11,19 +12,19 @@ export default function SpotDetails({ spot }) {
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
-        {spot.weather.map((weather) => {
+        {spot?.weathersuggestion.map((weather) => {
           return <li>{weather}</li>;
         })}
       </DetailsSubList>
       <h3>Altersempfehlung:</h3>
       <DetailsSubList>
-        {spot.age.map((age) => {
+        {spot?.agesuggestion.map((age) => {
           return <li>{age}</li>;
         })}
       </DetailsSubList>
       <h3>Tags:</h3>
       <DetailsSubList>
-        {spot.tags.map((tag) => {
+        {spot?.tags.map((tag) => {
           return <li>#{tag}</li>;
         })}
       </DetailsSubList>

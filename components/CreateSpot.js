@@ -68,7 +68,7 @@ export default function CreateSpot({ addSpot }) {
               id="weathersuggestion"
               name="weathersuggestion"
               type="checkbox"
-              value="good-weather"
+              value="bei gutem Wetter"
             />
             <label for="weathersuggestion">bei gutem Wetter</label>
           </div>
@@ -77,7 +77,7 @@ export default function CreateSpot({ addSpot }) {
               id="weathersuggestion"
               name="weathersuggestion"
               type="checkbox"
-              value="moderate-weather"
+              value="bei mäßigem Wetter"
             />
             <label for="weathersuggestion">bei mäßigem Wetter</label>
           </div>
@@ -86,7 +86,7 @@ export default function CreateSpot({ addSpot }) {
               id="weathersuggestion"
               name="weathersuggestion"
               type="checkbox"
-              value="bad-weather"
+              value="bei schlechtem Wetter"
             />
             <label for="weathersuggestion">bei schlechtem Wetter</label>
           </div>
@@ -98,7 +98,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="children-under-1-year"
+              value="Kinder unter 1 Jahr"
             />
             <label for="agesuggestion">Kinder unter 1 Jahr</label>
           </div>
@@ -107,7 +107,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="children-between-1-to-3"
+              value="Kinder 1 - 3 Jahre"
             />
             <label for="agesuggestion">Kinder 1 - 3 Jahre</label>
           </div>
@@ -116,7 +116,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="children-between-3-to-6"
+              value="Kinder 3 - 6 Jahre"
             />
             <label for="agesuggestion">Kinder 3 - 6 Jahre</label>
           </div>
@@ -125,7 +125,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="children-between-6-to-9"
+              value="Kinder 6 - 9 Jahre"
             />
             <label for="agesuggestion">Kinder 6 - 9 Jahre</label>
           </div>
@@ -134,7 +134,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="children-between-9-to-12"
+              value="Kinder 9 - 12 Jahre"
             />
             <label for="agesuggestion">Kinder 9 - 12 Jahre</label>
           </div>
@@ -143,7 +143,7 @@ export default function CreateSpot({ addSpot }) {
               id="agesuggestion"
               name="agesuggestion"
               type="checkbox"
-              value="teenager"
+              value="Teenager"
             />
             <label for="agesuggestion">Teenager</label>
           </div>
