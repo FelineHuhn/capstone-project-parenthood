@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
 import spots from "../helpers/mockSpots";
+import CreateSpot from "../components/CreateSpot";
+import { Button } from "../components/Button";
 
 export default function Home() {
   return (
@@ -13,6 +15,10 @@ export default function Home() {
             <SpotCard spot={spot} key={spot.name}></SpotCard>
           ))}
       </SpotList>
+      <Button type="button" variant="create">
+        Parenthood Spot hinzufügen
+      </Button>
+      <CreateSpot></CreateSpot>
     </Main>
   );
 }
