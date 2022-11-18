@@ -23,11 +23,13 @@ const DefaultButton = styled.button`
     variant === "cancel" &&
     css`
       margin: 10px;
+      font-weight: 600;
     `}
 
   ${({ variant }) =>
     variant === "details" &&
     css`
       font-weight: 600;
+      font-size: 16px;
     `}
 `;

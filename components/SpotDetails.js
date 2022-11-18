@@ -56,7 +56,6 @@ const DetailsParagraph = styled.p`
 `;
 
 const AddresseLink = styled(Link)`
-  text-decoration: none;
-  color: black;
+  color: darkgreen;
   cursor: pointer;
 `;
