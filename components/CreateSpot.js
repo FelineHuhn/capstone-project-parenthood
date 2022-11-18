@@ -1,22 +1,40 @@
 import styled from "styled-components";
 import { Button } from "./Button";
 
-export default function CreateSpot({ addSpot }) {
+export default function CreateSpot({ addSpot, closeCreatePage }) {
   function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
+    const weatherArray = [
+      data.good_weather,
+      data.moderate_weather,
+      data.bad_weather,
+    ];
+
+    const ageArray = [
+      data.children_under_1,
+      data.children_1_to_3,
+      data.children_3_to_6,
+      data.children_6_to_9,
+      data.children_9_to_12,
+      data.teenager,
+    ];
+
     addSpot(
       data.category,
       data.name,
       data.addresse,
-      data.weathersuggestion,
-      data.agesuggestion,
+      weatherArray,
+      ageArray,
       data.tags,
       data.information
     );
+
+    event.target.reset();
+    closeCreatePage();
   }
 
   return (
@@ -65,8 +83,8 @@ export default function CreateSpot({ addSpot }) {
           <Legend>Wetterempfehlung</Legend>
           <div>
             <input
-              id="weathersuggestion"
-              name="weathersuggestion"
+              id="good_weather"
+              name="good_weather"
               type="checkbox"
               value="bei gutem Wetter"
             />
@@ -74,8 +92,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="weathersuggestion"
-              name="weathersuggestion"
+              id="moderate_weather"
+              name="moderate_weather"
               type="checkbox"
               value="bei mäßigem Wetter"
             />
@@ -83,8 +101,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="weathersuggestion"
-              name="weathersuggestion"
+              id="bad_weather"
+              name="bad_weather"
               type="checkbox"
               value="bei schlechtem Wetter"
             />
@@ -95,8 +113,8 @@ export default function CreateSpot({ addSpot }) {
           <Legend>Altersempfehlung</Legend>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="children_under_1"
+              name="children_under_1"
               type="checkbox"
               value="Kinder unter 1 Jahr"
             />
@@ -104,8 +122,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="children_1_to_3"
+              name="children_1_to_3"
               type="checkbox"
               value="Kinder 1 - 3 Jahre"
             />
@@ -113,8 +131,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="children_3_to_6"
+              name="children_3_to_6"
               type="checkbox"
               value="Kinder 3 - 6 Jahre"
             />
@@ -122,8 +140,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="children_6_to_9"
+              name="children_6_to_9"
               type="checkbox"
               value="Kinder 6 - 9 Jahre"
             />
@@ -131,8 +149,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="children_9_to_12"
+              name="children_9_to_12"
               type="checkbox"
               value="Kinder 9 - 12 Jahre"
             />
@@ -140,8 +158,8 @@ export default function CreateSpot({ addSpot }) {
           </div>
           <div>
             <input
-              id="agesuggestion"
-              name="agesuggestion"
+              id="teenager"
+              name="teenager"
               type="checkbox"
               value="Teenager"
             />
@@ -151,7 +169,7 @@ export default function CreateSpot({ addSpot }) {
         <FormLabels for="tags">Tags</FormLabels>
         <input id="tags" name="tags" type="text" />
         <FormLabels for="information">Weitere Infos:</FormLabels>
-        <textarea id="information" name="information" type="text"></textarea>
+        <input id="information" name="information" type="text" />
         <Button type="submit" variant="submit">
           Spot erstellen
         </Button>

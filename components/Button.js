@@ -24,6 +24,7 @@ const DefaultButton = styled.button`
     css`
       margin: 10px;
       font-weight: 600;
+      align-self: flex-end;
     `}
 
   ${({ variant }) =>

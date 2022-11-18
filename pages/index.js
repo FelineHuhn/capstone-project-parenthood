@@ -3,7 +3,6 @@ import SpotCard from "../components/SpotCard";
 import CreateSpot from "../components/CreateSpot";
 import { Button } from "../components/Button";
 import { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
 
 export default function Home() {
   const [state, setState] = useState("hide");
@@ -29,14 +28,12 @@ export default function Home() {
     information
   ) {
     const tagsArray = tags.split(" ");
-    const weatherSuggestionArray = weathersuggestion.split(" ");
-    const ageSuggestionArray = agesuggestion.split(" ");
     const newSpot = {
       category,
       name,
       addresse,
-      weathersuggestion: weatherSuggestionArray,
-      agesuggestion: ageSuggestionArray,
+      weathersuggestion,
+      agesuggestion,
       tags: tagsArray,
       information,
     };
@@ -45,6 +42,12 @@ export default function Home() {
       const newSpotsList = [...spotsList, newSpot];
 
       return newSpotsList;
+    });
+  }
+
+  function closeCreatePage() {
+    setState(() => {
+      return "hide";
     });
   }
 
@@ -76,7 +79,12 @@ export default function Home() {
       </Button>
       {state === "show" ? (
         <>
-          <CreateSpot addSpot={addSpot} state={state} spot={spots}></CreateSpot>
+          <CreateSpot
+            closeCreatePage={closeCreatePage}
+            addSpot={addSpot}
+            state={state}
+            spot={spots}
+          ></CreateSpot>
         </>
       ) : null}
     </Main>

@@ -29,7 +29,7 @@ export default function SpotDetails({ spot }) {
         })}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
-      <DetailsParagraph>{spot.infos}</DetailsParagraph>
+      <DetailsParagraph>{spot.information}</DetailsParagraph>
     </DetailsSection>
   );
 }
