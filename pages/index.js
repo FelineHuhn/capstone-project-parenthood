@@ -1,12 +1,50 @@
 import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
-import spots from "../helpers/mockSpots";
 import CreateSpot from "../components/CreateSpot";
 import { Button } from "../components/Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
 
 export default function Home() {
   const [state, setState] = useState("hide");
+  const [spots, setSpot] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("spotsList") ?? []);
+    } catch (error) {
+      console.warn(error);
+      return [];
+    }
+  });
+  useEffect(() => {
+    localStorage.setItem("spotsList", JSON.stringify(spots));
+  }, [spots]);
+
+  function addSpot(
+    category,
+    name,
+    addresse,
+    weatgersuggestion,
+    agesuggestion,
+    tags,
+    information
+  ) {
+    const newSpot = {
+      category,
+      name,
+      addresse,
+      weatgersuggestion,
+      agesuggestion,
+      tags,
+      information,
+    };
+
+    setSpot((spotsList) => {
+      const newSpotsList = [...spotsList, newSpot];
+
+      return newSpotsList;
+    });
+  }
+
   return (
     <Main>
       <Headline>ParentHood Spots</Headline>
@@ -35,7 +73,7 @@ export default function Home() {
       </Button>
       {state === "show" ? (
         <>
-          <CreateSpot state={state}></CreateSpot>
+          <CreateSpot state={state} addSpot={addSpot}></CreateSpot>
         </>
       ) : null}
     </Main>
