@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Link from "next/link";
 
 export default function SpotDetails({ spot }) {
-  console.log(spot);
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
