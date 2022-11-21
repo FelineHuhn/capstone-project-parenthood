@@ -42,6 +42,7 @@ export default function Home() {
       const newSpotsList = [...spotsList, newSpot];
 
       return newSpotsList;
+      closeCreatePage()
     });
   }
 
