@@ -5,37 +5,45 @@ import { nanoid } from "nanoid";
 
 export default function CreateSpot({ addSpot }) {
   function handleSubmit(event) {
-    event.preventDefault();
+    if (
+      !(event.target.name.value === " ") ||
+      !(event.target.addresse.value === " ")
+    ) {
+      event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
 
-    const weatherArray = [
-      data.good_weather,
-      data.moderate_weather,
-      data.bad_weather,
-    ];
+      const weatherArray = [
+        data.good_weather,
+        data.moderate_weather,
+        data.bad_weather,
+      ];
 
-    const ageArray = [
-      data.children_under_1,
-      data.children_1_to_3,
-      data.children_3_to_6,
-      data.children_6_to_9,
-      data.children_9_to_12,
-      data.teenager,
-    ];
+      const ageArray = [
+        data.children_under_1,
+        data.children_1_to_3,
+        data.children_3_to_6,
+        data.children_6_to_9,
+        data.children_9_to_12,
+        data.teenager,
+      ];
 
-    addSpot(
-      data.category.trim(),
-      data.name.trim(),
-      data.addresse.trim(),
-      weatherArray,
-      ageArray,
-      data.tags.trim(),
-      data.information.trim()
-    );
+      addSpot(
+        data.category.trim(),
+        data.name.trim(),
+        data.addresse.trim(),
+        weatherArray,
+        ageArray,
+        data.tags.trim(),
+        data.information.trim()
+      );
 
-    event.target.reset();
+      event.target.reset();
+    } else {
+      console.log("pong");
+      alert("Nur Leerzeichen sind nicht erlaubt! Spot wurde nicht erstellt");
+    }
   }
 
   return (
