@@ -77,7 +77,7 @@ export default function CreateSpot({ addSpot, closeCreatePage }) {
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
         <input id="name" name="name" type="text" required />
-        <FormLabels for="addresse">Adresse*</FormLabels>
+        <FormLabels htmlFor="addresse">Adresse*</FormLabels>
         <input id="addresse" name="addresse" type="text" required />
         <Checkbox>
           <Legend>Wetterempfehlung</Legend>
