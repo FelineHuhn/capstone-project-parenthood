@@ -24,7 +24,7 @@ export default function SpotDetails({ spot }) {
       <h3>Tags:</h3>
       <DetailsSubList>
         {spot?.tags.map((tag) => {
-          return <li>#{tag}</li>;
+          return <li. key={ --> a unique e.g. ID  } >#{tag}</li>;
         })}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
