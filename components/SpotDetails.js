@@ -18,7 +18,7 @@ export default function SpotDetails({ spot }) {
       <h3>Altersempfehlung:</h3>
       <DetailsSubList>
         {spot?.agesuggestion.map((age) => {
-          return <li>{age}</li>;
+          return <li key={ --> a unique e.g. ID  }  >{age}</li>;
         })}
       </DetailsSubList>
       <h3>Tags:</h3>
