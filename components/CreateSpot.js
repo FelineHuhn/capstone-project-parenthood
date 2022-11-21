@@ -41,7 +41,6 @@ export default function CreateSpot({ addSpot }) {
 
       event.target.reset();
     } else {
-      console.log("pong");
       alert("Nur Leerzeichen sind nicht erlaubt! Spot wurde nicht erstellt");
     }
   }
