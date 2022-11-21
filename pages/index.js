@@ -63,31 +63,21 @@ export default function Home() {
           ))}
       </SpotList>
 
-      <Button
-        type="button"
-        variant="create"
+  <Button
+        type='button'
+        variant='create'
         onClick={() => {
-          setState((prevState) => {
-            if (prevState === "hide") {
-              return "show";
-            } else {
-              return "hide";
-            }
-          });
-        }}
-      >
+          setIsShown((prevState) => !prevState);
+        }}>
         Parenthood Spot hinzufügen
       </Button>
-      {state === "show" ? (
-        <>
-          <CreateSpot
-            closeCreatePage={closeCreatePage}
-            addSpot={addSpot}
-            state={state}
-            spot={spots}
-          ></CreateSpot>
-        </>
-      ) : null}
+      {isShown && (
+        <CreateSpotCard
+          closeCreatePage={closeCreatePage}
+          addSpot={addSpot}
+          isShown={isShown}
+          spot={spots}></CreateSpotCard>
+      )}
     </Main>
   );
 }
