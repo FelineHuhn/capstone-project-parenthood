@@ -39,7 +39,7 @@ const DefaultButton = styled.button`
     css`
       font-weight: 600;
       font-size: 16px;
-      padding: 8px 65px 8px 65px;
+      padding: 8px 65px;
       background-color: darkgreen;
       color: white;
       border-radius: 10px;
