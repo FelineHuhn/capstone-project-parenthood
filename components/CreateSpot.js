@@ -75,7 +75,7 @@ export default function CreateSpot({ addSpot, closeCreatePage }) {
           <option value="Ponyreiten">Ponyreiten</option>
           <option value="ParentHood Spot">Sonstiger Spot</option>
         </select>
-        <FormLabels for="name">Name*</FormLabels>
+        <FormLabels htmlFor="name">Name*</FormLabels>
         <input id="name" name="name" type="text" required />
         <FormLabels for="addresse">Adresse*</FormLabels>
         <input id="addresse" name="addresse" type="text" required />
