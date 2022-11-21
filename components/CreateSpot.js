@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
 import { nanoid } from "nanoid";
 
-export default function CreateSpot({ addSpot, closeCreateForm }) {
+export default function CreateSpot({ addSpot }) {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -36,14 +36,13 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
     );
 
     event.target.reset();
-    closeCreateForm();
   }
 
   return (
     <CreateSection>
       <FormHeadline>ParentHood Spot hinzufügen</FormHeadline>
       <CreateForm onSubmit={handleSubmit}>
-        <FormLabels for="category">Kategorie*</FormLabels>
+        <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select id="category" name="category" required>
           <option value="">--Bitte eine Kategorie auswählen--</option>
           {formCategoryOptions.map((optionEntry) => (
@@ -65,7 +64,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="bei gutem Wetter"
             />
-            <label for="weathersuggestion">bei gutem Wetter</label>
+            <label htmlFor="weathersuggestion">bei gutem Wetter</label>
           </div>
           <div>
             <input
@@ -74,7 +73,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="bei mäßigem Wetter"
             />
-            <label for="weathersuggestion">bei mäßigem Wetter</label>
+            <label htmlFor="weathersuggestion">bei mäßigem Wetter</label>
           </div>
           <div>
             <input
@@ -83,7 +82,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="bei schlechtem Wetter"
             />
-            <label for="weathersuggestion">bei schlechtem Wetter</label>
+            <label htmlFor="weathersuggestion">bei schlechtem Wetter</label>
           </div>
         </Checkbox>
         <Checkbox>
@@ -95,7 +94,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Kinder unter 1 Jahr"
             />
-            <label for="agesuggestion">Kinder unter 1 Jahr</label>
+            <label htmlFor="agesuggestion">Kinder unter 1 Jahr</label>
           </div>
           <div>
             <input
@@ -104,7 +103,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Kinder 1 - 3 Jahre"
             />
-            <label for="agesuggestion">Kinder 1 - 3 Jahre</label>
+            <label htmlFor="agesuggestion">Kinder 1 - 3 Jahre</label>
           </div>
           <div>
             <input
@@ -113,7 +112,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Kinder 3 - 6 Jahre"
             />
-            <label for="agesuggestion">Kinder 3 - 6 Jahre</label>
+            <label htmlFor="agesuggestion">Kinder 3 - 6 Jahre</label>
           </div>
           <div>
             <input
@@ -122,7 +121,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Kinder 6 - 9 Jahre"
             />
-            <label for="agesuggestion">Kinder 6 - 9 Jahre</label>
+            <label htmlFor="agesuggestion">Kinder 6 - 9 Jahre</label>
           </div>
           <div>
             <input
@@ -131,7 +130,7 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Kinder 9 - 12 Jahre"
             />
-            <label for="agesuggestion">Kinder 9 - 12 Jahre</label>
+            <label htmlFor="agesuggestion">Kinder 9 - 12 Jahre</label>
           </div>
           <div>
             <input
@@ -140,12 +139,12 @@ export default function CreateSpot({ addSpot, closeCreateForm }) {
               type="checkbox"
               value="Teenager"
             />
-            <label for="agesuggestion">Teenager</label>
+            <label htmlFor="agesuggestion">Teenager</label>
           </div>
         </Checkbox>
-        <FormLabels for="tags">Tags</FormLabels>
+        <FormLabels htmlFor="tags">Tags</FormLabels>
         <input id="tags" name="tags" type="text" />
-        <FormLabels for="information">Weitere Infos:</FormLabels>
+        <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
         <input id="information" name="information" type="text" />
         <Button type="submit" variant="submit">
           Spot erstellen

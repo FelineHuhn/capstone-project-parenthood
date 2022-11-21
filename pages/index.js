@@ -20,6 +20,11 @@ export default function Home() {
     localStorage.setItem("spotsList", JSON.stringify(spots));
   }, [spots]);
 
+  function closeCreateForm() {
+    setIsShown(() => {
+      return false;
+    });
+  }
   function addSpot(
     category,
     name,
@@ -41,13 +46,7 @@ export default function Home() {
     };
 
     setSpot([{ ...newSpot, id: nanoid(), isChecked: false }, ...spotsList]);
-  }
-
-  function closeCreateForm() {
-    console.log("close");
-    setIsShown(() => {
-      return false;
-    });
+    closeCreateForm();
   }
 
   return (
