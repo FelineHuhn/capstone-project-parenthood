@@ -3,9 +3,11 @@ import SpotCard from "../components/SpotCard";
 import CreateSpot from "../components/CreateSpot";
 import { Button } from "../components/Button";
 import { useState, useEffect } from "react";
+import { nanoid } from "nanoid";
+import { spotsList } from "../helpers/mockSpots";
 
 export default function Home() {
-  const [state, setState] = useState("hide");
+  const [isShown, setIsShown] = useState(false);
   const [spots, setSpot] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("spotsList") ?? []);
@@ -38,17 +40,13 @@ export default function Home() {
       information,
     };
 
-    setSpot((spotsList) => {
-      const newSpotsList = [...spotsList, newSpot];
-
-      return newSpotsList;
-      closeCreatePage()
-    });
+    setSpot([{ ...newSpot, id: nanoid(), isChecked: false }, ...spotsList]);
   }
 
-  function closeCreatePage() {
-    setState(() => {
-      return "hide";
+  function closeCreateForm() {
+    console.log("close");
+    setIsShown(() => {
+      return false;
     });
   }
 
@@ -63,20 +61,22 @@ export default function Home() {
           ))}
       </SpotList>
 
-  <Button
-        type='button'
-        variant='create'
+      <Button
+        type="button"
+        variant="create"
         onClick={() => {
           setIsShown((prevState) => !prevState);
-        }}>
+        }}
+      >
         Parenthood Spot hinzufügen
       </Button>
       {isShown && (
-        <CreateSpotCard
-          closeCreatePage={closeCreatePage}
+        <CreateSpot
+          closeCreateForm={closeCreateForm}
           addSpot={addSpot}
           isShown={isShown}
-          spot={spots}></CreateSpotCard>
+          spot={spots}
+        ></CreateSpot>
       )}
     </Main>
   );

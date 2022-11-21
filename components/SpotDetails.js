@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { nanoid } from "nanoid";
 
 export default function SpotDetails({ spot }) {
   return (
@@ -12,19 +13,19 @@ export default function SpotDetails({ spot }) {
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
         {spot?.weathersuggestion.map((weather) => {
-          return <li>{weather}</li>;
+          return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
       <h3>Altersempfehlung:</h3>
       <DetailsSubList>
         {spot?.agesuggestion.map((age) => {
-          return <li key={ --> a unique e.g. ID  }  >{age}</li>;
+          return <li key={nanoid()}>{age}</li>;
         })}
       </DetailsSubList>
       <h3>Tags:</h3>
       <DetailsSubList>
         {spot?.tags.map((tag) => {
-          return <li. key={ --> a unique e.g. ID  } >#{tag}</li>;
+          return <li key={nanoid()}>#{tag}</li>;
         })}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>

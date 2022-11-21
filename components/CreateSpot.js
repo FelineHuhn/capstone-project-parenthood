@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Button } from "./Button";
+import { formCategoryOptions } from "../helpers/formCategoryOptions";
+import { nanoid } from "nanoid";
 
-export default function CreateSpot({ addSpot, closeCreatePage }) {
+export default function CreateSpot({ addSpot, closeCreateForm }) {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -34,7 +36,7 @@ export default function CreateSpot({ addSpot, closeCreatePage }) {
     );
 
     event.target.reset();
-    closeCreatePage();
+    closeCreateForm();
   }
 
   return (
@@ -44,36 +46,11 @@ export default function CreateSpot({ addSpot, closeCreatePage }) {
         <FormLabels for="category">Kategorie*</FormLabels>
         <select id="category" name="category" required>
           <option value="">--Bitte eine Kategorie auswählen--</option>
-          <option value="Spielplatz">Spielplatz</option>
-          <option value="Indoor Spielplatz">Indoor Spielplatz</option>
-          <option value="Spielen">Spielen</option>
-          <option value="Sport">Sport</option>
-          <option value="Sportplatz">Sportplatz</option>
-          <option value="Sporthalle">Sporthalle</option>
-          <option value="Sportkurs">Sportkurs</option>
-          <option value="Klettern">Klettern</option>
-          <option value="Skaten">Skaten</option>
-          <option value="Wintersport">Wintersport</option>
-          <option value="Schwimmbad">Schwimmbad</option>
-          <option value="Freibad">Freibad</option>
-          <option value="Badesee">Badesee</option>
-          <option value="Strand & Meer">Strand & Meer</option>
-          <option value="Park">Park</option>
-          <option value="Wald">Wald</option>
-          <option value="Kultur">Kultur</option>
-          <option value="Musik">Musik</option>
-          <option value="Kunst">Kunst</option>
-          <option value="Zirkus">Zirkus</option>
-          <option value="Basteln">Basteln</option>
-          <option value="Essen & Trinken">Essen & Trinken</option>
-          <option value="Übernachtung">Übernachtung</option>
-          <option value="Freizeitpark">Freizeitpark</option>
-          <option value="Jahrmarkt">Jahrmarkt</option>
-          <option value="Zoo">Zoo</option>
-          <option value="Tiere">Wildpark</option>
-          <option value="Bauernhof">Bauernhof</option>
-          <option value="Ponyreiten">Ponyreiten</option>
-          <option value="ParentHood Spot">Sonstiger Spot</option>
+          {formCategoryOptions.map((optionEntry) => (
+            <option key={nanoid()} value={optionEntry}>
+              {optionEntry}
+            </option>
+          ))}
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
         <input id="name" name="name" type="text" required />
