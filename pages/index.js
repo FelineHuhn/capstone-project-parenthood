@@ -2,29 +2,19 @@ import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
 import CreateSpot from "../components/CreateSpot";
 import { Button } from "../components/Button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 import { spotsList } from "../helpers/mockSpots";
 
-export default function Home() {
+export default function Home({ spots, setSpot }) {
   const [isShown, setIsShown] = useState(false);
-  const [spots, setSpot] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("spotsList") ?? []);
-    } catch (error) {
-      console.warn(error);
-      return [];
-    }
-  });
-  useEffect(() => {
-    localStorage.setItem("spotsList", JSON.stringify(spots));
-  }, [spots]);
 
   function closeCreateForm() {
     setIsShown(() => {
       return false;
     });
   }
+
   function addSpot(
     category,
     name,
