@@ -12,13 +12,13 @@ export default function SpotDetails({ spot }) {
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
-        {spot?.weathersuggestion.map((weather) => {
+        {spot?.weathersuggestion?.map((weather) => {
           return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
       <h3>Altersempfehlung:</h3>
       <DetailsSubList>
-        {spot?.agesuggestion.map((age) => {
+        {spot?.agesuggestion?.map((age) => {
           return <li key={nanoid()}>{age}</li>;
         })}
       </DetailsSubList>

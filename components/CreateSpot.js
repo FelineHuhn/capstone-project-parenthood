@@ -26,13 +26,13 @@ export default function CreateSpot({ addSpot }) {
     ];
 
     addSpot(
-      data.category,
-      data.name,
-      data.addresse,
+      data.category.trim(),
+      data.name.trim(),
+      data.addresse.trim(),
       weatherArray,
       ageArray,
-      data.tags,
-      data.information
+      data.tags.trim(),
+      data.information.trim()
     );
 
     event.target.reset();
