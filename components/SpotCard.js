@@ -6,7 +6,7 @@ import SpotDetails from "./SpotDetails";
 import { useState } from "react";
 
 export default function SpotCard({ spot }) {
-  const [state, setState] = useState("hide");
+  const [isShown, setIsShown] = useState(false);
 
   return (
     <Card>
@@ -14,42 +14,35 @@ export default function SpotCard({ spot }) {
       <SpotInfos>
         <SpotCategory>{spot.category}</SpotCategory>
         <SpotName>"{spot.name}"</SpotName>
+
         <Button
           type="button"
           variant="details"
           onClick={() => {
-            setState((prevState) => {
-              if (prevState === "hide") {
-                return "show";
-              } else {
-                return "hide";
-              }
-            });
+            setIsShown((prevState) => !prevState);
           }}
         >
           Details
         </Button>
       </SpotInfos>
-      {state === "show" ? (
+      {isShown && (
         <>
-          <SpotDetails spot={spot} state={state} key={spot.name}></SpotDetails>
+          <SpotDetails
+            spot={spot}
+            isShown={isShown}
+            key={spot.name}
+          ></SpotDetails>
           <Button
             type="button"
             variant="cancel"
             onClick={() => {
-              setState((prevState) => {
-                if (prevState === "hide") {
-                  return "show";
-                } else {
-                  return "hide";
-                }
-              });
+              setIsShown((prevState) => !prevState);
             }}
           >
             Schließen
           </Button>
         </>
-      ) : null}
+      )}
     </Card>
   );
 }
