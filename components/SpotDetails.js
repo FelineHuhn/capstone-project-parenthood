@@ -35,29 +35,31 @@ export default function SpotDetails({ spot, deleteSpot }) {
       <h3>Weitere Infos:</h3>
       <DetailsParagraph>{spot.information}</DetailsParagraph>
       {isShown && (
-        <DeleteModal>
-          <h3>
-            Bist du dir sicher, dass du diesen Spot wirklich löschen möchtest?
-          </h3>
-          <ModalButtons>
-            <Button
-              type="button"
-              variant="deletemodal"
-              onClick={() => {
-                setIsShown((prevState) => !prevState);
-              }}
-            >
-              Abbrechen
-            </Button>
-            <Button
-              type="button"
-              variant="deletemodal"
-              onClick={() => deleteSpot(spot.id)}
-            >
-              Löschen
-            </Button>
-          </ModalButtons>
-        </DeleteModal>
+        <Background>
+          <DeleteModal>
+            <h3>
+              Bist du dir sicher, dass du diesen Spot wirklich LÖSCHEN möchtest?
+            </h3>
+            <ModalButtons>
+              <Button
+                type="button"
+                variant="deletemodal"
+                onClick={() => {
+                  setIsShown((prevState) => !prevState);
+                }}
+              >
+                Abbrechen
+              </Button>
+              <Button
+                type="button"
+                variant="deletemodal"
+                onClick={() => deleteSpot(spot.id)}
+              >
+                Löschen
+              </Button>
+            </ModalButtons>
+          </DeleteModal>
+        </Background>
       )}
       <ButtonStyling>
         <Button
@@ -111,20 +113,32 @@ const AddresseLink = styled(Link)`
 `;
 
 const DeleteModal = styled.div`
-  background-color: oldlace;
-  box-shadow: 3px 2px 3px 2px grey;
-  padding: 10px;
+  background-color: white;
+  padding: 15px;
   text-align: center;
-  margin: 20px;
-  height: 130px;
+  height: 140px;
+  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 5%;
+  right: 5%;
 `;
 
-const ButtonStyling = styled.div`
-  display: flex;
-  justify-content: right;
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const ModalButtons = styled.div`
   display: flex;
   justify-content: space-around;
+`;
+
+const ButtonStyling = styled.div`
+  display: flex;
+  justify-content: right;
 `;

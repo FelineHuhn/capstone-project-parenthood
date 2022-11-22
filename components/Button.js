@@ -65,6 +65,6 @@ const DefaultButton = styled.button`
     css`
       font-weight: 600;
       font-size: 16px;
-      background-color: white;
+      background-color: oldlace;
     `}
 `;
