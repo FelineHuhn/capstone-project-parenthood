@@ -1,48 +1,51 @@
 import styled from "styled-components";
 import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
-import { nanoid } from "nanoid";
 
 export default function CreateSpot({ addSpot }) {
   function handleSubmit(event) {
-    if (
-      !(event.target.name.value === " ") ||
-      !(event.target.addresse.value === " ")
-    ) {
-      event.preventDefault();
+    event.preventDefault();
 
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData);
+    const formData = new FormData(event.target);
+    const {
+      good_weather,
+      moderate_weather,
+      bad_weather,
+      children_under_1,
+      children_1_to_3,
+      children_3_to_6,
+      children_6_to_9,
+      children_9_to_12,
+      teenager,
+      category,
+      name,
+      addresse,
+      tags,
+      information,
+    } = Object.fromEntries(formData);
 
-      const weatherArray = [
-        data.good_weather,
-        data.moderate_weather,
-        data.bad_weather,
-      ];
+    const weatherArray = [good_weather, moderate_weather, bad_weather];
 
-      const ageArray = [
-        data.children_under_1,
-        data.children_1_to_3,
-        data.children_3_to_6,
-        data.children_6_to_9,
-        data.children_9_to_12,
-        data.teenager,
-      ];
+    const ageArray = [
+      children_under_1,
+      children_1_to_3,
+      children_3_to_6,
+      children_6_to_9,
+      children_9_to_12,
+      teenager,
+    ];
 
-      addSpot(
-        data.category.trim(),
-        data.name.trim(),
-        data.addresse.trim(),
-        weatherArray,
-        ageArray,
-        data.tags.trim(),
-        data.information.trim()
-      );
+    addSpot(
+      category,
+      name.trim(),
+      addresse.trim(),
+      weatherArray,
+      ageArray,
+      tags.trim(),
+      information.trim()
+    );
 
-      event.target.reset();
-    } else {
-      alert("Nur Leerzeichen sind nicht erlaubt! Spot wurde nicht erstellt");
-    }
+    event.target.reset();
   }
 
   return (
@@ -53,15 +56,21 @@ export default function CreateSpot({ addSpot }) {
         <select id="category" name="category" required>
           <option value="">--Bitte eine Kategorie auswählen--</option>
           {formCategoryOptions.map((optionEntry) => (
-            <option key={nanoid()} value={optionEntry}>
+            <option key={optionEntry} value={optionEntry}>
               {optionEntry}
             </option>
           ))}
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
-        <input id="name" name="name" type="text" required />
+        <input id="name" name="name" type="text" pattern=".*[\S]+.*" required />
         <FormLabels htmlFor="addresse">Adresse*</FormLabels>
-        <input id="addresse" name="addresse" type="text" required />
+        <input
+          id="addresse"
+          name="addresse"
+          type="text"
+          pattern=".*[\S]+.*"
+          required
+        />
         <Checkbox>
           <Legend>Wetterempfehlung</Legend>
           <div>
@@ -149,10 +158,15 @@ export default function CreateSpot({ addSpot }) {
             <label htmlFor="agesuggestion">Teenager</label>
           </div>
         </Checkbox>
-        <FormLabels htmlFor="tags">Tags</FormLabels>
-        <input id="tags" name="tags" type="text" />
+        <FormLabels htmlFor="tags">Tags (mit Komma trennen)</FormLabels>
+        <input id="tags" name="tags" type="text" pattern=".*[\S]+.*" />
         <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
-        <input id="information" name="information" type="text" />
+        <input
+          id="information"
+          name="information"
+          type="text"
+          pattern=".*[\S]+.*"
+        />
         <Button type="submit" variant="submit">
           Spot erstellen
         </Button>

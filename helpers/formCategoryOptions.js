@@ -5,7 +5,6 @@ export const formCategoryOptions = [
   "Sport",
   "Sportplatz",
   "Sporthalle",
-  "Sporthalle",
   "Sportkurs",
   "Klettern",
   "Skaten",

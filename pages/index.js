@@ -4,7 +4,6 @@ import CreateSpot from "../components/CreateSpot";
 import { Button } from "../components/Button";
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { spotsList } from "../helpers/mockSpots";
 
 export default function Home({ spots, setSpot }) {
   const [isShown, setIsShown] = useState(false);
@@ -24,8 +23,9 @@ export default function Home({ spots, setSpot }) {
     tags,
     information
   ) {
-    const tagsArray = tags.split(" ");
+    const tagsArray = tags.split(", ");
     const newSpot = {
+      id: nanoid(),
       category,
       name,
       addresse,
@@ -33,9 +33,10 @@ export default function Home({ spots, setSpot }) {
       agesuggestion,
       tags: tagsArray,
       information,
+      isChecked: false,
     };
 
-    setSpot([{ ...newSpot, id: nanoid(), isChecked: false }, ...spotsList]);
+    setSpot((spots) => [newSpot, ...spots]);
     closeCreateForm();
   }
 
@@ -44,6 +45,7 @@ export default function Home({ spots, setSpot }) {
       <Headline>ParentHood Spots</Headline>
       <SpotList>
         {spots
+          .slice()
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((spot) => (
             <SpotCard spot={spot} key={spot.name}></SpotCard>
@@ -59,14 +61,7 @@ export default function Home({ spots, setSpot }) {
       >
         Parenthood Spot hinzufügen
       </Button>
-      {isShown && (
-        <CreateSpot
-          closeCreateForm={closeCreateForm}
-          addSpot={addSpot}
-          isShown={isShown}
-          spot={spots}
-        ></CreateSpot>
-      )}
+      {isShown && <CreateSpot addSpot={addSpot} />}
     </Main>
   );
 }
