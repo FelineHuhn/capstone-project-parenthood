@@ -40,6 +40,13 @@ export default function Home({ spots, setSpot }) {
     closeCreateForm();
   }
 
+  function deleteSpot(id) {
+    setSpot((spots) => {
+      const newSpotsList = spots.filter((spot) => spot.id !== id);
+      return newSpotsList;
+    });
+  }
+
   return (
     <Main>
       <Headline>ParentHood Spots</Headline>
@@ -48,7 +55,11 @@ export default function Home({ spots, setSpot }) {
           .slice()
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((spot) => (
-            <SpotCard spot={spot} key={spot.name}></SpotCard>
+            <SpotCard
+              spot={spot}
+              key={spot.name}
+              deleteSpot={deleteSpot}
+            ></SpotCard>
           ))}
       </SpotList>
 

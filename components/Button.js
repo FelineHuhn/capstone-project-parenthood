@@ -51,4 +51,11 @@ const DefaultButton = styled.button`
       margin: auto;
       margin-top: 10px;
     `}
+
+    ${({ variant }) =>
+    variant === "delete" &&
+    css`
+      font-size: 16px;
+      align-self: flex-start;
+    `}
 `;
