@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 import { useState } from "react";
 
-export default function SpotCard({ spot }) {
+export default function SpotCard({ spot, deleteSpot }) {
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -31,6 +31,7 @@ export default function SpotCard({ spot }) {
             spot={spot}
             isShown={isShown}
             key={spot.name}
+            deleteSpot={deleteSpot}
           ></SpotDetails>
           <Button
             type="button"
