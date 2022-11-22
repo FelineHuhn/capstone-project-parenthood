@@ -86,6 +86,7 @@ export default function SpotDetails({ spot, deleteSpot }) {
 }
 
 const DetailsSection = styled.section`
+  width: 100%;
   padding: 10px;
   font-size: 14px;
 `;
