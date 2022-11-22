@@ -55,7 +55,16 @@ const DefaultButton = styled.button`
     ${({ variant }) =>
     variant === "delete" &&
     css`
-      font-size: 16px;
       align-self: flex-start;
+      font-weight: 600;
+      font-size: 16px;
+    `}
+
+    ${({ variant }) =>
+    variant === "deletemodal" &&
+    css`
+      font-weight: 600;
+      font-size: 16px;
+      background-color: white;
     `}
 `;
