@@ -3,12 +3,17 @@ import Link from "next/link";
 import { nanoid } from "nanoid";
 import { Button } from "./Button";
 import { useState } from "react";
-import CreateSpot from "./SpotForm";
+import SpotForm from "./SpotForm";
 
-export default function SpotDetails({ spot, deleteSpot }) {
+export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
   const [isShownModal, setIsShownModal] = useState(false);
   const [isShownForm, setIsShownForm] = useState(false);
 
+  function closeEditForm() {
+    setIsShownForm(() => {
+      return false;
+    });
+  }
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
@@ -18,7 +23,7 @@ export default function SpotDetails({ spot, deleteSpot }) {
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
-        {spot?.weathersuggestion?.map((weather) => {
+        {spot.weathersuggestion?.map((weather) => {
           return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
@@ -101,7 +106,15 @@ export default function SpotDetails({ spot, deleteSpot }) {
           </svg>
         </Button>
       </ButtonStyling>
-      {isShownForm && <CreateSpot />}
+      {isShownForm && (
+        <SpotForm
+          closeEditForm={closeEditForm}
+          spot={spot}
+          addSpot={addSpot}
+          isEditMode={true}
+          editSpot={editSpot}
+        />
+      )}
     </DetailsSection>
   );
 }
