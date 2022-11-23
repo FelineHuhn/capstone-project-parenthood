@@ -3,7 +3,7 @@ import Link from "next/link";
 import { nanoid } from "nanoid";
 import { Button } from "./Button";
 import { useState } from "react";
-import CreateSpot from "../components/CreateSpot";
+import CreateSpot from "./SpotForm";
 
 export default function SpotDetails({ spot, deleteSpot }) {
   const [isShownModal, setIsShownModal] = useState(false);

@@ -58,6 +58,7 @@ const DefaultButton = styled.button`
       align-self: flex-start;
       font-weight: 600;
       font-size: 16px;
+      margin: 5px;
     `}
 
     ${({ variant }) =>
@@ -66,5 +67,14 @@ const DefaultButton = styled.button`
       font-weight: 600;
       font-size: 16px;
       background-color: oldlace;
+    `}
+
+    ${({ variant }) =>
+    variant === "edit" &&
+    css`
+      align-self: flex-start;
+      font-weight: 600;
+      font-size: 16px;
+      margin: 5px;
     `}
 `;

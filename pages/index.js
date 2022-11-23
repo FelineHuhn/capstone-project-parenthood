@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
-import CreateSpot from "../components/CreateSpot";
+import CreateSpot from "../components/SpotForm";
 import { Button } from "../components/Button";
 import { useState } from "react";
 import { nanoid } from "nanoid";
