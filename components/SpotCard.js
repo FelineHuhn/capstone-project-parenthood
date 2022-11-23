@@ -32,7 +32,7 @@ export default function SpotCard({ spot, deleteSpot }) {
             isShown={isShown}
             key={spot.name}
             deleteSpot={deleteSpot}
-          ></SpotDetails>
+          />
           <Button
             type="button"
             variant="cancel"

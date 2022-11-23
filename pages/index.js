@@ -55,11 +55,7 @@ export default function Home({ spots, setSpot }) {
           .slice()
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((spot) => (
-            <SpotCard
-              spot={spot}
-              key={spot.name}
-              deleteSpot={deleteSpot}
-            ></SpotCard>
+            <SpotCard spot={spot} key={spot.name} deleteSpot={deleteSpot} />
           ))}
       </SpotList>
 
@@ -70,7 +66,7 @@ export default function Home({ spots, setSpot }) {
           setIsShown((prevState) => !prevState);
         }}
       >
-        Parenthood Spot hinzufügen
+        ParentHood Spot hinzufügen
       </Button>
       {isShown && <CreateSpot addSpot={addSpot} />}
     </Main>
