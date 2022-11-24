@@ -113,9 +113,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[0]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[0]?.length > 0
               }
               id="good_weather"
               name="good_weather"
@@ -127,9 +125,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[1]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[1]?.length > 0
               }
               id="moderate_weather"
               name="moderate_weather"
@@ -141,9 +137,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[2]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[2]?.length > 0
               }
               id="bad_weather"
               name="bad_weather"
@@ -157,9 +151,7 @@ export default function SpotForm({
           <Legend>Altersempfehlung</Legend>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[0]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[0]?.length > 0}
               id="children_under_1"
               name="children_under_1"
               type="checkbox"
@@ -169,9 +161,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[1]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[1]?.length > 0}
               id="children_1_to_3"
               name="children_1_to_3"
               type="checkbox"
@@ -181,9 +171,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[2]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[2]?.length > 0}
               id="children_3_to_6"
               name="children_3_to_6"
               type="checkbox"
@@ -193,9 +181,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[3]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[3]?.length > 0}
               id="children_6_to_9"
               name="children_6_to_9"
               type="checkbox"
@@ -205,9 +191,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[4]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[4]?.length > 0}
               id="children_9_to_12"
               name="children_9_to_12"
               type="checkbox"
@@ -217,9 +201,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[5]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[5]?.length > 0}
               id="teenager"
               name="teenager"
               type="checkbox"
