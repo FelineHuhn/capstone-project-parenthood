@@ -3,10 +3,17 @@ import Link from "next/link";
 import { nanoid } from "nanoid";
 import { Button } from "./Button";
 import { useState } from "react";
+import SpotForm from "./SpotForm";
 
-export default function SpotDetails({ spot, deleteSpot }) {
-  const [isShown, setIsShown] = useState(false);
+export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
+  const [isShownModal, setIsShownModal] = useState(false);
+  const [isShownForm, setIsShownForm] = useState(false);
 
+  function closeEditForm() {
+    setIsShownForm(() => {
+      return false;
+    });
+  }
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
@@ -16,7 +23,7 @@ export default function SpotDetails({ spot, deleteSpot }) {
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
-        {spot?.weathersuggestion?.map((weather) => {
+        {spot.weathersuggestion?.map((weather) => {
           return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
@@ -34,7 +41,7 @@ export default function SpotDetails({ spot, deleteSpot }) {
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
       <DetailsParagraph>{spot.information}</DetailsParagraph>
-      {isShown && (
+      {isShownModal && (
         <Background>
           <DeleteModal>
             <h3>
@@ -45,7 +52,7 @@ export default function SpotDetails({ spot, deleteSpot }) {
                 type="button"
                 variant="deletemodal"
                 onClick={() => {
-                  setIsShown((prevState) => !prevState);
+                  setIsShownModal((prevState) => !prevState);
                 }}
               >
                 Abbrechen
@@ -64,9 +71,27 @@ export default function SpotDetails({ spot, deleteSpot }) {
       <ButtonStyling>
         <Button
           type="button"
+          variant="edit"
+          onClick={() => {
+            setIsShownForm((prevState) => !prevState);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+          </svg>
+        </Button>
+        <Button
+          type="button"
           variant="delete"
           onClick={() => {
-            setIsShown((prevState) => !prevState);
+            setIsShownModal((prevState) => !prevState);
           }}
         >
           <svg
@@ -81,6 +106,15 @@ export default function SpotDetails({ spot, deleteSpot }) {
           </svg>
         </Button>
       </ButtonStyling>
+      {isShownForm && (
+        <SpotForm
+          closeEditForm={closeEditForm}
+          spot={spot}
+          addSpot={addSpot}
+          isEditMode={true}
+          editSpot={editSpot}
+        />
+      )}
     </DetailsSection>
   );
 }

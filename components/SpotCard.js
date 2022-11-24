@@ -5,9 +5,14 @@ import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 import { useState } from "react";
 
-export default function SpotCard({ spot, deleteSpot }) {
+export default function SpotCard({
+  spot,
+  addSpot,
+  deleteSpot,
+  editSpot,
+  closeCreateForm,
+}) {
   const [isShown, setIsShown] = useState(false);
-
   return (
     <Card>
       <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
@@ -28,11 +33,13 @@ export default function SpotCard({ spot, deleteSpot }) {
       {isShown && (
         <>
           <SpotDetails
+            closeCreateForm={closeCreateForm}
             spot={spot}
             isShown={isShown}
-            key={spot.name}
+            addSpot={addSpot}
             deleteSpot={deleteSpot}
-          ></SpotDetails>
+            editSpot={editSpot}
+          />
           <Button
             type="button"
             variant="cancel"

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import SpotCard from "../components/SpotCard";
-import CreateSpot from "../components/CreateSpot";
+import SpotForm from "../components/SpotForm";
 import { Button } from "../components/Button";
 import { useState } from "react";
 import { nanoid } from "nanoid";
@@ -47,6 +47,39 @@ export default function Home({ spots, setSpot }) {
     });
   }
 
+  function editSpot(
+    id,
+    category,
+    name,
+    addresse,
+    weathersuggestion,
+    agesuggestion,
+    tags,
+    information
+  ) {
+    const tagsArray = tags.split(", ");
+
+    const newSpot = {
+      id,
+      category,
+      name,
+      addresse,
+      weathersuggestion,
+      agesuggestion,
+      tags: tagsArray,
+      information,
+      isChecked: false,
+    };
+
+    const newSpotsList = spots.map((spot) => {
+      if (spot.id === newSpot?.id) {
+        return newSpot;
+      }
+      return spot;
+    });
+    setSpot(newSpotsList);
+  }
+
   return (
     <Main>
       <Headline>ParentHood Spots</Headline>
@@ -56,10 +89,13 @@ export default function Home({ spots, setSpot }) {
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((spot) => (
             <SpotCard
+              closeCreateForm={closeCreateForm}
               spot={spot}
               key={spot.name}
+              addSpot={addSpot}
               deleteSpot={deleteSpot}
-            ></SpotCard>
+              editSpot={editSpot}
+            />
           ))}
       </SpotList>
 
@@ -70,9 +106,9 @@ export default function Home({ spots, setSpot }) {
           setIsShown((prevState) => !prevState);
         }}
       >
-        Parenthood Spot hinzufügen
+        ParentHood Spot hinzufügen
       </Button>
-      {isShown && <CreateSpot addSpot={addSpot} />}
+      {isShown && <SpotForm addSpot={addSpot} />}
     </Main>
   );
 }
