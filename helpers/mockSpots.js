@@ -1,6 +1,6 @@
 export const spotsList = [
   {
-    id: 1,
+    id: "1",
     category: "Spielplatz",
     name: "Baschu",
     addresse: "https://goo.gl/maps/DTxaT3ThkfjmQ2T17",
@@ -11,7 +11,7 @@ export const spotsList = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    id: 2,
+    id: "2",
     category: "Spielplatz",
     name: "Brockmannsweg",
     addresse: "https://goo.gl/maps/58sX5wzQARdeVpzY9",
@@ -22,7 +22,7 @@ export const spotsList = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    id: 3,
+    id: "3",
     category: "Indoor Spielplatz",
     name: "rabatzz!",
     addresse: "https://goo.gl/maps/qrpNmEfyTZ7D1w2h9",
@@ -37,7 +37,7 @@ export const spotsList = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    id: 4,
+    id: "4",
     category: "Sportplatz",
     name: "ETV Fußball",
     addresse: "https://goo.gl/maps/2pMQG2DajHSwqMtw6",
@@ -48,7 +48,7 @@ export const spotsList = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
-    id: 5,
+    id: "5",
     category: "Wald",
     name: "Forst Klövensteen",
     addresse: "https://goo.gl/maps/o6RWhHDkQ14K1zy16",

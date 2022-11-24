@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
+import { useRouter } from "next/router";
 
-export default function SpotForm({
-  addSpot,
-  spot,
-  editSpot,
-  isEditMode,
-  closeEditForm,
-}) {
+export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -52,7 +49,7 @@ export default function SpotForm({
         tags.trim(),
         information.trim()
       );
-      closeEditForm();
+      router.back();
     } else {
       addSpot(
         category,
@@ -63,6 +60,7 @@ export default function SpotForm({
         tags.trim(),
         information.trim()
       );
+      router.back();
     }
 
     event.target.reset();
@@ -73,7 +71,7 @@ export default function SpotForm({
       <CreateForm onSubmit={handleSubmit}>
         <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select
-          defaultValue={isEditMode ? spot.category : ""}
+          defaultValue={isEditMode ? spot?.category : ""}
           id="category"
           name="category"
           required
@@ -87,7 +85,7 @@ export default function SpotForm({
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.name : ""}
+          defaultValue={isEditMode ? spot?.name : ""}
           id="name"
           name="name"
           type="text"
@@ -100,7 +98,7 @@ export default function SpotForm({
           name="addresse"
           type="text"
           pattern=".*[\S]+.*"
-          defaultValue={isEditMode ? spot.addresse : ""}
+          defaultValue={isEditMode ? spot?.addresse : ""}
           required
         />
         <Checkbox>
@@ -207,7 +205,7 @@ export default function SpotForm({
         </Checkbox>
         <FormLabels htmlFor="tags">Tags (mit Komma trennen)</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.tags.join(", ") : ""}
+          defaultValue={isEditMode ? spot?.tags.join(", ") : ""}
           id="tags"
           name="tags"
           type="text"
@@ -215,7 +213,7 @@ export default function SpotForm({
         />
         <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.information : ""}
+          defaultValue={isEditMode ? spot?.information : ""}
           id="information"
           name="information"
           type="text"
