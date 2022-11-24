@@ -70,11 +70,6 @@ export default function SpotForm({
 
   return (
     <CreateSection>
-      <FormHeadline>
-        {isEditMode
-          ? "ParentHood Spot bearbeiten"
-          : "ParentHood Spot hinzufügen"}
-      </FormHeadline>
       <CreateForm onSubmit={handleSubmit}>
         <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select
@@ -263,8 +258,4 @@ const FormLabels = styled.label`
 
 const Legend = styled.legend`
   font-weight: 600;
-`;
-
-const FormHeadline = styled.h2`
-  font-size: 1.3em;
 `;

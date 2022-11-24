@@ -4,6 +4,8 @@ import SpotForm from "../../components/SpotForm";
 import { Button } from "../../components/Button";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import { StyledMain } from "../../components/Main";
+import Link from "next/link";
 
 export default function Spots({ spots, setSpot }) {
   const [isShown, setIsShown] = useState(false);
@@ -81,7 +83,7 @@ export default function Spots({ spots, setSpot }) {
   }
 
   return (
-    <Main>
+    <StyledMain>
       <Headline>ParentHood Spots</Headline>
       <SpotList>
         {spots
@@ -98,8 +100,8 @@ export default function Spots({ spots, setSpot }) {
             />
           ))}
       </SpotList>
-
-      <Button
+      <StyledLink href={`/create`}>ParentHood Spot hinzufügen</StyledLink>
+      {/* <Button
         type="button"
         variant="create"
         onClick={() => {
@@ -108,8 +110,8 @@ export default function Spots({ spots, setSpot }) {
       >
         ParentHood Spot hinzufügen
       </Button>
-      {isShown && <SpotForm addSpot={addSpot} />}
-    </Main>
+      {isShown && <SpotForm addSpot={addSpot} />} */}
+    </StyledMain>
   );
 }
 
@@ -124,9 +126,12 @@ const SpotList = styled.ul`
   padding: 0;
 `;
 
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+const StyledLink = styled(Link)`
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 65px;
+  background-color: darkgreen;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
 `;
