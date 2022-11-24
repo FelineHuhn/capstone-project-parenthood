@@ -4,6 +4,7 @@ import placeholderSpotImage from "../assets/images/card-image-placeholder.jpg";
 import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function SpotCard({
   spot,
@@ -19,7 +20,6 @@ export default function SpotCard({
       <SpotInfos>
         <SpotCategory>{spot.category}</SpotCategory>
         <SpotName>"{spot.name}"</SpotName>
-
         <Button
           type="button"
           variant="details"
@@ -85,4 +85,19 @@ const SpotCategory = styled.h3`
 
 const SpotName = styled.h4`
   color: dimgray;
+`;
+
+const LinkToDetails = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1px solid black;
+  padding: 2px;
+  background-color: oldlace;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
