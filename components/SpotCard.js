@@ -27,7 +27,7 @@ export default function SpotCard({
             setIsShown((prevState) => !prevState);
           }}
         >
-          Details
+          {isShown ? "Details ⌃" : "Details"}
         </Button>
       </SpotInfos>
       {isShown && (

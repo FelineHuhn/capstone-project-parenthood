@@ -70,7 +70,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </Background>
       )}
       <ButtonStyling>
-        <EditLink href={{ pathname: `/edit`, query: { id: spot.id } }}>
+        <Icon href={{ pathname: `/edit`, query: { id: spot.id } }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -81,11 +81,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
           </svg>
-        </EditLink>
+        </Icon>
 
-        <Button
-          type="button"
-          variant="delete"
+        <Icon
+          href={`/`}
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
@@ -100,7 +99,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
           </svg>
-        </Button>
+        </Icon>
       </ButtonStyling>
       {isShownForm && (
         <SpotForm
@@ -174,13 +173,14 @@ const ButtonStyling = styled.div`
   justify-content: right;
 `;
 
-const EditLink = styled(Link)`
-  align-self: flex-start;
-  font-weight: 600;
-  font-size: 16px;
+const Icon = styled(Link)`
+  padding: 3px;
   margin: 5px;
-  border: 1px solid grey;
-  border-radius: 3px;
   background-color: oldlace;
-  padding: 1px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
