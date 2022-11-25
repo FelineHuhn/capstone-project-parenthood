@@ -84,7 +84,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
       <CreateForm onSubmit={handleSubmit}>
         <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select
-          defaultValue={isEditMode ? spot?.category : ""}
+          defaultValue={isEditMode ? spot?.category : null}
           id="category"
           name="category"
           required
@@ -98,7 +98,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
         <input
-          defaultValue={isEditMode ? spot?.name : ""}
+          defaultValue={isEditMode ? spot?.name : null}
           id="name"
           name="name"
           type="text"
@@ -111,7 +111,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           name="addresse"
           type="text"
           pattern=".*[\S]+.*"
-          defaultValue={isEditMode ? spot?.link : ""}
+          defaultValue={isEditMode ? spot?.link : null}
           required
         />
         <Checkbox>
@@ -218,7 +218,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         </Checkbox>
         <FormLabels htmlFor="tags">Tags (mit Komma trennen)</FormLabels>
         <input
-          defaultValue={isEditMode ? spot?.tags.join(", ") : ""}
+          defaultValue={isEditMode ? spot?.tags.join(", ") : null}
           id="tags"
           name="tags"
           type="text"
@@ -226,7 +226,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         />
         <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
         <input
-          defaultValue={isEditMode ? spot?.information : ""}
+          defaultValue={isEditMode ? spot?.information : null}
           id="information"
           name="information"
           type="text"

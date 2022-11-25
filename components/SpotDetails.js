@@ -15,8 +15,6 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
     });
   }
 
-  console.log(spot.tags);
-
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
@@ -56,7 +54,6 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       ) : (
         <DetailsParagraph>Keine</DetailsParagraph>
       )}
-      {/* <DetailsParagraph>{spot?.information}</DetailsParagraph> */}
       {isShownModal && (
         <Background>
           <DeleteModal>
