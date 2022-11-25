@@ -15,12 +15,18 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
     });
   }
 
+  console.log(spot.tags);
+
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
       <h3>Adresse:</h3>
       <DetailsSubList>
-        <AddresseLink href={spot?.addresse}>{spot?.addresse}</AddresseLink>
+        <AddresseLink
+          href={`https://www.google.com/maps/place/${spot?.addresse}`}
+        >
+          {spot?.addresse}
+        </AddresseLink>
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
@@ -36,12 +42,21 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       </DetailsSubList>
       <h3>Tags:</h3>
       <DetailsSubList>
-        {spot?.tags.map((tag) => {
-          return <li key={nanoid()}>#{tag}</li>;
-        })}
+        {spot?.tags.length > 1 ? (
+          spot?.tags.map((tag) => {
+            return <li key={nanoid()}>#{tag}</li>;
+          })
+        ) : (
+          <li key={nanoid()}>#ParentHood</li>
+        )}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
-      <DetailsParagraph>{spot?.information}</DetailsParagraph>
+      {spot?.information.length > 1 ? (
+        <DetailsParagraph>{spot?.information}</DetailsParagraph>
+      ) : (
+        <DetailsParagraph>Keine</DetailsParagraph>
+      )}
+      {/* <DetailsParagraph>{spot?.information}</DetailsParagraph> */}
       {isShownModal && (
         <Background>
           <DeleteModal>
@@ -73,7 +88,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         <Icon href={{ pathname: `/edit`, query: { id: spot.id } }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            enable-background="new 0 0 24 24"
+            enableBackground="new 0 0 24 24"
             height="30px"
             viewBox="0 0 24 24"
             width="30px"

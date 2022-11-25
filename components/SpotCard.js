@@ -75,9 +75,10 @@ const Card = styled.li`
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   margin: 0 10px 30px 10px;
   padding: 5px;
+  overflow-wrap: break-word;
+  flex-wrap: wrap;
 `;
 
 const SpotImage = styled(Image)`
@@ -92,12 +93,13 @@ const SpotInfos = styled.article`
   margin-right: 10px;
   margin-top: -10px;
   text-align: right;
+  width: 50%;
 `;
 
 const SpotCategory = styled.h3`
   color: darkgreen;
 `;
 
-const SpotName = styled.h4`
+const SpotName = styled.p`
   color: dimgray;
 `;
