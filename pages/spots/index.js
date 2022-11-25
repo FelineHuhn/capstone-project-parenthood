@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Link from "next/link";
 import SpotCard from "../../components/SpotCard";
-import { StyledMain } from "../../components/Main";
+import Header from "../../components/Header";
 
 export default function Spots({ spots, setSpot }) {
   function deleteSpot(id) {
@@ -12,18 +11,19 @@ export default function Spots({ spots, setSpot }) {
   }
 
   return (
-    <StyledMain>
-      <h1>ParentHood Spots</h1>
-      <SpotList>
-        {spots
-          .slice()
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((spot) => (
-            <SpotCard spot={spot} key={spot.name} deleteSpot={deleteSpot} />
-          ))}
-      </SpotList>
-      <StyledLink href={`/create`}>ParentHood Spot hinzufügen</StyledLink>
-    </StyledMain>
+    <>
+      <Header>ParentHood Spots</Header>
+      <StyledSpotsPage>
+        <SpotList>
+          {spots
+            .slice()
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((spot) => (
+              <SpotCard spot={spot} key={spot.name} deleteSpot={deleteSpot} />
+            ))}
+        </SpotList>
+      </StyledSpotsPage>
+    </>
   );
 }
 
@@ -33,12 +33,6 @@ const SpotList = styled.ul`
   padding: 0;
 `;
 
-const StyledLink = styled(Link)`
-  font-weight: 600;
-  font-size: 16px;
-  padding: 8px 65px;
-  background-color: darkgreen;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
+const StyledSpotsPage = styled.div`
+  margin: 50px 0 30px 0;
 `;
