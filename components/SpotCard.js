@@ -70,12 +70,14 @@ export default function SpotCard({
 
 const Card = styled.li`
   background-color: white;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 10px 20px 10px;
+  margin: 0 10px 30px 10px;
+  padding: 5px;
 `;
 
 const SpotImage = styled(Image)`
@@ -98,19 +100,4 @@ const SpotCategory = styled.h3`
 
 const SpotName = styled.h4`
   color: dimgray;
-`;
-
-const LinkToDetails = styled(Link)`
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-  font-size: 16px;
-  border: 1px solid black;
-  padding: 2px;
-  background-color: oldlace;
-  border-radius: 3px;
-
-  &:hover {
-    background-color: lightgrey;
-  }
 `;

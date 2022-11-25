@@ -1,6 +1,6 @@
-import Link from "next/link";
 import SpotForm from "../../components/SpotForm";
 import { useRouter } from "next/router";
+import Header from "../../components/Header";
 
 export default function EditSpot({ spots, setSpot }) {
   const router = useRouter();
@@ -43,9 +43,8 @@ export default function EditSpot({ spots, setSpot }) {
 
   return (
     <>
-      <h2>ParentHood Spot bearbeiten</h2>
+      <Header>ParentHood Spot bearbeiten</Header>
       <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />
-      <Link href={`/spots`}>Zurück</Link>
     </>
   );
 }

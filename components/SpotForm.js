@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   const router = useRouter();
@@ -68,6 +69,18 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 
   return (
     <CreateSection>
+      <Link href={`/`}>
+        <BackSVG
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000000"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+        </BackSVG>
+      </Link>
       <CreateForm onSubmit={handleSubmit}>
         <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select
@@ -228,16 +241,19 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 }
 
 const CreateForm = styled.form`
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  padding: 20px;
+  border-radius: 10px;
+
   display: flex;
   flex-direction: column;
 `;
 
 const CreateSection = styled.section`
-  background-color: white;
-  border: 1px solid black;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
+  width: 300px;
+  margin: 60px 0 50px 0;
 `;
 
 const Checkbox = styled.fieldset`
@@ -256,4 +272,12 @@ const FormLabels = styled.label`
 
 const Legend = styled.legend`
   font-weight: 600;
+`;
+
+const BackSVG = styled.svg`
+  margin-bottom: 7px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
 `;

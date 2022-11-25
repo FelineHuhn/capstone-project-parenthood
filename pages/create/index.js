@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { nanoid } from "nanoid";
 import SpotForm from "../../components/SpotForm";
+import Header from "../../components/Header";
 
 export default function CreateSpot({ setSpot }) {
   function addSpot(
@@ -30,9 +30,8 @@ export default function CreateSpot({ setSpot }) {
 
   return (
     <>
-      <h2>ParentHood Spot hinzufügen</h2>
+      <Header>ParentHood Spot erstellen</Header>
       <SpotForm addSpot={addSpot} />
-      <Link href={`/spots`}>Zurück</Link>
     </>
   );
 }

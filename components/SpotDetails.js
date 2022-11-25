@@ -74,10 +74,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             enable-background="new 0 0 24 24"
-            height="24px"
+            height="30px"
             viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
+            width="30px"
+            fill="#4d5b5b"
           >
             <g>
               <rect fill="none" height="24" width="24" y="0" />
@@ -100,10 +100,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="24px"
+            height="30px"
             viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
+            width="30px"
+            fill="#4d5b5b"
           >
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
@@ -185,9 +185,6 @@ const ButtonStyling = styled.div`
 const Icon = styled(Link)`
   padding: 3px;
   margin: 5px;
-  background-color: oldlace;
-  border: 1px solid black;
-  border-radius: 5px;
 
   &:hover {
     background-color: lightgrey;

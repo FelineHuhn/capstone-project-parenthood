@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <StyledFooter>
-      <Link href={`/`}>
+      <Link href={`/spots`}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="33px"
