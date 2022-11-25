@@ -1,14 +1,11 @@
 import styled from "styled-components";
 import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
+import { useRouter } from "next/router";
 
-export default function SpotForm({
-  addSpot,
-  spot,
-  editSpot,
-  isEditMode,
-  closeEditForm,
-}) {
+export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
+  const router = useRouter();
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -52,7 +49,7 @@ export default function SpotForm({
         tags.trim(),
         information.trim()
       );
-      closeEditForm();
+      router.back();
     } else {
       addSpot(
         category,
@@ -63,6 +60,7 @@ export default function SpotForm({
         tags.trim(),
         information.trim()
       );
+      router.back();
     }
 
     event.target.reset();
@@ -70,15 +68,10 @@ export default function SpotForm({
 
   return (
     <CreateSection>
-      <FormHeadline>
-        {isEditMode
-          ? "ParentHood Spot bearbeiten"
-          : "ParentHood Spot hinzufügen"}
-      </FormHeadline>
       <CreateForm onSubmit={handleSubmit}>
         <FormLabels htmlFor="category">Kategorie*</FormLabels>
         <select
-          defaultValue={isEditMode ? spot.category : ""}
+          defaultValue={isEditMode ? spot?.category : ""}
           id="category"
           name="category"
           required
@@ -92,7 +85,7 @@ export default function SpotForm({
         </select>
         <FormLabels htmlFor="name">Name*</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.name : ""}
+          defaultValue={isEditMode ? spot?.name : ""}
           id="name"
           name="name"
           type="text"
@@ -105,7 +98,7 @@ export default function SpotForm({
           name="addresse"
           type="text"
           pattern=".*[\S]+.*"
-          defaultValue={isEditMode ? spot.addresse : ""}
+          defaultValue={isEditMode ? spot?.addresse : ""}
           required
         />
         <Checkbox>
@@ -113,9 +106,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[0]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[0]?.length > 0
               }
               id="good_weather"
               name="good_weather"
@@ -127,9 +118,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[1]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[1]?.length > 0
               }
               id="moderate_weather"
               name="moderate_weather"
@@ -141,9 +130,7 @@ export default function SpotForm({
           <div>
             <input
               defaultChecked={
-                isEditMode & (spot?.weathersuggestion[2]?.length > 0)
-                  ? true
-                  : false
+                isEditMode && spot?.weathersuggestion[2]?.length > 0
               }
               id="bad_weather"
               name="bad_weather"
@@ -157,9 +144,7 @@ export default function SpotForm({
           <Legend>Altersempfehlung</Legend>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[0]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[0]?.length > 0}
               id="children_under_1"
               name="children_under_1"
               type="checkbox"
@@ -169,9 +154,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[1]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[1]?.length > 0}
               id="children_1_to_3"
               name="children_1_to_3"
               type="checkbox"
@@ -181,9 +164,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[2]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[2]?.length > 0}
               id="children_3_to_6"
               name="children_3_to_6"
               type="checkbox"
@@ -193,9 +174,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[3]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[3]?.length > 0}
               id="children_6_to_9"
               name="children_6_to_9"
               type="checkbox"
@@ -205,9 +184,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[4]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[4]?.length > 0}
               id="children_9_to_12"
               name="children_9_to_12"
               type="checkbox"
@@ -217,9 +194,7 @@ export default function SpotForm({
           </div>
           <div>
             <input
-              defaultChecked={
-                isEditMode & (spot?.agesuggestion[5]?.length > 0) ? true : false
-              }
+              defaultChecked={isEditMode && spot?.agesuggestion[5]?.length > 0}
               id="teenager"
               name="teenager"
               type="checkbox"
@@ -230,7 +205,7 @@ export default function SpotForm({
         </Checkbox>
         <FormLabels htmlFor="tags">Tags (mit Komma trennen)</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.tags.join(", ") : ""}
+          defaultValue={isEditMode ? spot?.tags.join(", ") : ""}
           id="tags"
           name="tags"
           type="text"
@@ -238,7 +213,7 @@ export default function SpotForm({
         />
         <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
         <input
-          defaultValue={isEditMode ? spot.information : ""}
+          defaultValue={isEditMode ? spot?.information : ""}
           id="information"
           name="information"
           type="text"
@@ -281,8 +256,4 @@ const FormLabels = styled.label`
 
 const Legend = styled.legend`
   font-weight: 600;
-`;
-
-const FormHeadline = styled.h2`
-  font-size: 1.3em;
 `;

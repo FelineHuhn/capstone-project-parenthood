@@ -14,16 +14,17 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       return false;
     });
   }
+
   return (
     <DetailsSection>
       <DetailsHeadline>Details</DetailsHeadline>
       <h3>Adresse:</h3>
       <DetailsSubList>
-        <AddresseLink href={spot.addresse}>{spot.addresse}</AddresseLink>
+        <AddresseLink href={spot?.addresse}>{spot?.addresse}</AddresseLink>
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
-        {spot.weathersuggestion?.map((weather) => {
+        {spot?.weathersuggestion?.map((weather) => {
           return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
@@ -40,7 +41,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         })}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
-      <DetailsParagraph>{spot.information}</DetailsParagraph>
+      <DetailsParagraph>{spot?.information}</DetailsParagraph>
       {isShownModal && (
         <Background>
           <DeleteModal>
@@ -69,13 +70,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </Background>
       )}
       <ButtonStyling>
-        <Button
-          type="button"
-          variant="edit"
-          onClick={() => {
-            setIsShownForm((prevState) => !prevState);
-          }}
-        >
+        <Icon href={{ pathname: `/edit`, query: { id: spot.id } }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -86,10 +81,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
           </svg>
-        </Button>
-        <Button
-          type="button"
-          variant="delete"
+        </Icon>
+
+        <Icon
+          href={`/`}
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
@@ -104,7 +99,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
           </svg>
-        </Button>
+        </Icon>
       </ButtonStyling>
       {isShownForm && (
         <SpotForm
@@ -176,4 +171,16 @@ const ModalButtons = styled.div`
 const ButtonStyling = styled.div`
   display: flex;
   justify-content: right;
+`;
+
+const Icon = styled(Link)`
+  padding: 3px;
+  margin: 5px;
+  background-color: oldlace;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
 `;
