@@ -1,7 +1,7 @@
-import SpotForm from "../../components/SpotForm";
-import { StyledMain } from "../../components/Main";
 import Link from "next/link";
 import { nanoid } from "nanoid";
+import SpotForm from "../../components/SpotForm";
+import { StyledMain } from "../../components/Main";
 
 export default function CreateSpot({ setSpot }) {
   function addSpot(

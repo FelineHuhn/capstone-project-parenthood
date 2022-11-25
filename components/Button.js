@@ -33,17 +33,6 @@ const DefaultButton = styled.button`
     `}
 
     ${({ variant }) =>
-    variant === "create" &&
-    css`
-      font-weight: 600;
-      font-size: 16px;
-      padding: 8px 65px;
-      background-color: darkgreen;
-      color: white;
-      border-radius: 10px;
-    `}
-
-    ${({ variant }) =>
     variant === "submit" &&
     css`
       font-weight: 600;
@@ -53,28 +42,10 @@ const DefaultButton = styled.button`
     `}
 
     ${({ variant }) =>
-    variant === "delete" &&
-    css`
-      align-self: flex-start;
-      font-weight: 600;
-      font-size: 16px;
-      margin: 5px;
-    `}
-
-    ${({ variant }) =>
     variant === "deletemodal" &&
     css`
       font-weight: 600;
       font-size: 16px;
       background-color: oldlace;
-    `}
-
-    ${({ variant }) =>
-    variant === "edit" &&
-    css`
-      align-self: flex-start;
-      font-weight: 600;
-      font-size: 16px;
-      margin: 5px;
     `}
 `;

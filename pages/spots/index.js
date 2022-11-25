@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import SpotCard from "../../components/SpotCard";
-import { useState } from "react";
-import { StyledMain } from "../../components/Main";
 import Link from "next/link";
+import SpotCard from "../../components/SpotCard";
+import { StyledMain } from "../../components/Main";
 
 export default function Spots({ spots, setSpot }) {
-  const [isShown, setIsShown] = useState(false);
-
   function deleteSpot(id) {
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);
@@ -16,7 +13,7 @@ export default function Spots({ spots, setSpot }) {
 
   return (
     <StyledMain>
-      <Headline>ParentHood Spots</Headline>
+      <h1>ParentHood Spots</h1>
       <SpotList>
         {spots
           .slice()
@@ -29,11 +26,6 @@ export default function Spots({ spots, setSpot }) {
     </StyledMain>
   );
 }
-
-const Headline = styled.h1`
-  justify-content: center;
-  align-items: center;
-`;
 
 const SpotList = styled.ul`
   list-style: none;

@@ -20,7 +20,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       <DetailsHeadline>Details</DetailsHeadline>
       <h3>Adresse:</h3>
       <DetailsSubList>
-        {/* <AddresseLink href={spot?.addresse}>{spot?.addresse}</AddresseLink> */}
+        <AddresseLink href={spot?.addresse}>{spot?.addresse}</AddresseLink>
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>

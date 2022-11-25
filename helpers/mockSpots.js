@@ -76,7 +76,7 @@ export const spotsList = [
     ],
     tags: ["ski", "snowboard", "schlitten"],
     information:
-      "Indoor-Skihalle für Ski-Anfänger und -Fortgeschrittene. Ausrüstung kann vor Ort ausgeliehen werden. Weitere Infos unter: https://www.alpincenter.com/hamburg-wittenburg/de/skihalle?campaignId=212361&g_campaignid=6551991267&g_adgroupid=77351947143&g_creative=533659440719&g_targetid=kwd-315648591511&g_keyword=skihalle&g_device=c&g_adposition=&gclid=CjwKCAiA7IGcBhA8EiwAFfUDseaKU7Ek84QngDqMnktH8_npfJmNFe36dQIizUEmK2mI3NFj_DPA-BoCVF4QAvD_BwE",
+      "Indoor-Skihalle für Ski-Anfänger und -Fortgeschrittene. Ausrüstung kann vor Ort ausgeliehen werden. Weitere Infos unter: https://www.alpincenter.com/hamburg-wittenburg/de/skihalle",
   },
   {
     id: "7",

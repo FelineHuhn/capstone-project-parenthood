@@ -1,6 +1,6 @@
+import Link from "next/link";
 import SpotForm from "../../components/SpotForm";
 import { StyledMain } from "../../components/Main";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function EditSpot({ spots, setSpot }) {
