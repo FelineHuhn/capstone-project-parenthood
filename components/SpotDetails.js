@@ -40,13 +40,13 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       </DetailsSubList>
       <h3>Tags:</h3>
       <DetailsSubList>
-        {spot?.tags.length > 1 ? (
+        {(spot?.tags.length === 1) & (spot?.tags[0] === "") ? (
+          <li key={nanoid()}>#ParentHood</li>
+        ) : (
           spot?.tags.map((tag) => {
             return <li key={nanoid()}>#{tag}</li>;
           })
-        ) : (
-          <li key={nanoid()}>#ParentHood</li>
-        )}
+        )}{" "}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
       {spot?.information.length > 1 ? (
