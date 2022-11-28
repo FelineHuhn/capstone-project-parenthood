@@ -81,7 +81,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </Background>
       )}
       <ButtonStyling>
-        <Icon href={{ pathname: `/edit`, query: { id: spot.id } }}>
+        <EditButton href={{ pathname: `/edit`, query: { id: spot.id } }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             enableBackground="new 0 0 24 24"
@@ -101,10 +101,9 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
               </g>
             </g>
           </svg>
-        </Icon>
+        </EditButton>
 
-        <Icon
-          href={`/`}
+        <DeleteButton
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
@@ -119,7 +118,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
           </svg>
-        </Icon>
+        </DeleteButton>
       </ButtonStyling>
       {isShownForm && (
         <SpotForm
@@ -150,6 +149,7 @@ const DetailsSubList = styled.ul`
 const DetailsParagraph = styled.p`
   text-align: justify;
   padding: 0 10px 0 10px;
+  word-break: break-all;
 `;
 
 const AddresseLink = styled(Link)`
@@ -188,7 +188,16 @@ const ButtonStyling = styled.div`
   justify-content: right;
 `;
 
-const Icon = styled(Link)`
+const DeleteButton = styled.div`
+  padding: 3px;
+  margin: 5px;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+`;
+
+const EditButton = styled(Link)`
   padding: 3px;
   margin: 5px;
 

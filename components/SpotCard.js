@@ -10,11 +10,9 @@ export default function SpotCard({
   addSpot,
   deleteSpot,
   editSpot,
-  closeCreateForm,
   toggleFavorite,
 }) {
   const [isShown, setIsShown] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <Card>
@@ -27,8 +25,6 @@ export default function SpotCard({
             variant={"favorite"}
             onClick={() => {
               toggleFavorite(spot.id);
-
-              setIsFavorite((prevState) => !prevState);
             }}
           >
             {spot.isFavorite ? (
@@ -85,7 +81,6 @@ export default function SpotCard({
       {isShown && (
         <>
           <SpotDetails
-            closeCreateForm={closeCreateForm}
             spot={spot}
             isShown={isShown}
             addSpot={addSpot}
