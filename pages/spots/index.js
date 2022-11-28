@@ -4,7 +4,6 @@ import Header from "../../components/Header";
 
 export default function Spots({ spots, setSpot }) {
   function deleteSpot(id) {
-    console.log("ss");
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);
       return newSpotsList;

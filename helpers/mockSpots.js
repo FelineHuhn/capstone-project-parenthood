@@ -100,6 +100,6 @@ export const spotsList = [
     tags: ["schwimmen", "sprungturm", "sommer", "abkühlung"],
     information:
       "Das Freibad hat nur im Sommer auf, ist immer recht voll mit längerer Schlange am Seiteneingang. Weitere Infos: https://www.baederland.de/baeder/standorte/kaifu-bad/",
-    isFavorite: true,
+    isFavorite: false,
   },
 ];
