@@ -17,7 +17,6 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
 
   return (
     <DetailsSection>
-      <DetailsHeadline>Details</DetailsHeadline>
       <h3>Adresse:</h3>
       <DetailsSubList>
         <AddresseLink
@@ -139,11 +138,6 @@ const DetailsSection = styled.section`
   width: 100%;
   padding: 10px;
   font-size: 14px;
-`;
-
-const DetailsHeadline = styled.h2`
-  color: darkgreen;
-  font-size: 18px;
 `;
 
 const DetailsSubList = styled.ul`
