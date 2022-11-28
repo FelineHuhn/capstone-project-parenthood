@@ -48,7 +48,8 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         weatherArray,
         ageArray,
         tags.trim(),
-        information.trim()
+        information.trim(),
+        spot.isFavorite
       );
       router.back();
     } else {
