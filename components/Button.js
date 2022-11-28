@@ -9,7 +9,9 @@ export function Button({ type, variant, onClick, children }) {
 }
 
 const DefaultButton = styled.button`
-  border: 1px solid grey;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 3px;
   background-color: oldlace;
 

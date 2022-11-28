@@ -27,7 +27,20 @@ export default function SpotCard({
             setIsShown((prevState) => !prevState);
           }}
         >
-          {isShown ? "Details ⌃" : "Details"}
+          {isShown ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 0 24 24"
+              width="24px"
+              fill="#000000"
+            >
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
+            </svg>
+          ) : (
+            "Details"
+          )}
         </Button>
       </SpotInfos>
       {isShown && (
@@ -57,12 +70,15 @@ export default function SpotCard({
 
 const Card = styled.li`
   background-color: white;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  margin: 0 10px 30px 10px;
+  padding: 5px;
+  overflow-wrap: break-word;
   flex-wrap: wrap;
-  margin: 0 10px 20px 10px;
 `;
 
 const SpotImage = styled(Image)`
@@ -77,27 +93,13 @@ const SpotInfos = styled.article`
   margin-right: 10px;
   margin-top: -10px;
   text-align: right;
+  width: 50%;
 `;
 
 const SpotCategory = styled.h3`
   color: darkgreen;
 `;
 
-const SpotName = styled.h4`
+const SpotName = styled.p`
   color: dimgray;
-`;
-
-const LinkToDetails = styled(Link)`
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-  font-size: 16px;
-  border: 1px solid black;
-  padding: 2px;
-  background-color: oldlace;
-  border-radius: 3px;
-
-  &:hover {
-    background-color: lightgrey;
-  }
 `;

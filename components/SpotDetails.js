@@ -20,7 +20,11 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       <DetailsHeadline>Details</DetailsHeadline>
       <h3>Adresse:</h3>
       <DetailsSubList>
-        <AddresseLink href={spot?.addresse}>{spot?.addresse}</AddresseLink>
+        <AddresseLink
+          href={`https://www.google.com/maps/place/${spot?.addresse}`}
+        >
+          {spot?.addresse}
+        </AddresseLink>
       </DetailsSubList>
       <h3>Wetterempfehlung:</h3>
       <DetailsSubList>
@@ -36,12 +40,20 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       </DetailsSubList>
       <h3>Tags:</h3>
       <DetailsSubList>
-        {spot?.tags.map((tag) => {
-          return <li key={nanoid()}>#{tag}</li>;
-        })}
+        {(spot?.tags.length === 1) & (spot?.tags[0] === "") ? (
+          <li key={nanoid()}>#ParentHood</li>
+        ) : (
+          spot?.tags.map((tag) => {
+            return <li key={nanoid()}>#{tag}</li>;
+          })
+        )}{" "}
       </DetailsSubList>
       <h3>Weitere Infos:</h3>
-      <DetailsParagraph>{spot?.information}</DetailsParagraph>
+      {spot?.information.length > 1 ? (
+        <DetailsParagraph>{spot?.information}</DetailsParagraph>
+      ) : (
+        <DetailsParagraph>Keine</DetailsParagraph>
+      )}
       {isShownModal && (
         <Background>
           <DeleteModal>
@@ -73,13 +85,22 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         <Icon href={{ pathname: `/edit`, query: { id: spot.id } }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="24px"
+            enableBackground="new 0 0 24 24"
+            height="30px"
             viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
+            width="30px"
+            fill="#4d5b5b"
           >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+            <g>
+              <rect fill="none" height="24" width="24" y="0" />
+            </g>
+            <g>
+              <g>
+                <path d="M13.95,13H9V8.05l5.61-5.61C13.78,2.16,12.9,2,12,2c-4.2,0-8,3.22-8,8.2c0,3.32,2.67,7.25,8,11.8c5.33-4.55,8-8.48,8-11.8 c0-1.01-0.16-1.94-0.45-2.8L13.95,13z" />
+                <polygon points="11,11 13.12,11 19.28,4.84 17.16,2.72 11,8.88" />
+                <path d="M20.71,2L20,1.29C19.8,1.1,19.55,1,19.29,1c-0.13,0-0.48,0.07-0.71,0.29l-0.72,0.72l2.12,2.12l0.72-0.72 C21.1,3.02,21.1,2.39,20.71,2z" />
+              </g>
+            </g>
           </svg>
         </Icon>
 
@@ -91,10 +112,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="24px"
+            height="30px"
             viewBox="0 0 24 24"
-            width="24px"
-            fill="#000000"
+            width="30px"
+            fill="#4d5b5b"
           >
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
@@ -176,9 +197,6 @@ const ButtonStyling = styled.div`
 const Icon = styled(Link)`
   padding: 3px;
   margin: 5px;
-  background-color: oldlace;
-  border: 1px solid black;
-  border-radius: 5px;
 
   &:hover {
     background-color: lightgrey;
