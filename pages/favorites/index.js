@@ -10,6 +10,20 @@ export default function FavoriteSpots({ spots, setSpot }) {
     });
   }
 
+  function toggleFavorite(id) {
+    const newSpotArray = spots.map((spot) => {
+      if (spot.id === id) {
+        return {
+          ...spot,
+          isFavorite: !spot.isFavorite,
+        };
+      } else {
+        return spot;
+      }
+    });
+    setSpot(newSpotArray);
+  }
+
   return (
     <>
       <Header>Meine Lieblings-Spots</Header>
@@ -18,7 +32,12 @@ export default function FavoriteSpots({ spots, setSpot }) {
           {spots?.map((spot) => {
             if (spot.isFavorite === true) {
               return (
-                <SpotCard spot={spot} key={spot.name} deleteSpot={deleteSpot} />
+                <SpotCard
+                  spot={spot}
+                  key={spot.name}
+                  deleteSpot={deleteSpot}
+                  toggleFavorite={toggleFavorite}
+                />
               );
             } else {
               return null;
