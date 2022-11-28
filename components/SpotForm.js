@@ -111,7 +111,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           name="addresse"
           type="text"
           pattern=".*[\S]+.*"
-          defaultValue={isEditMode ? spot?.link : null}
+          defaultValue={isEditMode ? spot?.addresse : null}
           required
         />
         <Checkbox>
