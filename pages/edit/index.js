@@ -29,7 +29,7 @@ export default function EditSpot({ spots, setSpot }) {
       agesuggestion,
       tags: tagsArray,
       information,
-      isChecked: false,
+      isFavorite: false,
     };
 
     const newSpotsList = spots.map((spot) => {

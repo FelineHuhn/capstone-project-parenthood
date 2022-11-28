@@ -9,6 +9,7 @@ export const spotsList = [
     tags: ["seilbahn", "rutsche", "klettern"],
     information:
       "Der Baschu ist ein großer Hinterhof-Spielplatz, der von außen nicht zu entdecken ist, also ein echter Insider-Tipp und durch seine Hinterhof-Lage herrscht eine sehr familiäre Athmospäre",
+    isFavorite: false,
   },
   {
     id: "a3ce28bb-2b52-4bc2-9799-4ec100075f12",
@@ -20,6 +21,7 @@ export const spotsList = [
     tags: ["rutsche", "schaukel"],
     information:
       "Vormittags Mo - Fr sehr voll durch zwei Kitas, ansonsten ein kleiner aber feiner Spieplatz, wo sich die direkte Nachbarschaft täglich trifft",
+    isFavorite: false,
   },
   {
     id: "e3d4613b-6807-4d93-9637-6963d7b31ce1",
@@ -35,6 +37,7 @@ export const spotsList = [
     tags: ["indoor", "trampolin", "rutschen"],
     information:
       "Indoor-Spaß für Groß und Klein! Weitere Infos unter: https://www.rabatzz.de/",
+    isFavorite: false,
   },
   {
     id: "f1c6833e-d3f1-478a-ba5a-a3a5fbc37f8f",
@@ -46,6 +49,7 @@ export const spotsList = [
     tags: ["fußball", "kicken", "verein"],
     information:
       "Der Eimsbüttler Turnverein ist insbesondere bekannt, durch seine erfolgreichen Kinder- und Jugendmannschaften im Fußball. Weitere Infos und weiteres Spotangebot unter: https://etv-hamburg.de/",
+    isFavorite: false,
   },
   {
     id: "9d331e98-0e51-488d-bf42-e52e4921683d",
@@ -61,6 +65,7 @@ export const spotsList = [
     tags: ["natur"],
     information:
       "Der Forst Klövensteen ist ein stadtnahes Forstgebiet, wo Familien vielerlei Aktivitäten unternehmen können von Ponyreiten in der kleinen Ponywaldschänke über eine tolle Inline-Skating-Tour oder ein Waldspaziergang zum Erforschen der Natur. Weitere Infos unter: https://www.hamburg.de/altona/forst-kloevensteen/",
+    isFavorite: false,
   },
   {
     id: "1878ac77-442d-44fb-b984-cf7d2b7ac530",
@@ -77,6 +82,7 @@ export const spotsList = [
     tags: ["ski", "snowboard", "schlitten"],
     information:
       "Indoor-Skihalle für Ski-Anfänger und -Fortgeschrittene. Ausrüstung kann vor Ort ausgeliehen werden. Weitere Infos unter: https://www.alpincenter.com/hamburg-wittenburg/de/skihalle",
+    isFavorite: false,
   },
   {
     id: "17b711c7-1e9e-4f42-a281-7d795b8d8767",
@@ -94,5 +100,6 @@ export const spotsList = [
     tags: ["schwimmen", "sprungturm", "sommer", "abkühlung"],
     information:
       "Das Freibad hat nur im Sommer auf, ist immer recht voll mit längerer Schlange am Seiteneingang. Weitere Infos: https://www.baederland.de/baeder/standorte/kaifu-bad/",
+    isFavorite: true,
   },
 ];

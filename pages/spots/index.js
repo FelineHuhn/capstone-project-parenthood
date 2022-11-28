@@ -36,3 +36,5 @@ const SpotList = styled.ul`
 const StyledSpotsPage = styled.div`
   margin: 50px 0 30px 0;
 `;
+
+export { StyledSpotsPage, SpotList };
