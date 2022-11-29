@@ -1,6 +1,7 @@
+import styled from "styled-components";
 import Header from "../../components/Header";
 import SpotCard from "../../components/SpotCard";
-import { StyledSpotsPage, SpotList } from "../spots";
+import { SpotList } from "../spots";
 
 export default function FavoriteSpots({ spots, setSpot }) {
   function deleteSpot(id) {
@@ -27,7 +28,7 @@ export default function FavoriteSpots({ spots, setSpot }) {
   return (
     <>
       <Header>Meine Lieblings-Spots</Header>
-      <StyledSpotsPage>
+      <StyledFavoritesPage>
         <SpotList>
           {spots?.map((spot) => {
             if (spot.isFavorite === true) {
@@ -44,7 +45,11 @@ export default function FavoriteSpots({ spots, setSpot }) {
             }
           })}
         </SpotList>
-      </StyledSpotsPage>
+      </StyledFavoritesPage>
     </>
   );
 }
+
+const StyledFavoritesPage = styled.div`
+  margin: 60px 0 30px 0;
+`;

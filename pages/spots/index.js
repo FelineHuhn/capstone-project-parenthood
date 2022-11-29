@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
 import Header from "../../components/Header";
+import SpotFilter from "../../components/SpotFilter";
+import { useState } from "react";
 
 export default function Spots({ spots, setSpot }) {
+  const [filterValue, setFilterValue] = useState("all");
+
   function deleteSpot(id) {
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);
@@ -24,12 +28,24 @@ export default function Spots({ spots, setSpot }) {
     setSpot(newSpotArray);
   }
 
+  function handleCategorySelect(event) {
+    const filterValue = event.target.value === "" ? "all" : event.target.value;
+    setFilterValue(filterValue);
+  }
+
+  function filterSpots(spots) {
+    return filterValue === "all"
+      ? spots
+      : spots.filter((spot) => spot.category === filterValue);
+  }
+
   return (
     <>
       <Header>ParentHood Spots</Header>
+      <SpotFilter handleChange={handleCategorySelect} />
       <StyledSpotsPage>
         <SpotList>
-          {spots
+          {filterSpots(spots)
             .slice()
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((spot) => (
@@ -53,7 +69,7 @@ const SpotList = styled.ul`
 `;
 
 const StyledSpotsPage = styled.div`
-  margin: 50px 0 30px 0;
+  margin: 70px 0 30px 0;
 `;
 
 export { StyledSpotsPage, SpotList };
