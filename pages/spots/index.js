@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
 import Header from "../../components/Header";
+import SpotFilter from "../../components/SpotFilter";
+import { useState } from "react";
 
 export default function Spots({ spots, setSpot }) {
   function deleteSpot(id) {
@@ -24,9 +26,57 @@ export default function Spots({ spots, setSpot }) {
     setSpot(newSpotArray);
   }
 
+  const [currentFilter, setCurrentFilter] = useState("all");
+
+  function filterSpots(currentFilter) {
+    switch (currentFilter) {
+      case "all":
+        return spots.filter((spot) => spot.category === "all");
+      case "Spielplatz":
+      case "Indoor Spielplatz":
+      case "Spielen":
+      case "Sport":
+      case "Sportplatz":
+      case "Sporthalle":
+      case "Sportkurs":
+      case "Klettern":
+      case "Skaten":
+      case "Wintersport":
+      case "Schwimmbad":
+      case "Freibad":
+      case "Badesee":
+      case "Strand & Meer":
+      case "Park":
+      case "Wald":
+      case "Kultur":
+      case "Musik":
+      case "Kunst":
+      case "Zirkus":
+      case "Basteln":
+      case "Essen & Trinken":
+      case "Übernachtung":
+      case "Freizeitpark":
+      case "Jahrmarkt":
+      case "Zoo":
+      case "Tiere":
+      case "Bauernhof":
+      case "Ponyreiten":
+      case "Sonstiger Spot":
+        return spots.filter((spot) => spot.category === currentFilter);
+      case "all":
+      default:
+        return spots;
+    }
+  }
+
+  function handleCategorySelect(event) {
+    setCurrentFilter(event.target.value);
+  }
+
   return (
     <>
       <Header>ParentHood Spots</Header>
+      <SpotFilter handleChange={handleCategorySelect} />
       <StyledSpotsPage>
         <SpotList>
           {spots
@@ -53,7 +103,7 @@ const SpotList = styled.ul`
 `;
 
 const StyledSpotsPage = styled.div`
-  margin: 50px 0 30px 0;
+  margin: 20px 0 30px 0;
 `;
 
 export { StyledSpotsPage, SpotList };
