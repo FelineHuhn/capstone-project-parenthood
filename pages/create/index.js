@@ -22,7 +22,7 @@ export default function CreateSpot({ setSpot }) {
       agesuggestion,
       tags: tagsArray,
       information,
-      isChecked: false,
+      isFavorite: false,
     };
 
     setSpot((spots) => [newSpot, ...spots]);

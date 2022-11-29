@@ -16,7 +16,8 @@ export default function EditSpot({ spots, setSpot }) {
     weathersuggestion,
     agesuggestion,
     tags,
-    information
+    information,
+    isFavorite
   ) {
     const tagsArray = tags.split(", ");
 
@@ -29,7 +30,7 @@ export default function EditSpot({ spots, setSpot }) {
       agesuggestion,
       tags: tagsArray,
       information,
-      isChecked: false,
+      isFavorite,
     };
 
     const newSpotsList = spots.map((spot) => {

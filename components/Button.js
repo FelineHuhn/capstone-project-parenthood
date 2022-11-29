@@ -50,4 +50,16 @@ const DefaultButton = styled.button`
       font-size: 16px;
       background-color: oldlace;
     `}
+
+    ${({ variant }) =>
+    variant === "favorite" &&
+    css`
+      background-color: transparent;
+      box-shadow: none;
+      margin-top: -5px;
+      margin-right: -10px;
+
+      &:hover {
+    background-color: transparent;
+    `}
 `;
