@@ -5,6 +5,8 @@ import SpotFilter from "../../components/SpotFilter";
 import { useState } from "react";
 
 export default function Spots({ spots, setSpot }) {
+  const [filterValue, setFilterValue] = useState("all");
+
   function deleteSpot(id) {
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);
@@ -26,51 +28,15 @@ export default function Spots({ spots, setSpot }) {
     setSpot(newSpotArray);
   }
 
-  const [currentFilter, setCurrentFilter] = useState("all");
-
-  function filterSpots(currentFilter) {
-    switch (currentFilter) {
-      case "all":
-        return spots.filter((spot) => spot.category === "all");
-      case "Spielplatz":
-      case "Indoor Spielplatz":
-      case "Spielen":
-      case "Sport":
-      case "Sportplatz":
-      case "Sporthalle":
-      case "Sportkurs":
-      case "Klettern":
-      case "Skaten":
-      case "Wintersport":
-      case "Schwimmbad":
-      case "Freibad":
-      case "Badesee":
-      case "Strand & Meer":
-      case "Park":
-      case "Wald":
-      case "Kultur":
-      case "Musik":
-      case "Kunst":
-      case "Zirkus":
-      case "Basteln":
-      case "Essen & Trinken":
-      case "Übernachtung":
-      case "Freizeitpark":
-      case "Jahrmarkt":
-      case "Zoo":
-      case "Tiere":
-      case "Bauernhof":
-      case "Ponyreiten":
-      case "Sonstiger Spot":
-        return spots.filter((spot) => spot.category === currentFilter);
-      case "all":
-      default:
-        return spots;
-    }
+  function handleCategorySelect(event) {
+    const filterValue = event.target.value === "" ? "all" : event.target.value;
+    setFilterValue(filterValue);
   }
 
-  function handleCategorySelect(event) {
-    setCurrentFilter(event.target.value);
+  function filterSpots(spots) {
+    return filterValue === "all"
+      ? spots
+      : spots.filter((spot) => spot.category === filterValue);
   }
 
   return (
@@ -79,7 +45,7 @@ export default function Spots({ spots, setSpot }) {
       <SpotFilter handleChange={handleCategorySelect} />
       <StyledSpotsPage>
         <SpotList>
-          {spots
+          {filterSpots(spots)
             .slice()
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((spot) => (
@@ -103,7 +69,7 @@ const SpotList = styled.ul`
 `;
 
 const StyledSpotsPage = styled.div`
-  margin: 20px 0 30px 0;
+  margin: 70px 0 30px 0;
 `;
 
 export { StyledSpotsPage, SpotList };
