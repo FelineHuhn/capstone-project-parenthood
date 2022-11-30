@@ -45,7 +45,7 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.nav`
-  background-color: #4d5b5b;
+  background-image: linear-gradient(to right, #2f3737 0%, #4d5b5b 100%);
   padding: 8px;
   position: fixed;
   bottom: 0;

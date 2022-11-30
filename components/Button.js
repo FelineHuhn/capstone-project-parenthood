@@ -13,7 +13,7 @@ const DefaultButton = styled.button`
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   border-radius: 3px;
-  background-color: oldlace;
+  background-color: white;
 
   &:hover {
     background-color: lightgrey;
@@ -32,6 +32,7 @@ const DefaultButton = styled.button`
     css`
       font-weight: 600;
       font-size: 16px;
+      margin-top: 20px;
     `}
 
     ${({ variant }) =>
@@ -54,10 +55,10 @@ const DefaultButton = styled.button`
     ${({ variant }) =>
     variant === "favorite" &&
     css`
-      background-color: transparent;
+      background: none;
+      border: none;
       box-shadow: none;
-      margin-top: -5px;
-      margin-right: -10px;
+      
 
       &:hover {
     background-color: transparent;

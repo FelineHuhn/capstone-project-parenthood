@@ -17,6 +17,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
 
   return (
     <DetailsSection>
+      <h2>Details</h2>
       <h3>Adresse:</h3>
       <DetailsSubList>
         <AddresseLink
