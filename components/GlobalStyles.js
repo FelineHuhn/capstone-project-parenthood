@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
         background-color: var(--fourth-color);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         z-index: 0;
+        
     }
 
     * {

@@ -58,12 +58,13 @@ export default function SpotCard({
             <Button
               type="button"
               variant="details"
+              name="detailsbutton"
               onClick={() => {
                 setIsShown((prevState) => !prevState);
               }}
             >
               {isShown ? (
-                <DetailsIcon
+                <DetailsButtonIcon
                   xmlns="http://www.w3.org/2000/svg"
                   height="40px"
                   viewBox="0 0 24 24"
@@ -72,9 +73,9 @@ export default function SpotCard({
                 >
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                </DetailsIcon>
+                </DetailsButtonIcon>
               ) : (
-                <ButtonText>Details ▾</ButtonText>
+                <DetailsButtonText>Details ▾</DetailsButtonText>
               )}
             </Button>
           </ButtonStyling>
@@ -123,6 +124,9 @@ const SpotImage = styled(Image)`
   width: 45%;
   height: 45%;
   border-radius: 5px;
+  filter: drop-shadow(1px 1px 2px rgb(0 0 0 / 0.8));
+  position: relative;
+  z-index: 10;
 `;
 
 const SpotInfos = styled.article`
@@ -163,13 +167,13 @@ const ButtonStyling = styled.div`
   margin: 6px 0 0 78px;
 `;
 
-const ButtonText = styled.p`
+const DetailsButtonText = styled.p`
   margin-top: 35px;
   color: #696159;
-  font-size: 18px;
+  font-size: 16px;
   box-shadow: 0px 14px 5px -15px #111;
 `;
 
-const DetailsIcon = styled.svg`
+const DetailsButtonIcon = styled.svg`
   margin-top: 15px;
 `;

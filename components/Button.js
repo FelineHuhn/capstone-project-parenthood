@@ -13,17 +13,23 @@ const DefaultButton = styled.button`
   border-radius: 3px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: var(--fourth-color);
+  font-size: 16px;
 
   &:hover {
-    background-color: lightgrey;
+    cursor: pointer;
   }
 
   ${({ variant }) =>
     variant === "cancel" &&
     css`
       margin: 10px;
-      font-weight: 600;
-      align-self: flex-end;
+      font-size: 16px;
+      color: var(--primary-color);
+
+      :hover {
+        background-color: lightgrey;
+      }
     `}
 
   ${({ variant }) =>
@@ -35,10 +41,11 @@ const DefaultButton = styled.button`
       box-shadow: none;
       
       border-bottom: #111;
-      color: var(--first-font-color);
+      color: var(--second-font-color);
 
       &:hover {
     background-color: transparent;
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
 
     `}
 
@@ -49,6 +56,19 @@ const DefaultButton = styled.button`
       font-size: 16px;
       margin: auto;
       margin-top: 10px;
+    `}
+
+    ${({ variant }) =>
+    variant === "delete" &&
+    css`
+      font-weight: 600;
+      font-size: 16px;
+      background-color: transparent;
+      box-shadow: none;
+
+      :hover {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+      }
     `}
 
     ${({ variant }) =>

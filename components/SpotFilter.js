@@ -38,7 +38,7 @@ export default function SpotFilter({ handleChange }) {
 }
 
 const FilterSection = styled.section`
-  margin-top: 60px;
+  margin-top: 70px;
   padding: 0 15px 5px 5px;
   z-index: 90;
   width: 375px;
@@ -52,6 +52,7 @@ const FilterLabel = styled.label`
   color: var(--first-font-color);
   padding-top: 2px;
   font-weight: 300;
+  font-size: 17px;
 `;
 
 const StyledFilterIcon = styled.div`
@@ -62,7 +63,9 @@ const FilterSelect = styled.select`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: dimgray;
-  border: 1px solid dimgray;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 4px;
   font-weight: 300;
+  font-size: 16px;
 `;

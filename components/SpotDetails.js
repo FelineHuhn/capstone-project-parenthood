@@ -16,29 +16,39 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
   }
 
   return (
-    <DetailsSection>
-      <h2>Details</h2>
-      <h3>Adresse:</h3>
-      <DetailsSubList>
+    <SpotDetailsSection>
+      <DetailsHeadline>Details zum Spot</DetailsHeadline>
+      <DetailTitle>Adresse:</DetailTitle>
+      <div>
+        <AddresseIcon
+          xmlns="http://www.w3.org/2000/svg"
+          height="15px"
+          viewBox="0 0 24 24"
+          width="15px"
+          fill="#596969"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+        </AddresseIcon>
         <AddresseLink
           href={`https://www.google.com/maps/place/${spot?.addresse}`}
         >
           {spot?.addresse}
         </AddresseLink>
-      </DetailsSubList>
-      <h3>Wetterempfehlung:</h3>
+      </div>
+      <DetailTitle>Wetterempfehlung:</DetailTitle>
       <DetailsSubList>
         {spot?.weathersuggestion?.map((weather) => {
           return <li key={nanoid()}>{weather}</li>;
         })}
       </DetailsSubList>
-      <h3>Altersempfehlung:</h3>
+      <DetailTitle>Altersempfehlung:</DetailTitle>
       <DetailsSubList>
         {spot?.agesuggestion?.map((age) => {
           return <li key={nanoid()}>{age}</li>;
         })}
       </DetailsSubList>
-      <h3>Tags:</h3>
+      <DetailTitle>Tags:</DetailTitle>
       <DetailsSubList>
         {(spot?.tags.length === 1) & (spot?.tags[0] === "") ? (
           <li key={nanoid()}>#ParentHood</li>
@@ -48,7 +58,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
           })
         )}{" "}
       </DetailsSubList>
-      <h3>Weitere Infos:</h3>
+      <DetailTitle>Weitere Infos:</DetailTitle>
       {spot?.information.length > 1 ? (
         <DetailsParagraph>{spot?.information}</DetailsParagraph>
       ) : (
@@ -86,10 +96,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             enableBackground="new 0 0 24 24"
-            height="30px"
+            height="32px"
             viewBox="0 0 24 24"
-            width="30px"
-            fill="#4d5b5b"
+            width="32px"
+            fill="#fb752d"
           >
             <g>
               <rect fill="none" height="24" width="24" y="0" />
@@ -104,22 +114,24 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
           </svg>
         </EditButton>
 
-        <DeleteButton
+        <Button
+          type={"button"}
+          variant={"delete"}
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="30px"
+            height="32px"
             viewBox="0 0 24 24"
-            width="30px"
-            fill="#4d5b5b"
+            width="32px"
+            fill="#fb752d"
           >
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
           </svg>
-        </DeleteButton>
+        </Button>
       </ButtonStyling>
       {isShownForm && (
         <SpotForm
@@ -130,14 +142,41 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
           editSpot={editSpot}
         />
       )}
-    </DetailsSection>
+    </SpotDetailsSection>
   );
 }
 
-const DetailsSection = styled.section`
+const SpotDetailsSection = styled.section`
   width: 100%;
   padding: 10px;
   font-size: 14px;
+`;
+
+const DetailsHeadline = styled.h2`
+  text-align: center;
+  color: var(--third-color);
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: 0.5px 0.5px 1px lightgray;
+`;
+
+const DetailTitle = styled.h3`
+  color: var(--secondary-color);
+`;
+
+const AddresseIcon = styled.svg`
+  margin-right: 5px;
+`;
+
+const AddresseLink = styled(Link)`
+  color: var(--first-font-color);
+  font-size: 16px;
+  text-decoration: none;
+
+  :hover {
+    cursor: pointer;
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
+  }
 `;
 
 const DetailsSubList = styled.ul`
@@ -145,17 +184,15 @@ const DetailsSubList = styled.ul`
   padding: 5px;
   list-style: none;
   padding: 0 10px 0 10px;
+  color: var(--first-font-color);
 `;
 
 const DetailsParagraph = styled.p`
   text-align: justify;
   padding: 0 10px 0 10px;
   word-break: break-all;
-`;
-
-const AddresseLink = styled(Link)`
-  color: darkgreen;
-  cursor: pointer;
+  color: var(--first-font-color);
+  font-size: 16px;
 `;
 
 const DeleteModal = styled.div`
@@ -189,20 +226,20 @@ const ButtonStyling = styled.div`
   justify-content: right;
 `;
 
-const DeleteButton = styled.div`
-  padding: 3px;
-  margin: 5px;
+// const DeleteButton = styled.div`
+//   padding: 3px;
+//   margin: 5px;
 
-  &:hover {
-    background-color: lightgrey;
-  }
-`;
+//   &:hover {
+//     background-color: lightgrey;
+//   }
+// `;
 
 const EditButton = styled(Link)`
   padding: 3px;
   margin: 5px;
 
   &:hover {
-    background-color: lightgrey;
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
   }
 `;

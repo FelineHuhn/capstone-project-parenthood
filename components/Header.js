@@ -20,6 +20,7 @@ const StyledHeader = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
+  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.8));
 `;
