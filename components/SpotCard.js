@@ -53,7 +53,7 @@ export default function SpotCard({
             </Button>
           </div>
           <SpotCategory>{spot.category}</SpotCategory>
-          <SpotName>"{spot.name}"</SpotName>
+          <SpotName>{spot.name}</SpotName>
           <ButtonStyling>
             <Button
               type="button"
@@ -157,8 +157,9 @@ const SpotCategory = styled.h2`
 const SpotName = styled.p`
   color: var(--first-font-color);
   filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
-  font-size: 16px;
+  font-size: 17px;
   margin-top: -5px;
+  font-family: "ComingSoon";
 `;
 
 const ButtonStyling = styled.div`

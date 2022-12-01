@@ -2,12 +2,27 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
+@font-face {
+    font-family: "AmaticSC-Regular";
+    src: url("/fonts/AmaticSC-Regular.ttf");
+}
+
+@font-face {
+    font-family: "AmaticSC-Bold";
+    src: url("/fonts/AmaticSC-Bold.ttf");
+}
+
+@font-face {
+    font-family: "ComingSoon";
+    src: url("/fonts/ComingSoon-Regular.ttf");
+}
+
     html,
     body {
         padding: 0;
         margin: 0;
         background-color: var(--fourth-color);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "AmaticSC-Regular", "AmaticSC-Bold", "ComingSoon";
 
         z-index: 0;
         
