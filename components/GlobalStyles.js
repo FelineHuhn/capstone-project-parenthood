@@ -1,12 +1,19 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+
+@font-face {
+    font-family: 'Amatic SC';
+    src: local('Amatic SC'), url("../assets/fonts/Amatic_SC") format("truetype");
+       
+}
+
     html,
     body {
         padding: 0;
         margin: 0;
         background-color: var(--fourth-color);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-family: 'Amatic SC';
         z-index: 0;
         
     }

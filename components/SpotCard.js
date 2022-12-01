@@ -156,6 +156,7 @@ const SpotCategory = styled.h2`
 
 const SpotName = styled.p`
   color: var(--first-font-color);
+  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
   font-size: 16px;
   margin-top: -5px;
 `;
