@@ -65,15 +65,15 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         <DetailsParagraph>Keine</DetailsParagraph>
       )}
       {isShownModal && (
-        <Background>
+        <ModalBackground>
           <DeleteModal>
-            <h3>
-              Bist du dir sicher, dass du diesen Spot wirklich LÖSCHEN möchtest?
-            </h3>
+            <ModalMessage>
+              Möchtest du diesen Spot wirklich LÖSCHEN?{" "}
+            </ModalMessage>
             <ModalButtons>
               <Button
                 type="button"
-                variant="deletemodal"
+                variant="deletemodal-cancel"
                 onClick={() => {
                   setIsShownModal((prevState) => !prevState);
                 }}
@@ -82,14 +82,14 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
               </Button>
               <Button
                 type="button"
-                variant="deletemodal"
+                variant="deletemodal-delete"
                 onClick={() => deleteSpot(spot.id)}
               >
                 Löschen
               </Button>
             </ModalButtons>
           </DeleteModal>
-        </Background>
+        </ModalBackground>
       )}
       <ButtonStyling>
         <EditButton href={{ pathname: `/edit`, query: { id: spot.id } }}>
@@ -197,23 +197,21 @@ const DetailsParagraph = styled.p`
 
 const DeleteModal = styled.div`
   background-color: white;
-  padding: 15px;
-  text-align: center;
+  color: var(--first-font-color);
+  padding: 10px;
   height: 140px;
   position: absolute;
   position: fixed;
   top: 50%;
-  left: 5%;
-  right: 5%;
+  left: 10%;
+  right: 10%;
+  border-radius: 7px;
 `;
 
-const Background = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+const ModalMessage = styled.h3`
+  padding: 0 10px 0 10px;
+  text-align: center;
+  margin-bottom: 25px;
 `;
 
 const ModalButtons = styled.div`
@@ -221,19 +219,20 @@ const ModalButtons = styled.div`
   justify-content: space-around;
 `;
 
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+`;
+
 const ButtonStyling = styled.div`
   display: flex;
   justify-content: right;
 `;
-
-// const DeleteButton = styled.div`
-//   padding: 3px;
-//   margin: 5px;
-
-//   &:hover {
-//     background-color: lightgrey;
-//   }
-// `;
 
 const EditButton = styled(Link)`
   padding: 3px;

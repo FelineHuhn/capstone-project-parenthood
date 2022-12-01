@@ -72,11 +72,27 @@ const DefaultButton = styled.button`
     `}
 
     ${({ variant }) =>
-    variant === "deletemodal" &&
+    variant === "deletemodal-cancel" &&
     css`
       font-weight: 600;
       font-size: 16px;
-      background-color: oldlace;
+
+      :hover {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+        background-color: lightgrey;
+      }
+    `}
+
+    ${({ variant }) =>
+    variant === "deletemodal-delete" &&
+    css`
+      font-weight: 500;
+      font-size: 16px;
+
+      :hover {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+        background-color: lightgrey;
+      }
     `}
 
     ${({ variant }) =>

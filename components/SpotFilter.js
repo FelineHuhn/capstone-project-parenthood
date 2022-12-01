@@ -46,6 +46,7 @@ const FilterSection = styled.section`
   display: flex;
   justify-content: right;
   padding-top: 5px;
+  z-index: 10;
 `;
 
 const FilterLabel = styled.label`
