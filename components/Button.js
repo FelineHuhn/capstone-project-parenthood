@@ -10,10 +10,9 @@ export function Button({ type, variant, onClick, children }) {
 
 const DefaultButton = styled.button`
   border: none;
+  border-radius: 3px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 3px;
-  background-color: white;
 
   &:hover {
     background-color: lightgrey;
@@ -30,9 +29,17 @@ const DefaultButton = styled.button`
   ${({ variant }) =>
     variant === "details" &&
     css`
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 20px;
+      padding: 0;
+      height: 60px;
+      background-color: transparent;
+      box-shadow: none;
+      
+      border-bottom: #111;
+      color: var(--first-font-color);
+
+      &:hover {
+    background-color: transparent;
+
     `}
 
     ${({ variant }) =>

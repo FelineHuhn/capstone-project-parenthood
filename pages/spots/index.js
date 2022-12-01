@@ -69,7 +69,7 @@ const SpotList = styled.ul`
 `;
 
 const StyledSpotsPage = styled.div`
-  margin: 70px 0 30px 0;
+  margin-bottom: 30px;
 `;
 
 export { StyledSpotsPage, SpotList };
