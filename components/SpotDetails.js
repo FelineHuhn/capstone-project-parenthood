@@ -237,8 +237,11 @@ const ButtonStyling = styled.div`
 const EditButton = styled(Link)`
   padding: 3px;
   margin: 5px;
+  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+  position: relative;
+  z-index: 10;
 
-  &:hover {
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+  :hover  {
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
   }
 `;

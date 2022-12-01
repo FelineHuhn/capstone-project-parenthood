@@ -44,7 +44,7 @@ export default function EditSpot({ spots, setSpot }) {
 
   return (
     <>
-      <Header>ParentHood Spot bearbeiten</Header>
+      <Header>Spot bearbeiten</Header>
       <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />
     </>
   );

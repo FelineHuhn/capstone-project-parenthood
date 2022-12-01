@@ -25,7 +25,7 @@ const DefaultButton = styled.button`
     css`
       margin: 10px;
       font-size: 16px;
-      color: var(--primary-color);
+      color: var(--secondary-color);
 
       :hover {
         background-color: lightgrey;
@@ -54,8 +54,14 @@ const DefaultButton = styled.button`
     css`
       font-weight: 600;
       font-size: 16px;
+      padding: 5px;
       margin: auto;
-      margin-top: 10px;
+      margin-top: 20px;
+      color: var(--secondary-color);
+
+      :hover {
+        background-color: lightgrey;
+      }
     `}
 
     ${({ variant }) =>
@@ -65,9 +71,12 @@ const DefaultButton = styled.button`
       font-size: 16px;
       background-color: transparent;
       box-shadow: none;
+      filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+      position: relative;
+      z-index: 10;
 
-      :hover {
-        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+      :hover  {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
       }
     `}
 

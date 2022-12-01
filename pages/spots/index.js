@@ -41,7 +41,7 @@ export default function Spots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>ParentHood Spots</Header>
+      <Header>Spots</Header>
       <SpotFilter handleChange={handleCategorySelect} />
       <StyledSpotsPage>
         <SpotList>

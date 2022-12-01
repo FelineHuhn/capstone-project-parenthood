@@ -98,7 +98,7 @@ export default function SpotCard({
               setIsShown((prevState) => !prevState);
             }}
           >
-            Schließen
+            <ClosingButtonText>Schließen</ClosingButtonText>
           </Button>
         </>
       )}
@@ -176,4 +176,10 @@ const DetailsButtonText = styled.p`
 
 const DetailsButtonIcon = styled.svg`
   margin-top: 15px;
+`;
+
+const ClosingButtonText = styled.p`
+  color: var(--second-font-color);
+  margin: 1px;
+  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
 `;

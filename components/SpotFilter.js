@@ -39,13 +39,12 @@ export default function SpotFilter({ handleChange }) {
 
 const FilterSection = styled.section`
   margin-top: 70px;
-  padding: 0 15px 5px 5px;
+  padding: 5px 15px 5px 5px;
   z-index: 90;
   width: 375px;
   height: 33px;
   display: flex;
   justify-content: right;
-  padding-top: 5px;
   z-index: 10;
 `;
 
@@ -54,10 +53,12 @@ const FilterLabel = styled.label`
   padding-top: 2px;
   font-weight: 300;
   font-size: 17px;
+  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
 `;
 
 const StyledFilterIcon = styled.div`
   padding-top: 2px;
+  margin-right: 5px;
 `;
 
 const FilterSelect = styled.select`
@@ -69,4 +70,5 @@ const FilterSelect = styled.select`
   border-radius: 4px;
   font-weight: 300;
   font-size: 16px;
+  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
 `;
