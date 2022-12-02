@@ -146,18 +146,15 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const SpotDetailsSection = styled.section`
   width: 100%;
   padding: 10px;
-  font-size: 14px;
 `;
 
 const DetailsHeadline = styled.h2`
   text-align: center;
   color: var(--third-color);
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
   text-shadow: 0.5px 0.5px 1px lightgray;
 `;
@@ -172,17 +169,15 @@ const AddresseIcon = styled.svg`
 
 const AddresseLink = styled(Link)`
   color: var(--first-font-color);
-  font-size: 16px;
   text-decoration: none;
 
   :hover {
     cursor: pointer;
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
+    filter: var(--third-dropshadow);
   }
 `;
 
 const DetailsSubList = styled.ul`
-  font-size: 16px;
   padding: 5px;
   list-style: none;
   padding: 0 10px 0 10px;
@@ -191,18 +186,16 @@ const DetailsSubList = styled.ul`
 
 const DetailsParagraph = styled.p`
   text-align: justify;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   word-break: break-all;
   color: var(--first-font-color);
-  font-size: 16px;
 `;
 
 const DeleteModal = styled.div`
-  background-color: white;
+  background-color: #ffffff;
   color: var(--first-font-color);
   padding: 10px;
   height: 140px;
-  position: absolute;
   position: fixed;
   top: 50%;
   left: 10%;
@@ -211,7 +204,7 @@ const DeleteModal = styled.div`
 `;
 
 const ModalMessage = styled.h3`
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   text-align: center;
   margin-bottom: 25px;
 `;
@@ -239,11 +232,9 @@ const ButtonStyling = styled.div`
 const EditButton = styled(Link)`
   padding: 3px;
   margin: 5px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
-  position: relative;
-  z-index: 10;
+  filter: var(--primary-dropshadow);
 
   :hover  {
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+    filter: var(--secondary-dropshadow);
   }
 `;

@@ -1,8 +1,12 @@
 import { nanoid } from "nanoid";
 import SpotForm from "../../components/SpotForm";
-import Header from "../../components/Header";
+import { useEffect } from "react";
 
-export default function CreateSpot({ setSpot }) {
+export default function CreateSpot({ setSpot, setTitle }) {
+  useEffect(() => {
+    setTitle("Spot erstellen");
+  });
+
   function addSpot(
     category,
     name,
@@ -30,7 +34,6 @@ export default function CreateSpot({ setSpot }) {
 
   return (
     <>
-      <Header>Spot erstellen</Header>
       <SpotForm addSpot={addSpot} />
     </>
   );

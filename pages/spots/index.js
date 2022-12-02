@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
-import Header from "../../components/Header";
 import SpotFilter from "../../components/SpotFilter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Spots({ spots, setSpot }) {
+export default function Spots({ spots, setSpot, setTitle }) {
   const [filterValue, setFilterValue] = useState("all");
+
+  useEffect(() => {
+    setTitle("Spots");
+  });
 
   function deleteSpot(id) {
     setSpot((spots) => {
@@ -41,9 +44,8 @@ export default function Spots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>Spots</Header>
       <SpotFilter handleChange={handleCategorySelect} />
-      <StyledSpotsPage>
+      <StyledSpotsSection>
         <SpotList>
           {filterSpots(spots)
             .slice()
@@ -57,7 +59,7 @@ export default function Spots({ spots, setSpot }) {
               />
             ))}
         </SpotList>
-      </StyledSpotsPage>
+      </StyledSpotsSection>
     </>
   );
 }
@@ -68,8 +70,8 @@ const SpotList = styled.ul`
   padding: 0;
 `;
 
-const StyledSpotsPage = styled.div`
+const StyledSpotsSection = styled.section`
   margin-bottom: 30px;
 `;
 
-export { StyledSpotsPage, SpotList };
+export { StyledSpotsSection, SpotList };

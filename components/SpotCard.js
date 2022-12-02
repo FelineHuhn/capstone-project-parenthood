@@ -108,10 +108,8 @@ export default function SpotCard({
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const Card = styled.li`
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 10px;
@@ -129,8 +127,6 @@ const SpotImage = styled(Image)`
   height: 47%;
   border-radius: 5px;
   filter: drop-shadow(1px 1px 2px rgb(0 0 0 / 0.8));
-  position: relative;
-  z-index: 10;
 `;
 
 const SpotInfos = styled.article`
@@ -139,22 +135,20 @@ const SpotInfos = styled.article`
   text-align: right;
   justify-content: space-between;
   width: 50%;
-  overflow-wrap: break-word;
+  overflow-wrap: normal;
 `;
 
 const FavoriteIcon = styled.svg`
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
-  position: relative;
-  z-index: 10;
+  filter: var(--primary-dropshadow);
 
   :hover  {
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+    filter: var(--secondary-dropshadow);
   }
 `;
 
 const SpotCategory = styled.h2`
   color: var(--third-color);
-  font-size: 19px;
+  font-size: 1.2rem;
   font-weight: 500;
   text-shadow: 0.5px 0.5px 1.5px lightgray;
   margin-bottom: -5px;
@@ -162,17 +156,17 @@ const SpotCategory = styled.h2`
 
 const SpotName = styled.p`
   color: var(--first-font-color);
-  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
-  font-size: 17px;
+  filter: var(--fourth-dropshadow);
+  font-size: 1.1rem;
   font-family: "ComingSoon";
 `;
 
 const DetailsButtonText = styled.div`
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
+  filter: var(--third-dropshadow);
 `;
 
 const ClosingButtonText = styled.p`
   color: var(--second-font-color);
   margin: 1px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
+  filter: var(--third-dropshadow);
 `;

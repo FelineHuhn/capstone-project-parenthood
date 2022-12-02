@@ -263,8 +263,6 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const FormSection = styled.section`
   width: 300px;
   margin: 80px 0 60px 0;
@@ -277,12 +275,12 @@ const BackSVG = styled.svg`
 
   &:hover {
     background-color: transparent;
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+    filter: var(--primary-dropshadow);
   }
 `;
 
 const Form = styled.form`
-  background-color: white;
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   padding: 20px;
@@ -293,13 +291,12 @@ const Form = styled.form`
 
 const FormCheckbox = styled.fieldset`
   padding: 10px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid black;
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const CheckboxLegend = styled.legend`
@@ -317,18 +314,18 @@ const FormInputLabel = styled.label`
 
 const FormInput = styled.input`
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const FormSelect = styled.select`
   font-family: "Poppins-Light";
-  color: #787878;
+  color: var(--primary-color);
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const SubmitButtonText = styled.p`
   color: var(--second-font-color);
   margin: 1px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
+  filter: var(--third-dropshadow);
 `;

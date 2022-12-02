@@ -1,8 +1,8 @@
 import SpotForm from "../../components/SpotForm";
 import { useRouter } from "next/router";
-import Header from "../../components/Header";
+import { useEffect } from "react";
 
-export default function EditSpot({ spots, setSpot }) {
+export default function EditSpot({ spots, setSpot, setTitle }) {
   const router = useRouter();
   const id = router.query.id;
 
@@ -42,9 +42,12 @@ export default function EditSpot({ spots, setSpot }) {
     setSpot(newSpotsList);
   }
 
+  useEffect(() => {
+    setTitle("Spot bearbeiten");
+  });
+
   return (
     <>
-      <Header>Spot bearbeiten</Header>
       <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />
     </>
   );

@@ -1,10 +1,11 @@
 import Footer from "./Footer";
-
+import Header from "./Header";
 import styled from "styled-components";
 
-export default function Layout({ children }) {
+export default function Layout({ title, children }) {
   return (
     <>
+      <Header title={title} />
       <StyledMain>{children}</StyledMain>
       <Footer />
     </>

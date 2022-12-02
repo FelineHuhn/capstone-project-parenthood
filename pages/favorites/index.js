@@ -1,9 +1,13 @@
 import styled from "styled-components";
-import Header from "../../components/Header";
 import SpotCard from "../../components/SpotCard";
 import { SpotList } from "../spots";
+import { useEffect } from "react";
 
-export default function FavoriteSpots({ spots, setSpot }) {
+export default function FavoriteSpots({ spots, setSpot, setTitle }) {
+  useEffect(() => {
+    setTitle("Lieblings-Spots");
+  });
+
   function deleteSpot(id) {
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);
@@ -27,8 +31,7 @@ export default function FavoriteSpots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>Lieblings-Spots</Header>
-      <StyledFavoritesPage>
+      <StyledFavoritesSection>
         <SpotList>
           {spots?.map((spot) => {
             if (spot.isFavorite === true) {
@@ -45,11 +48,11 @@ export default function FavoriteSpots({ spots, setSpot }) {
             }
           })}
         </SpotList>
-      </StyledFavoritesPage>
+      </StyledFavoritesSection>
     </>
   );
 }
 
-const StyledFavoritesPage = styled.div`
+const StyledFavoritesSection = styled.section`
   margin: 60px 0 30px 0;
 `;

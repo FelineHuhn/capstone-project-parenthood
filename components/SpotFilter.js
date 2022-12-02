@@ -37,25 +37,20 @@ export default function SpotFilter({ handleChange }) {
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const FilterSection = styled.section`
   margin-top: 70px;
-  padding: 5px 15px 5px 5px;
-  z-index: 90;
+  padding: 8px 15px 5px 5px;
   width: 375px;
   height: 33px;
   display: flex;
   justify-content: right;
-  z-index: 10;
 `;
 
 const FilterLabel = styled.label`
   color: var(--first-font-color);
-  padding-top: 2px;
   font-weight: 300;
-  font-size: 17px;
-  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
+  font-size: 1.1rem;
+  filter: var(--fourth-dropshadow);
 `;
 
 const StyledFilterIcon = styled.div`
@@ -64,13 +59,12 @@ const StyledFilterIcon = styled.div`
 `;
 
 const FilterSelect = styled.select`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: dimgray;
+  font-family: "Poppins-Light";
+  color: #787878;
   border: none;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 4px;
   font-weight: 300;
-  font-size: 16px;
-  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
+  font-size: 1rem;
+  filter: var(--fourth-dropshadow);
 `;
