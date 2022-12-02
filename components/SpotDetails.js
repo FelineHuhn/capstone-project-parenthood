@@ -119,7 +119,7 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </EditButton>
 
         <Button
-          type={"button"}
+          type="button"
           variant={"delete"}
           name="delete button"
           onClick={() => {
