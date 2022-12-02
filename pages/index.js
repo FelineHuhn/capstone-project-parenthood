@@ -1,9 +1,10 @@
-import Spots from "./spots";
+import Image from "next/image";
 
-export default function Home({ spots, setSpot }) {
+export default function Home() {
   return (
     <>
-      <Spots spots={spots} setSpot={setSpot} />
+      <h1>Hallo</h1>
+      <Image src />
     </>
   );
 }

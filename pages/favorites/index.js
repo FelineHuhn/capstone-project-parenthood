@@ -47,6 +47,13 @@ export default function FavoriteSpots({ spots, setSpot, setTitle }) {
               return null;
             }
           })}
+          {!spots.find((spot) => spot.isFavorite === true) ? (
+            <PlaceholderText>
+              Du hast noch keine Lieblings-Spots ausgewählt.
+            </PlaceholderText>
+          ) : (
+            ""
+          )}
         </SpotList>
       </StyledFavoritesSection>
     </>
@@ -55,4 +62,9 @@ export default function FavoriteSpots({ spots, setSpot, setTitle }) {
 
 const StyledFavoritesSection = styled.section`
   margin: 60px 0 30px 0;
+`;
+
+const PlaceholderText = styled.p`
+  padding: 50px;
+  text-align: center;
 `;

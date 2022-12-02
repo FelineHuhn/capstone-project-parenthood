@@ -58,6 +58,11 @@ export default function Spots({ spots, setSpot, setTitle }) {
                 toggleFavorite={toggleFavorite}
               />
             ))}
+          {filterSpots(spots).length === 0 ? (
+            <PlaceholderText>
+              Es gibt noch keine Spots zu dieser Kategorie
+            </PlaceholderText>
+          ) : null}
         </SpotList>
       </StyledSpotsSection>
     </>
@@ -72,6 +77,11 @@ const SpotList = styled.ul`
 
 const StyledSpotsSection = styled.section`
   margin-bottom: 30px;
+`;
+
+const PlaceholderText = styled.p`
+  padding: 50px;
+  text-align: center;
 `;
 
 export { StyledSpotsSection, SpotList };
