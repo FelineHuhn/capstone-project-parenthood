@@ -15,6 +15,7 @@ const DefaultButton = styled.button`
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   background-color: var(--fourth-color);
   font-size: 16px;
+  font-family: "Poppins-Light";
 
   &:hover {
     cursor: pointer;
@@ -25,42 +26,38 @@ const DefaultButton = styled.button`
     css`
       margin: 10px;
       font-size: 16px;
-      color: var(--secondary-color);
+      color: var(--second-font-color);
 
       :hover {
-        background-color: lightgrey;
+        background-color: #e6e6e6;
       }
     `}
 
   ${({ variant }) =>
     variant === "details" &&
     css`
-      padding: 0;
-      height: 60px;
-      background-color: transparent;
-      box-shadow: none;
-      
-      border-bottom: #111;
+      height: 37px;
+      width: 80px;
       color: var(--second-font-color);
-
+      
       &:hover {
-    background-color: transparent;
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+        background-color: #e6e6e6;
 
     `}
 
     ${({ variant }) =>
     variant === "submit" &&
     css`
-      font-weight: 600;
+      font-weight: 400;
       font-size: 16px;
-      padding: 5px;
+      padding: 3px;
       margin: auto;
       margin-top: 20px;
+      border-radius: 7px;
       color: var(--secondary-color);
 
       :hover {
-        background-color: lightgrey;
+        background-color: #e6e6e6;
       }
     `}
 

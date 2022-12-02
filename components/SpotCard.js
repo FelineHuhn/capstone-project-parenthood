@@ -52,9 +52,11 @@ export default function SpotCard({
               )}
             </Button>
           </div>
-          <SpotCategory>{spot.category}</SpotCategory>
-          <SpotName>{spot.name}</SpotName>
-          <ButtonStyling>
+          <div>
+            <SpotCategory>{spot.category}</SpotCategory>
+            <SpotName>{spot.name}</SpotName>
+          </div>
+          <div>
             <Button
               type="button"
               variant="details"
@@ -64,21 +66,21 @@ export default function SpotCard({
               }}
             >
               {isShown ? (
-                <DetailsButtonIcon
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  height="40px"
-                  viewBox="0 0 24 24"
-                  width="40px"
+                  height="30px"
+                  viewBox="0 0 25 20"
+                  width="30px"
                   fill="#696159"
                 >
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-                </DetailsButtonIcon>
+                </svg>
               ) : (
                 <DetailsButtonText>Details ▾</DetailsButtonText>
               )}
             </Button>
-          </ButtonStyling>
+          </div>
         </SpotInfos>
       </CardStyling>
 
@@ -106,6 +108,8 @@ export default function SpotCard({
   );
 }
 
+/* ↓↓ Styling ↓↓ */
+
 const Card = styled.li`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
@@ -121,8 +125,8 @@ const CardStyling = styled.div`
 `;
 
 const SpotImage = styled(Image)`
-  width: 45%;
-  height: 45%;
+  width: 47%;
+  height: 47%;
   border-radius: 5px;
   filter: drop-shadow(1px 1px 2px rgb(0 0 0 / 0.8));
   position: relative;
@@ -133,6 +137,7 @@ const SpotInfos = styled.article`
   display: flex;
   flex-direction: column;
   text-align: right;
+  justify-content: space-between;
   width: 50%;
   overflow-wrap: break-word;
 `;
@@ -149,35 +154,21 @@ const FavoriteIcon = styled.svg`
 
 const SpotCategory = styled.h2`
   color: var(--third-color);
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 500;
   text-shadow: 0.5px 0.5px 1.5px lightgray;
+  margin-bottom: -5px;
 `;
 
 const SpotName = styled.p`
   color: var(--first-font-color);
   filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
   font-size: 17px;
-  margin-top: -5px;
   font-family: "ComingSoon";
 `;
 
-const ButtonStyling = styled.div`
-  width: 60%;
-  text-align: center;
-  box-shadow: 0px 14px 5px -15px #111;
-  margin: 6px 0 0 78px;
-`;
-
-const DetailsButtonText = styled.p`
-  margin-top: 35px;
-  color: #696159;
-  font-size: 16px;
-  box-shadow: 0px 14px 5px -15px #111;
-`;
-
-const DetailsButtonIcon = styled.svg`
-  margin-top: 15px;
+const DetailsButtonText = styled.div`
+  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
 `;
 
 const ClosingButtonText = styled.p`

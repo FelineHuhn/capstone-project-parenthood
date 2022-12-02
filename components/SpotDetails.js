@@ -146,6 +146,8 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
   );
 }
 
+/* ↓↓ Styling ↓↓ */
+
 const SpotDetailsSection = styled.section`
   width: 100%;
   padding: 10px;

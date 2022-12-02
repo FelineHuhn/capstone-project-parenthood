@@ -37,6 +37,8 @@ export default function SpotFilter({ handleChange }) {
   );
 }
 
+/* ↓↓ Styling ↓↓ */
+
 const FilterSection = styled.section`
   margin-top: 70px;
   padding: 5px 15px 5px 5px;

@@ -73,10 +73,10 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
       <Link href={`/`}>
         <BackSVG
           xmlns="http://www.w3.org/2000/svg"
-          height="24px"
+          height="26px"
           viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
+          width="26px"
+          fill="#4d5b5b"
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
@@ -263,9 +263,11 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   );
 }
 
+/* ↓↓ Styling ↓↓ */
+
 const FormSection = styled.section`
   width: 300px;
-  margin: 70px 0 60px 0;
+  margin: 80px 0 60px 0;
   color: var(--secondary-color);
 `;
 
@@ -319,10 +321,10 @@ const FormInput = styled.input`
 `;
 
 const FormSelect = styled.select`
+  font-family: "Poppins-Light";
+  color: #787878;
   border-radius: 4px;
   border: 0.5px solid darkslategray;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 `;
 
 const SubmitButtonText = styled.p`

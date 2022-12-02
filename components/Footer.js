@@ -95,14 +95,16 @@ export default function Footer() {
   );
 }
 
+/* ↓↓ Styling ↓↓ */
+
 const StyledFooter = styled.nav`
   background-image: linear-gradient(to right, #2f3737 0%, #4d5b5b 100%);
-  padding: 3px;
+  padding: 2px 20px 1px 30px;
   position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   z-index: 100;
 `;
