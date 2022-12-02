@@ -27,7 +27,7 @@ export default function FavoriteSpots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>Meine Lieblings-Spots</Header>
+      <Header>Lieblings-Spots</Header>
       <StyledFavoritesPage>
         <SpotList>
           {spots?.map((spot) => {

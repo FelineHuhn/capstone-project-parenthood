@@ -41,7 +41,7 @@ export default function Spots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>ParentHood Spots</Header>
+      <Header>Spots</Header>
       <SpotFilter handleChange={handleCategorySelect} />
       <StyledSpotsPage>
         <SpotList>
@@ -69,7 +69,7 @@ const SpotList = styled.ul`
 `;
 
 const StyledSpotsPage = styled.div`
-  margin: 70px 0 30px 0;
+  margin-bottom: 30px;
 `;
 
 export { StyledSpotsPage, SpotList };

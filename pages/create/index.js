@@ -30,7 +30,7 @@ export default function CreateSpot({ setSpot }) {
 
   return (
     <>
-      <Header>ParentHood Spot erstellen</Header>
+      <Header>Spot erstellen</Header>
       <SpotForm addSpot={addSpot} />
     </>
   );

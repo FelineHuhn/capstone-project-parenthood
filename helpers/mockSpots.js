@@ -77,7 +77,7 @@ export const spotsList = [
       "Kinder 3 - 6 Jahre",
       "Kinder 6 - 9 Jahre",
       "Kinder 9 - 12 Jahre",
-      "Teenager",
+      "Jugendliche",
     ],
     tags: ["ski", "snowboard", "schlitten"],
     information:
@@ -95,7 +95,7 @@ export const spotsList = [
       "Kinder 3 - 6 Jahre",
       "Kinder 6 - 9 Jahre",
       "Kinder 9 - 12 Jahre",
-      "Teenager",
+      "Jugendliche",
     ],
     tags: ["schwimmen", "sprungturm", "sommer", "abkühlung"],
     information:

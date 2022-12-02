@@ -10,54 +10,104 @@ export function Button({ type, variant, onClick, children }) {
 
 const DefaultButton = styled.button`
   border: none;
+  border-radius: 3px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  border-radius: 3px;
-  background-color: oldlace;
+  background-color: var(--fourth-color);
+  font-size: 16px;
+  font-family: "Poppins-Light";
 
   &:hover {
-    background-color: lightgrey;
+    cursor: pointer;
   }
 
   ${({ variant }) =>
     variant === "cancel" &&
     css`
       margin: 10px;
-      font-weight: 600;
-      align-self: flex-end;
+      font-size: 16px;
+      color: var(--second-font-color);
+
+      :hover {
+        background-color: #e6e6e6;
+      }
     `}
 
   ${({ variant }) =>
     variant === "details" &&
     css`
-      font-weight: 600;
-      font-size: 16px;
+      height: 37px;
+      width: 80px;
+      color: var(--second-font-color);
+      
+      &:hover {
+        background-color: #e6e6e6;
+
     `}
 
     ${({ variant }) =>
     variant === "submit" &&
     css`
-      font-weight: 600;
+      font-weight: 400;
       font-size: 16px;
+      padding: 3px;
       margin: auto;
-      margin-top: 10px;
+      margin-top: 20px;
+      border-radius: 7px;
+      color: var(--secondary-color);
+
+      :hover {
+        background-color: #e6e6e6;
+      }
     `}
 
     ${({ variant }) =>
-    variant === "deletemodal" &&
+    variant === "delete" &&
     css`
       font-weight: 600;
       font-size: 16px;
-      background-color: oldlace;
+      background-color: transparent;
+      box-shadow: none;
+      filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+      position: relative;
+      z-index: 10;
+
+      :hover  {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+      }
+    `}
+
+    ${({ variant }) =>
+    variant === "deletemodal-cancel" &&
+    css`
+      font-weight: 600;
+      font-size: 16px;
+
+      :hover {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+        background-color: lightgrey;
+      }
+    `}
+
+    ${({ variant }) =>
+    variant === "deletemodal-delete" &&
+    css`
+      font-weight: 500;
+      font-size: 16px;
+
+      :hover {
+        filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+        background-color: lightgrey;
+      }
     `}
 
     ${({ variant }) =>
     variant === "favorite" &&
     css`
-      background-color: transparent;
+      background: none;
+      border: none;
       box-shadow: none;
-      margin-top: -5px;
-      margin-right: -10px;
+      
 
       &:hover {
     background-color: transparent;

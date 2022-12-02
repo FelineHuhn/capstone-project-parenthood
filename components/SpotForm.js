@@ -69,22 +69,22 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   }
 
   return (
-    <CreateSection>
+    <FormSection>
       <Link href={`/`}>
         <BackSVG
           xmlns="http://www.w3.org/2000/svg"
-          height="24px"
+          height="26px"
           viewBox="0 0 24 24"
-          width="24px"
-          fill="#000000"
+          width="26px"
+          fill="#4d5b5b"
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
         </BackSVG>
       </Link>
-      <CreateForm onSubmit={handleSubmit}>
-        <FormLabels htmlFor="category">Kategorie*</FormLabels>
-        <select
+      <Form onSubmit={handleSubmit}>
+        <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
+        <FormSelect
           defaultValue={isEditMode ? spot?.category : null}
           id="category"
           name="category"
@@ -96,9 +96,9 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
               {optionEntry}
             </option>
           ))}
-        </select>
-        <FormLabels htmlFor="name">Name*</FormLabels>
-        <input
+        </FormSelect>
+        <FormInputLabel htmlFor="name">Name*</FormInputLabel>
+        <FormInput
           defaultValue={isEditMode ? spot?.name : null}
           id="name"
           name="name"
@@ -106,19 +106,20 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           pattern=".*[\S]+.*"
           required
         />
-        <FormLabels htmlFor="addresse">Adresse*</FormLabels>
-        <input
+        <FormInputLabel htmlFor="addresse">Adresse*</FormInputLabel>
+        <FormInput
           id="addresse"
           name="addresse"
           type="text"
           pattern=".*[\S]+.*"
           defaultValue={isEditMode ? spot?.addresse : null}
+          placeholder="Musterstraße 1, 12345 Musterstadt"
           required
         />
-        <Checkbox>
-          <Legend>Wetterempfehlung</Legend>
+        <FormCheckbox>
+          <CheckboxLegend>Wetterempfehlung</CheckboxLegend>
           <div>
-            <input
+            <FormInput
               defaultChecked={
                 isEditMode && spot?.weathersuggestion[0]?.length > 0
               }
@@ -127,10 +128,12 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
               type="checkbox"
               value="bei gutem Wetter"
             />
-            <label htmlFor="weathersuggestion">bei gutem Wetter</label>
+            <CheckboxOption htmlFor="weathersuggestion">
+              bei gutem Wetter
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={
                 isEditMode && spot?.weathersuggestion[1]?.length > 0
               }
@@ -139,10 +142,12 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
               type="checkbox"
               value="bei mäßigem Wetter"
             />
-            <label htmlFor="weathersuggestion">bei mäßigem Wetter</label>
+            <CheckboxOption htmlFor="weathersuggestion">
+              bei mäßigem Wetter
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={
                 isEditMode && spot?.weathersuggestion[2]?.length > 0
               }
@@ -151,82 +156,95 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
               type="checkbox"
               value="bei schlechtem Wetter"
             />
-            <label htmlFor="weathersuggestion">bei schlechtem Wetter</label>
+            <CheckboxOption htmlFor="weathersuggestion">
+              bei schlechtem Wetter
+            </CheckboxOption>
           </div>
-        </Checkbox>
-        <Checkbox>
-          <Legend>Altersempfehlung</Legend>
+        </FormCheckbox>
+        <FormCheckbox>
+          <CheckboxLegend>Altersempfehlung</CheckboxLegend>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[0]?.length > 0}
               id="children_under_1"
               name="children_under_1"
               type="checkbox"
               value="Kinder unter 1 Jahr"
             />
-            <label htmlFor="agesuggestion">Kinder unter 1 Jahr</label>
+            <CheckboxOption htmlFor="agesuggestion">
+              Kinder unter 1 Jahr
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[1]?.length > 0}
               id="children_1_to_3"
               name="children_1_to_3"
               type="checkbox"
               value="Kinder 1 - 3 Jahre"
             />
-            <label htmlFor="agesuggestion">Kinder 1 - 3 Jahre</label>
+            <CheckboxOption htmlFor="agesuggestion">
+              Kinder 1 - 3 Jahre
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[2]?.length > 0}
               id="children_3_to_6"
               name="children_3_to_6"
               type="checkbox"
               value="Kinder 3 - 6 Jahre"
             />
-            <label htmlFor="agesuggestion">Kinder 3 - 6 Jahre</label>
+            <CheckboxOption htmlFor="agesuggestion">
+              Kinder 3 - 6 Jahre
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[3]?.length > 0}
               id="children_6_to_9"
               name="children_6_to_9"
               type="checkbox"
               value="Kinder 6 - 9 Jahre"
             />
-            <label htmlFor="agesuggestion">Kinder 6 - 9 Jahre</label>
+            <CheckboxOption htmlFor="agesuggestion">
+              Kinder 6 - 9 Jahre
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[4]?.length > 0}
               id="children_9_to_12"
               name="children_9_to_12"
               type="checkbox"
               value="Kinder 9 - 12 Jahre"
             />
-            <label htmlFor="agesuggestion">Kinder 9 - 12 Jahre</label>
+            <CheckboxOption htmlFor="agesuggestion">
+              Kinder 9 - 12 Jahre
+            </CheckboxOption>
           </div>
           <div>
-            <input
+            <FormInput
               defaultChecked={isEditMode && spot?.agesuggestion[5]?.length > 0}
               id="teenager"
               name="teenager"
               type="checkbox"
               value="Teenager"
             />
-            <label htmlFor="agesuggestion">Teenager</label>
+            <CheckboxOption htmlFor="agesuggestion">Jugendliche</CheckboxOption>
           </div>
-        </Checkbox>
-        <FormLabels htmlFor="tags">Tags (mit Komma trennen)</FormLabels>
-        <input
+        </FormCheckbox>
+        <FormInputLabel htmlFor="tags">Tags</FormInputLabel>
+        <FormInput
           defaultValue={isEditMode ? spot?.tags.join(", ") : null}
           id="tags"
           name="tags"
           type="text"
           pattern=".*[\S]+.*"
+          placeholder="parenthood, lieblingsort, ..."
         />
-        <FormLabels htmlFor="information">Weitere Infos:</FormLabels>
-        <input
+        <FormInputLabel htmlFor="information">Weitere Infos:</FormInputLabel>
+        <FormInput
           defaultValue={isEditMode ? spot?.information : null}
           id="information"
           name="information"
@@ -234,51 +252,83 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           pattern=".*[\S]+.*"
         />
         <Button type="submit" variant="submit">
-          {isEditMode ? "Spot aktualisieren" : "Spot erstellen"}
+          {isEditMode ? (
+            <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
+          ) : (
+            <SubmitButtonText>Spot erstellen</SubmitButtonText>
+          )}
         </Button>
-      </CreateForm>
-    </CreateSection>
+      </Form>
+    </FormSection>
   );
 }
 
-const CreateForm = styled.form`
+/* ↓↓ Styling ↓↓ */
+
+const FormSection = styled.section`
+  width: 300px;
+  margin: 80px 0 60px 0;
+  color: var(--secondary-color);
+`;
+
+const BackSVG = styled.svg`
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+
+  &:hover {
+    background-color: transparent;
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+  }
+`;
+
+const Form = styled.form`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   padding: 20px;
   border-radius: 10px;
-
   display: flex;
   flex-direction: column;
 `;
 
-const CreateSection = styled.section`
-  width: 300px;
-  margin: 60px 0 50px 0;
-`;
-
-const Checkbox = styled.fieldset`
+const FormCheckbox = styled.fieldset`
   padding: 10px;
   margin: 10px 0 10px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border: 1px solid black;
+  border-radius: 4px;
+  border: 0.5px solid darkslategray;
 `;
 
-const FormLabels = styled.label`
+const CheckboxLegend = styled.legend`
+  font-weight: 600;
+`;
+
+const CheckboxOption = styled.label`
+  margin-left: 2px;
+`;
+
+const FormInputLabel = styled.label`
   font-weight: 600;
   padding-top: 7px;
 `;
 
-const Legend = styled.legend`
-  font-weight: 600;
+const FormInput = styled.input`
+  border-radius: 4px;
+  border: 0.5px solid darkslategray;
 `;
 
-const BackSVG = styled.svg`
-  margin-bottom: 7px;
+const FormSelect = styled.select`
+  font-family: "Poppins-Light";
+  color: #787878;
+  border-radius: 4px;
+  border: 0.5px solid darkslategray;
+`;
 
-  &:hover {
-    background-color: lightgrey;
-  }
+const SubmitButtonText = styled.p`
+  color: var(--second-font-color);
+  margin: 1px;
+  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
 `;
