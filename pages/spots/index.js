@@ -60,7 +60,7 @@ export default function Spots({ spots, setSpot, setTitle }) {
             ))}
           {filterSpots(spots).length === 0 ? (
             <PlaceholderText>
-              Es gibt noch keine Spots zu dieser Kategorie
+              Es gibt noch keine Spots zu dieser Kategorie.
             </PlaceholderText>
           ) : null}
         </SpotList>
@@ -82,6 +82,7 @@ const StyledSpotsSection = styled.section`
 const PlaceholderText = styled.p`
   padding: 50px;
   text-align: center;
+  color: var(--primary-color);
 `;
 
 export { StyledSpotsSection, SpotList };

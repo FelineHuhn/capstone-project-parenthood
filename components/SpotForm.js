@@ -71,16 +71,17 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   return (
     <FormSection>
       <Link href={`/`}>
-        <BackSVG
+        <GoBackSVG
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"
           width="26px"
           fill="#4d5b5b"
         >
+          <title>go back icon</title>
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-        </BackSVG>
+        </GoBackSVG>
       </Link>
       <Form onSubmit={handleSubmit}>
         <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
@@ -251,7 +252,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           type="text"
           pattern=".*[\S]+.*"
         />
-        <Button type="submit" variant="submit">
+        <Button type="submit" variant="submit" name="submit button">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
           ) : (
@@ -269,7 +270,7 @@ const FormSection = styled.section`
   color: var(--secondary-color);
 `;
 
-const BackSVG = styled.svg`
+const GoBackSVG = styled.svg`
   margin-bottom: 10px;
   color: var(--secondary-color);
 
@@ -280,7 +281,7 @@ const BackSVG = styled.svg`
 `;
 
 const Form = styled.form`
-  background-color: #ffffff;
+  background-color: var(--white-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   padding: 20px;

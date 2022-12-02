@@ -10,7 +10,7 @@ export default function Header({ title }) {
 }
 
 const StyledHeader = styled.header`
-  color: #ffffff;
+  color: var(--white-color);
   position: fixed;
   width: 100%;
   height: auto;

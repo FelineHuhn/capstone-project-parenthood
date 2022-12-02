@@ -124,6 +124,6 @@ const NavLink = styled(Link)`
 `;
 
 const NavIconText = styled.p`
-  color: #ffffff;
+  color: var(--white-color);
   margin: 2px;
 `;

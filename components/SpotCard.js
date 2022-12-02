@@ -35,6 +35,7 @@ export default function SpotCard({
                   width="30px"
                   fill="#696159"
                 >
+                  <title>favorite marker</title>
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </FavoriteIcon>
@@ -73,6 +74,7 @@ export default function SpotCard({
                   width="30px"
                   fill="#696159"
                 >
+                  <title>fold in details</title>
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
                 </svg>
@@ -96,6 +98,7 @@ export default function SpotCard({
           <Button
             type="button"
             variant="cancel"
+            name="closing button"
             onClick={() => {
               setIsShown((prevState) => !prevState);
             }}
@@ -109,7 +112,7 @@ export default function SpotCard({
 }
 
 const Card = styled.li`
-  background-color: #ffffff;
+  background-color: var(--white-color);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 10px;

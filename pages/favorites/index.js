@@ -67,4 +67,5 @@ const StyledFavoritesSection = styled.section`
 const PlaceholderText = styled.p`
   padding: 50px;
   text-align: center;
+  color: var(--primary-color);
 `;
