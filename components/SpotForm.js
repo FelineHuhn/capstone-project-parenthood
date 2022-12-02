@@ -70,7 +70,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 
   return (
     <FormSection>
-      <Link href={`/`}>
+      <Link href={`/spots`}>
         <GoBackSVG
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
