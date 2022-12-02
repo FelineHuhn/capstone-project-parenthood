@@ -282,8 +282,7 @@ const GoBackSVG = styled.svg`
 
 const Form = styled.form`
   background-color: var(--white-color);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: var(--primary-boxshadow);
   padding: 20px;
   border-radius: 10px;
   display: flex;

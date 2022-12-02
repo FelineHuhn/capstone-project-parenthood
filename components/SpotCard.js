@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { useState } from "react";
-import placeholderSpotImage from "../assets/images/suzi-kim-AdPvazshqDU-unsplash.jpg";
+import placeholderSpotImage from "../public/images/placeholder.jpg";
 import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 
@@ -114,8 +114,7 @@ export default function SpotCard({
 
 const Card = styled.li`
   background-color: var(--white-color);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: var(--primary-boxshadow);
   border-radius: 10px;
   margin: 0 15px 30px 15px;
   padding: 10px;

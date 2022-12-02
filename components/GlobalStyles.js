@@ -30,7 +30,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
   --primary-color: #4d5b5b;
   --secondary-color: #2f3737;
-  --third-color: #fb752d;
+  --third-color: #fa6819;
   --fourth-color: #eeedec;
   --white-color: #ffffff;
   --black-color: #000000;
@@ -41,6 +41,8 @@ const GlobalStyles = createGlobalStyle`
   --secondary-dropshadow: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
   --third-dropshadow: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
   --fourth-dropshadow: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
+  --primary-boxshadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
     }
 `;
 
