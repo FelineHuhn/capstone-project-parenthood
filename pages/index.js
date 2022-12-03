@@ -2,6 +2,7 @@ import Image from "next/image";
 import landingpageImage from "../public/images/landingpage.jpg";
 import styled from "styled-components";
 import Link from "next/link";
+import parenthoodGif from "../public/images/parenthood.gif";
 
 export default function Home() {
   return (
@@ -14,15 +15,26 @@ export default function Home() {
           width={375}
         />
       </Background>
-      <WelcomeMessage>
-        <WelcomeText>Willkommen bei</WelcomeText>
+      <StyledContainerMobileView>
+        <WelcomeText>Willkommen in deiner</WelcomeText>
         <AppTitle>P a r e n t H o o d</AppTitle>
-      </WelcomeMessage>
+      </StyledContainerMobileView>
+      <StyledContainerDesktopView>
+        <WelcomeText>Willkommen in deiner</WelcomeText>
+        <AppTitle>P a r e n t H o o d</AppTitle>
+        <ParenthoodGif
+          src={parenthoodGif}
+          alt="a magnifying glass over a map"
+          height={80}
+          width={150}
+        />
+      </StyledContainerDesktopView>
+
       <LinkToSpots href={"/spots"}>Hier geht's zu den Spots!</LinkToSpots>
       <AppDescription>
         <p>
           Entdecke zahlreiche Spots, die du mit deinen Kids besuchen kannst &
-          teile Spots aus deiner Hood!
+          teile auch Spots aus deiner Hood!
         </p>
       </AppDescription>
     </>
@@ -39,7 +51,7 @@ const Background = styled.div`
   }
 `;
 
-const WelcomeMessage = styled.div`
+const StyledContainerMobileView = styled.div`
   background-color: var(--white-color);
   border-radius: 15px;
   box-shadow: var(--primary-boxshadow);
@@ -54,10 +66,13 @@ const WelcomeMessage = styled.div`
 `;
 
 const WelcomeText = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin: 2px;
   color: var(--primary-color);
   filter: var(--primary-dropshadow);
+  @media (min-width: 376px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const AppTitle = styled.h1`
@@ -65,6 +80,10 @@ const AppTitle = styled.h1`
   margin: 2px;
   color: var(--third-color);
   filter: var(--secondary-dropshadow);
+  @media (min-width: 376px) {
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+  }
 `;
 
 const LinkToSpots = styled(Link)`
@@ -77,7 +96,7 @@ const LinkToSpots = styled(Link)`
   z-index: 130;
   display: flex;
   @media (min-width: 376px) {
-    display: none;
+    margin-top: 40px;
   }
 
   :hover {
@@ -94,6 +113,31 @@ const AppDescription = styled.p`
   padding: 0 8px;
   margin: 370px 28px 0 28px;
   @media (min-width: 376px) {
-    display: none;
+    max-width: 375px;
+    font-size: 1.2rem;
+    z-index: 0;
+    margin-top: 20px;
+    box-shadow: none;
+    background-color: transparent;
+  }
+`;
+
+const ParenthoodGif = styled(Image)`
+  display: none;
+  @media (min-width: 376px) {
+    display: inline;
+  }
+`;
+
+const StyledContainerDesktopView = styled.div`
+  display: none;
+  @media (min-width: 376px) {
+    display: block;
+    background-color: var(--white-color);
+    border-radius: 15px;
+    box-shadow: var(--primary-boxshadow);
+    text-align: center;
+    margin-top: 100px;
+    padding: 30px;
   }
 `;
