@@ -25,8 +25,8 @@ export default function Home() {
         <ParenthoodGif
           src={parenthoodGif}
           alt="a magnifying glass over a map"
-          height={80}
-          width={150}
+          height={100}
+          width={170}
         />
       </StyledContainerDesktopView>
 
@@ -97,6 +97,7 @@ const LinkToSpots = styled(Link)`
   display: flex;
   @media (min-width: 376px) {
     margin-top: 40px;
+    z-index: 0;
   }
 
   :hover {
@@ -119,6 +120,7 @@ const AppDescription = styled.p`
     margin-top: 20px;
     box-shadow: none;
     background-color: transparent;
+    margin-bottom: 70px;
   }
 `;
 
