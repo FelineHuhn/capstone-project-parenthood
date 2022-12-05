@@ -21,7 +21,6 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
       <DetailTitle>Adresse:</DetailTitle>
       <div>
         <AddresseIcon
-          aria-label="map icon"
           xmlns="http://www.w3.org/2000/svg"
           height="15px"
           viewBox="0 0 24 24"
