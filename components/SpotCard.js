@@ -23,25 +23,25 @@ export default function SpotCard({
             <Button
               type="button"
               variant="favorite"
-              name="favorite marker"
               onClick={() => {
                 toggleFavorite(spot.id);
               }}
             >
               {spot.isFavorite ? (
                 <FavoriteIcon
+                  aria-label="filled favorite icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 24 24"
                   width="30px"
                   fill="#696159"
                 >
-                  <title>favorite icon</title>
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </FavoriteIcon>
               ) : (
                 <FavoriteIcon
+                  aria-label="unfilled favorite icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 24 24"
@@ -62,25 +62,24 @@ export default function SpotCard({
             <Button
               type="button"
               variant="details"
-              name="detailsbutton"
               onClick={() => {
                 setIsShown((prevState) => !prevState);
               }}
             >
               {isShown ? (
                 <svg
+                  aria-label="fold in details icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 25 20"
                   width="30px"
                   fill="#696159"
                 >
-                  <title>fold in details</title>
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
                 </svg>
               ) : (
-                <DetailsButtonText>Details ▾</DetailsButtonText>
+                "Details ▾"
               )}
             </Button>
           </div>
@@ -99,12 +98,11 @@ export default function SpotCard({
           <Button
             type="button"
             variant="cancel"
-            name="closing button"
             onClick={() => {
               setIsShown((prevState) => !prevState);
             }}
           >
-            <ClosingButtonText>Schließen</ClosingButtonText>
+            Schließen
           </Button>
         </>
       )}
@@ -129,7 +127,7 @@ const SpotImage = styled(Image)`
   width: 47%;
   height: 47%;
   border-radius: 5px;
-  filter: drop-shadow(1px 1px 2px rgb(0 0 0 / 0.8));
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const SpotInfos = styled.article`
@@ -138,14 +136,11 @@ const SpotInfos = styled.article`
   text-align: right;
   justify-content: space-between;
   width: 50%;
-  overflow-wrap: normal;
 `;
 
 const FavoriteIcon = styled.svg`
-  filter: var(--primary-dropshadow);
-
   :hover  {
-    filter: var(--secondary-dropshadow);
+    filter: var(--primary-dropshadow);
   }
 `;
 
@@ -159,17 +154,6 @@ const SpotCategory = styled.h2`
 
 const SpotName = styled.p`
   color: var(--first-font-color);
-  filter: var(--fourth-dropshadow);
   font-size: 1.1rem;
   font-family: "ComingSoon";
-`;
-
-const DetailsButtonText = styled.div`
-  filter: var(--third-dropshadow);
-`;
-
-const ClosingButtonText = styled.p`
-  color: var(--second-font-color);
-  margin: 1px;
-  filter: var(--third-dropshadow);
 `;

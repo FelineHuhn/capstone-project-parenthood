@@ -26,6 +26,7 @@ const DefaultButton = styled.button`
     variant === "cancel" &&
     css`
       margin: 10px;
+      color: var(--second-font-color);
     `}
 
   ${({ variant }) =>
@@ -53,10 +54,9 @@ const DefaultButton = styled.button`
         font-weight: 600;
         background-color: transparent;
         box-shadow: none;
-        filter: var(--primary-dropshadow);
 
         :hover  {
-          filter: var(--secondary-dropshadow);
+          filter: var(--primary-dropshadow);
           background-color: transparent;
         }
       `}

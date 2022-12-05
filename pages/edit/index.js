@@ -41,9 +41,5 @@ export default function EditSpot({ spots, setSpot }) {
     setSpot(newSpotsList);
   }
 
-  return (
-    <>
-      <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />
-    </>
-  );
+  return <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />;
 }

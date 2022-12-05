@@ -45,11 +45,11 @@ const Title = styled.h1`
   font-size: 1rem;
   font-weight: 200;
   margin: 0;
-  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.8));
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
 `;
 
 const Headline = styled.h2`
   margin: 0;
   font-size: 1.4rem;
-  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.8));
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
 `;

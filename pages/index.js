@@ -1,15 +1,13 @@
 import Image from "next/image";
-import landingpageImage from "../public/images/landingpage.jpg";
 import styled from "styled-components";
 import Link from "next/link";
-import parenthoodGif from "../public/images/parenthood.gif";
 
 export default function Home() {
   return (
     <>
       <Background>
         <Image
-          src={landingpageImage}
+          src="/images/landingpage.jpg"
           alt="child jumping in a puddle"
           height={667}
           width={375}
@@ -23,7 +21,7 @@ export default function Home() {
         <WelcomeText>Willkommen in deiner</WelcomeText>
         <AppTitle>ParentHood</AppTitle>
         <ParenthoodGif
-          src={parenthoodGif}
+          src="/images/parenthood.gif"
           alt="a magnifying glass over a map"
           height={100}
           width={170}
@@ -32,10 +30,8 @@ export default function Home() {
 
       <LinkToSpots href={"/spots"}>Hier geht's zu den Spots!</LinkToSpots>
       <AppDescription>
-        <p>
-          Entdecke zahlreiche Spots, die du mit deinen Kids besuchen kannst &
-          teile auch Spots aus deiner Hood!
-        </p>
+        Entdecke zahlreiche Spots, die du mit deinen Kids besuchen kannst &
+        teile auch Spots aus deiner Hood!
       </AppDescription>
     </>
   );
@@ -69,7 +65,6 @@ const WelcomeText = styled.p`
   font-size: 1.5rem;
   margin: 2px;
   color: var(--primary-color);
-  filter: var(--primary-dropshadow);
   @media (min-width: 376px) {
     font-size: 1.8rem;
   }
@@ -79,7 +74,6 @@ const AppTitle = styled.h1`
   font-size: 1.8rem;
   margin: 2px;
   color: var(--third-color);
-  filter: var(--secondary-dropshadow);
   @media (min-width: 376px) {
     margin-bottom: 40px;
     font-size: 2.2rem;
@@ -105,7 +99,7 @@ const LinkToSpots = styled(Link)`
   }
 `;
 
-const AppDescription = styled.p`
+const AppDescription = styled.span`
   background-color: var(--white-color);
   border-radius: 15px;
   box-shadow: var(--primary-boxshadow);

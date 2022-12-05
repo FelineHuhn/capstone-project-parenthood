@@ -27,9 +27,5 @@ export default function CreateSpot({ setSpot }) {
     setSpot((spots) => [newSpot, ...spots]);
   }
 
-  return (
-    <>
-      <SpotForm addSpot={addSpot} />
-    </>
-  );
+  return <SpotForm addSpot={addSpot} />;
 }
