@@ -17,11 +17,11 @@ export default function Home() {
       </Background>
       <StyledContainerMobileView>
         <WelcomeText>Willkommen in deiner</WelcomeText>
-        <AppTitle>P a r e n t H o o d</AppTitle>
+        <AppTitle>ParentHood</AppTitle>
       </StyledContainerMobileView>
       <StyledContainerDesktopView>
         <WelcomeText>Willkommen in deiner</WelcomeText>
-        <AppTitle>P a r e n t H o o d</AppTitle>
+        <AppTitle>ParentHood</AppTitle>
         <ParenthoodGif
           src={parenthoodGif}
           alt="a magnifying glass over a map"

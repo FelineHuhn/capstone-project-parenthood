@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
 import { SpotList } from "../spots";
-import { useEffect } from "react";
 
-export default function FavoriteSpots({ spots, setSpot, setTitle }) {
-  useEffect(() => {
-    setTitle("Lieblings-Spots");
-  });
-
+export default function FavoriteSpots({ spots, setSpot }) {
   function deleteSpot(id) {
     setSpot((spots) => {
       const newSpotsList = spots.filter((spot) => spot.id !== id);

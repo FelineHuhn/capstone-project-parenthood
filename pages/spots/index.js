@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
 import SpotFilter from "../../components/SpotFilter";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function Spots({ spots, setSpot, setTitle }) {
+export default function Spots({ spots, setSpot }) {
   const [filterValue, setFilterValue] = useState("all");
-
-  useEffect(() => {
-    setTitle("Spots");
-  });
 
   function deleteSpot(id) {
     setSpot((spots) => {

@@ -1,9 +1,27 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
-export default function Header({ title }) {
+export default function Header() {
+  const { pathname } = useRouter();
+
+  function setTitle() {
+    switch (pathname) {
+      case "/spots":
+        return "Spots";
+      case "/create":
+        return "Spot erstellen";
+      case "/edit":
+        return "Spot bearbeiten";
+      case "/favorites":
+        return "Lieblings-Spots";
+    }
+  }
+
+  let title = setTitle();
+
   return (
     <StyledHeader>
-      <Title>P a r e n t H o o d</Title>
+      <Title>ParentHood</Title>
       <Headline>{title}</Headline>
     </StyledHeader>
   );

@@ -7,20 +7,14 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
   const [spots, setSpot] = useLocalStorage("spots", spotsList);
-  const [title, setTitle] = useState("");
   return (
     <>
       <Head>
         <title>ParentHood</title>
       </Head>
-      <Layout title={title}>
+      <Layout>
         <GlobalStyles />
-        <Component
-          {...pageProps}
-          spots={spots}
-          setSpot={setSpot}
-          setTitle={setTitle}
-        />
+        <Component {...pageProps} spots={spots} setSpot={setSpot} />
       </Layout>
     </>
   );
