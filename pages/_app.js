@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
       {pathname === "/" ? (
         <>
           <GlobalStyles />
-          <Component {...pageProps} spots={spots} setSpot={setSpot} />{" "}
+          <Component {...pageProps} spots={spots} setSpot={setSpot} />
         </>
       ) : (
         <Layout>
