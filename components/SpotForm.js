@@ -325,6 +325,5 @@ const FormSelect = styled.select`
 `;
 
 const SubmitButtonText = styled.p`
-  color: var(--second-font-color);
   margin: 1px;
 `;

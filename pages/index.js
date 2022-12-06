@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { StyledMain } from "../components/Layout";
 import styled from "styled-components";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <StyledMain>
+    <main>
       <Background>
         <Image
           src="/images/landingpage.jpg"
@@ -29,7 +28,7 @@ export default function Home() {
         height={100}
         width={170}
       />
-    </StyledMain>
+    </main>
   );
 }
 
@@ -95,6 +94,7 @@ const LinkToSpots = styled(Link)`
 
 const AppDescription = styled.span`
   background-color: var(--white-color);
+  color: var(--primary-color);
   border-radius: 10px;
   box-shadow: var(--primary-boxshadow);
   padding: 0 8px;

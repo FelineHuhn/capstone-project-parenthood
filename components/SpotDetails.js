@@ -196,7 +196,7 @@ const DeleteModal = styled.div`
   background-color: var(--white-color);
   color: var(--first-font-color);
   padding: 10px;
-  height: 140px;
+  height: 160px;
   position: fixed;
   top: 50%;
   left: 10%;

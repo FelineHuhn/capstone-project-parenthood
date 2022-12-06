@@ -25,6 +25,13 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: "Poppins-Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "ComingSoon";
     }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
     
 
     :root {
@@ -33,10 +40,7 @@ const GlobalStyles = createGlobalStyle`
   --third-color: #fa6819;
   --fourth-color: #eeedec;
   --white-color: #ffffff;
-  --black-color: #000000;
   --first-font-color: #596969;
-  --second-font-color: #696159;
-  --button-color: #e6e6e6;
   --primary-dropshadow: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
   --primary-boxshadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;

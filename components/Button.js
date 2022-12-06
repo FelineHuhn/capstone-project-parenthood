@@ -16,17 +16,17 @@ const DefaultButton = styled.button`
   background-color: var(--fourth-color);
   font-size: 1rem;
   font-family: "Poppins-Light";
+  color: #696159;
 
   &:hover {
     cursor: pointer;
-    background-color: var(--button-color);
+    background-color: #e6e6e6;
   }
 
   ${({ variant }) =>
     variant === "cancel" &&
     css`
       margin: 10px;
-      color: var(--second-font-color);
     `}
 
   ${({ variant }) =>
@@ -34,7 +34,6 @@ const DefaultButton = styled.button`
     css`
       height: 37px;
       width: 80px;
-      color: var(--second-font-color);
     `}
 
     ${({ variant }) =>
@@ -45,7 +44,6 @@ const DefaultButton = styled.button`
         margin: auto;
         margin-top: 20px;
         border-radius: 7px;
-        color: var(--secondary-color);
       `}
 
     ${({ variant }) =>
