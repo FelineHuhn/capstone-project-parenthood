@@ -10,6 +10,8 @@ export const spotsList = [
     information:
       "Der Baschu ist ein großer Hinterhof-Spielplatz, der von außen nicht zu entdecken ist, also ein echter Insider-Tipp und durch seine Hinterhof-Lage herrscht eine sehr familiäre Athmospäre",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670343539/fdc9b2af-0652-4bb3-b9b7-ec84ddcc5f7a.png",
   },
   {
     id: "a3ce28bb-2b52-4bc2-9799-4ec100075f12",
@@ -22,6 +24,8 @@ export const spotsList = [
     information:
       "Vormittags Mo - Fr sehr voll durch zwei Kitas, ansonsten ein kleiner aber feiner Spieplatz, wo sich die direkte Nachbarschaft täglich trifft",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670341642/4f647aa4-e7ac-4363-83b4-71252b603a5e.png",
   },
   {
     id: "e3d4613b-6807-4d93-9637-6963d7b31ce1",
@@ -50,6 +54,8 @@ export const spotsList = [
     information:
       "Der Eimsbüttler Turnverein ist insbesondere bekannt, durch seine erfolgreichen Kinder- und Jugendmannschaften im Fußball. Weitere Infos und weiteres Spotangebot unter: https://etv-hamburg.de/",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670343539/6a281089-a606-41ad-8eab-9dac09896372.png",
   },
   {
     id: "9d331e98-0e51-488d-bf42-e52e4921683d",
@@ -66,6 +72,8 @@ export const spotsList = [
     information:
       "Der Forst Klövensteen ist ein stadtnahes Forstgebiet, wo Familien vielerlei Aktivitäten unternehmen können von Ponyreiten in der kleinen Ponywaldschänke über eine tolle Inline-Skating-Tour oder ein Waldspaziergang zum Erforschen der Natur. Weitere Infos unter: https://www.hamburg.de/altona/forst-kloevensteen/",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670343539/0b0cdb95-bb4b-4da8-9de4-2b5dc8bfdb10.png",
   },
   {
     id: "1878ac77-442d-44fb-b984-cf7d2b7ac530",
@@ -83,6 +91,8 @@ export const spotsList = [
     information:
       "Indoor-Skihalle für Ski-Anfänger und -Fortgeschrittene. Ausrüstung kann vor Ort ausgeliehen werden. Weitere Infos unter: https://www.alpincenter.com/hamburg-wittenburg/de/skihalle",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670343539/bea82705-233f-45fa-9edc-13b7b592d22d.png",
   },
   {
     id: "17b711c7-1e9e-4f42-a281-7d795b8d8767",
@@ -101,6 +111,8 @@ export const spotsList = [
     information:
       "Das Freibad hat nur im Sommer auf, ist immer recht voll mit längerer Schlange am Seiteneingang. Weitere Infos: https://www.baederland.de/baeder/standorte/kaifu-bad/",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670343754/db0be191-5048-4dd0-8643-a265dd631bb5.png",
   },
   {
     id: "185d0c59-91e0-4304-a538-c4f524d32416",
@@ -113,5 +125,7 @@ export const spotsList = [
     information:
       "Der Spielplatz wurde vor kurzem komplett neu gestaltet und hat daher nagelneue Spielgeräte. Zusätzlich zu den Geräten gibt es außenrum einen kleinen Umlauf zum Fahrradfahren oder Skaten",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670341642/3b95a659-c33b-4414-81bd-e685bd5d886d.png",
   },
 ];

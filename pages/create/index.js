@@ -9,7 +9,8 @@ export default function CreateSpot({ setSpot }) {
     weathersuggestion,
     agesuggestion,
     tags,
-    information
+    information,
+    imageUrl
   ) {
     const tagsArray = tags.split(", ");
     const newSpot = {
@@ -22,6 +23,7 @@ export default function CreateSpot({ setSpot }) {
       tags: tagsArray,
       information,
       isFavorite: false,
+      imageUrl,
     };
 
     setSpot((spots) => [newSpot, ...spots]);

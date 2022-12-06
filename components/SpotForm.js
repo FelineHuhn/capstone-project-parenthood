@@ -7,10 +7,18 @@ import Link from "next/link";
 export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+
+    const response = await fetch("/api/image/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    const imageUrl = await response.json();
+
     const {
       good_weather,
       moderate_weather,
@@ -60,7 +68,8 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         weatherArray,
         ageArray,
         tags.trim(),
-        information.trim()
+        information.trim(),
+        imageUrl.secureUrl
       );
       router.back();
     }
@@ -253,6 +262,13 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           name="information"
           type="text"
           pattern=".*[\S]+.*"
+        />
+        <label htmlFor="image_upload">File:</label>
+        <input
+          defaultValue={isEditMode ? spot?.imageUrl : ""}
+          id="image_upload"
+          type="file"
+          name="image"
         />
         <Button type="submit" variant="submit" name="submit button">
           {isEditMode ? (

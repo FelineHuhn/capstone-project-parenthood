@@ -69,6 +69,7 @@ const SpotList = styled.ul`
   list-style: none;
   max-width: 375px;
   padding: 0;
+  margin-bottom: 70px;
 `;
 
 const StyledSpotsSection = styled.section`

@@ -4,6 +4,7 @@ import { spotsList } from "../helpers/mockSpots";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { CloudinaryContext } from "cloudinary-react";
 
 function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
@@ -17,12 +18,16 @@ function MyApp({ Component, pageProps }) {
       {pathname === "/" ? (
         <>
           <GlobalStyles />
-          <Component {...pageProps} spots={spots} setSpot={setSpot} />
+          <CloudinaryContext cloudName="duvldhych">
+            <Component {...pageProps} spots={spots} setSpot={setSpot} />
+          </CloudinaryContext>
         </>
       ) : (
         <Layout>
           <GlobalStyles />
-          <Component {...pageProps} spots={spots} setSpot={setSpot} />
+          <CloudinaryContext cloudName="duvldhych">
+            <Component {...pageProps} spots={spots} setSpot={setSpot} />
+          </CloudinaryContext>
         </Layout>
       )}
     </>
