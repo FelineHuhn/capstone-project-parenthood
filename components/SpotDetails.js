@@ -188,10 +188,9 @@ const DetailsSubList = styled.ul`
 `;
 
 const DetailsParagraph = styled.p`
-  text-align: justify;
   padding: 0 10px;
-  word-break: break-all;
   color: var(--first-font-color);
+  overflow-wrap: break-word;
 `;
 
 const DeleteModal = styled.div`
