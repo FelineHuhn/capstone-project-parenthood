@@ -255,7 +255,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           pattern=".*[\S]+.*"
           placeholder="parenthood, lieblingsort, ..."
         />
-        <FormInputLabel htmlFor="information">Weitere Infos:</FormInputLabel>
+        <FormInputLabel htmlFor="information">Weitere Infos</FormInputLabel>
         <FormInput
           defaultValue={isEditMode ? spot?.information : null}
           id="information"
@@ -263,7 +263,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           type="text"
           pattern=".*[\S]+.*"
         />
-        <label htmlFor="image_upload">File:</label>
+        <FormInputLabel htmlFor="image_upload">Foto uploaden</FormInputLabel>
         <input
           defaultValue={isEditMode ? spot?.imageUrl : ""}
           id="image_upload"
