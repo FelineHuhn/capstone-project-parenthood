@@ -92,9 +92,11 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </ModalBackground>
       )}
       <ButtonStyling>
-        <EditButton href={{ pathname: `/edit`, query: { id: spot.id } }}>
+        <EditLink
+          href={{ pathname: `/edit`, query: { id: spot.id } }}
+          aria-label="link that navigates to the edit page"
+        >
           <svg
-            aria-label="edit icon"
             xmlns="http://www.w3.org/2000/svg"
             enableBackground="new 0 0 24 24"
             height="32px"
@@ -113,17 +115,17 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
               </g>
             </g>
           </svg>
-        </EditButton>
+        </EditLink>
 
         <Button
           type="button"
           variant={"delete"}
+          aria-label="button to delete the spot"
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
         >
           <svg
-            aria-label="delete icon"
             xmlns="http://www.w3.org/2000/svg"
             height="32px"
             viewBox="0 0 24 24"
@@ -230,7 +232,7 @@ const ButtonStyling = styled.div`
   justify-content: right;
 `;
 
-const EditButton = styled(Link)`
+const EditLink = styled(Link)`
   padding: 3px;
   margin: 5px;
 

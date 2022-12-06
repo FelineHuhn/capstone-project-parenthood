@@ -70,9 +70,11 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 
   return (
     <FormSection>
-      <Link href={`/spots`}>
+      <Link
+        href={`/spots`}
+        aria-label="link that navigates back to the spots page"
+      >
         <GoBackSVG
-          aria-label="go back icon"
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"

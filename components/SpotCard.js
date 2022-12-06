@@ -23,13 +23,13 @@ export default function SpotCard({
             <Button
               type="button"
               variant="favorite"
+              aria-label="button that marks the spot as a favorite and removes the mark again"
               onClick={() => {
                 toggleFavorite(spot.id);
               }}
             >
               {spot.isFavorite ? (
                 <FavoriteIcon
-                  aria-label="filled favorite icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 24 24"
@@ -41,7 +41,6 @@ export default function SpotCard({
                 </FavoriteIcon>
               ) : (
                 <FavoriteIcon
-                  aria-label="unfilled favorite icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 24 24"
@@ -62,13 +61,13 @@ export default function SpotCard({
             <Button
               type="button"
               variant="details"
+              aria-label="button that fold out the details of the spot and fold them in again"
               onClick={() => {
                 setIsShown((prevState) => !prevState);
               }}
             >
               {isShown ? (
                 <svg
-                  aria-label="fold in details icon"
                   xmlns="http://www.w3.org/2000/svg"
                   height="30px"
                   viewBox="0 0 25 20"
