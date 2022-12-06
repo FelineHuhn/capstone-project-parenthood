@@ -1,18 +1,37 @@
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
-export default function Header({ children }) {
+export default function Header() {
+  const { pathname } = useRouter();
+
+  function setTitle() {
+    switch (pathname) {
+      case "/spots":
+        return "Spots";
+      case "/create":
+        return "Spot erstellen";
+      case "/edit":
+        return "Spot bearbeiten";
+      case "/favorites":
+        return "Lieblings-Spots";
+    }
+  }
+
+  let title = setTitle();
+
   return (
     <StyledHeader>
-      <Title>P a r e n t H o o d</Title>
-      <Headline>{children}</Headline>
+      <Title>ParentHood</Title>
+      <Headline>{title}</Headline>
     </StyledHeader>
   );
 }
 
 const StyledHeader = styled.header`
-  color: white;
+  color: var(--white-color);
   position: fixed;
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,15 +41,15 @@ const StyledHeader = styled.header`
   z-index: 100;
 `;
 
-const Title = styled.h2`
-  font-size: 17px;
+const Title = styled.h1`
+  font-size: 1rem;
   font-weight: 200;
   margin: 0;
-  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.8));
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
 `;
 
 const Headline = styled.h2`
   margin: 0;
-  font-size: 20px;
-  filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 0.8));
+  font-size: 1.4rem;
+  text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
 `;

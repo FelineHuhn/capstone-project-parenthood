@@ -1,6 +1,5 @@
 import SpotForm from "../../components/SpotForm";
 import { useRouter } from "next/router";
-import Header from "../../components/Header";
 
 export default function EditSpot({ spots, setSpot }) {
   const router = useRouter();
@@ -42,10 +41,5 @@ export default function EditSpot({ spots, setSpot }) {
     setSpot(newSpotsList);
   }
 
-  return (
-    <>
-      <Header>Spot bearbeiten</Header>
-      <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />
-    </>
-  );
+  return <SpotForm isEditMode={true} spot={spotToEdit} editSpot={editSpot} />;
 }

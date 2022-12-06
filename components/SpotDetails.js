@@ -92,7 +92,10 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
         </ModalBackground>
       )}
       <ButtonStyling>
-        <EditButton href={{ pathname: `/edit`, query: { id: spot.id } }}>
+        <EditLink
+          href={{ pathname: `/edit`, query: { id: spot.id } }}
+          aria-label="link that navigates to the edit page"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             enableBackground="new 0 0 24 24"
@@ -112,11 +115,12 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
               </g>
             </g>
           </svg>
-        </EditButton>
+        </EditLink>
 
         <Button
-          type={"button"}
+          type="button"
           variant={"delete"}
+          aria-label="button to delete the spot"
           onClick={() => {
             setIsShownModal((prevState) => !prevState);
           }}
@@ -146,18 +150,15 @@ export default function SpotDetails({ spot, addSpot, deleteSpot, editSpot }) {
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const SpotDetailsSection = styled.section`
   width: 100%;
   padding: 10px;
-  font-size: 14px;
 `;
 
 const DetailsHeadline = styled.h2`
   text-align: center;
   color: var(--third-color);
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
   text-shadow: 0.5px 0.5px 1px lightgray;
 `;
@@ -172,8 +173,6 @@ const AddresseIcon = styled.svg`
 
 const AddresseLink = styled(Link)`
   color: var(--first-font-color);
-  font-size: 16px;
-  text-decoration: none;
 
   :hover {
     cursor: pointer;
@@ -182,27 +181,23 @@ const AddresseLink = styled(Link)`
 `;
 
 const DetailsSubList = styled.ul`
-  font-size: 16px;
   padding: 5px;
   list-style: none;
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   color: var(--first-font-color);
 `;
 
 const DetailsParagraph = styled.p`
-  text-align: justify;
-  padding: 0 10px 0 10px;
-  word-break: break-all;
+  padding: 0 10px;
   color: var(--first-font-color);
-  font-size: 16px;
+  overflow-wrap: break-word;
 `;
 
 const DeleteModal = styled.div`
-  background-color: white;
+  background-color: var(--white-color);
   color: var(--first-font-color);
   padding: 10px;
-  height: 140px;
-  position: absolute;
+  height: 160px;
   position: fixed;
   top: 50%;
   left: 10%;
@@ -211,7 +206,7 @@ const DeleteModal = styled.div`
 `;
 
 const ModalMessage = styled.h3`
-  padding: 0 10px 0 10px;
+  padding: 0 10px;
   text-align: center;
   margin-bottom: 25px;
 `;
@@ -236,14 +231,11 @@ const ButtonStyling = styled.div`
   justify-content: right;
 `;
 
-const EditButton = styled(Link)`
+const EditLink = styled(Link)`
   padding: 3px;
   margin: 5px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
-  position: relative;
-  z-index: 10;
 
   :hover  {
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+    filter: var(--primary-dropshadow);
   }
 `;

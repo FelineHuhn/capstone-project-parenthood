@@ -70,8 +70,11 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 
   return (
     <FormSection>
-      <Link href={`/`}>
-        <BackSVG
+      <Link
+        href={`/spots`}
+        aria-label="link that navigates back to the spots page"
+      >
+        <GoBackSVG
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"
@@ -80,7 +83,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-        </BackSVG>
+        </GoBackSVG>
       </Link>
       <Form onSubmit={handleSubmit}>
         <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
@@ -251,7 +254,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           type="text"
           pattern=".*[\S]+.*"
         />
-        <Button type="submit" variant="submit">
+        <Button type="submit" variant="submit" name="submit button">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
           ) : (
@@ -263,28 +266,25 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const FormSection = styled.section`
   width: 300px;
   margin: 80px 0 60px 0;
   color: var(--secondary-color);
 `;
 
-const BackSVG = styled.svg`
+const GoBackSVG = styled.svg`
   margin-bottom: 10px;
   color: var(--secondary-color);
 
   &:hover {
     background-color: transparent;
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
+    filter: var(--primary-dropshadow);
   }
 `;
 
 const Form = styled.form`
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background-color: var(--white-color);
+  box-shadow: var(--primary-boxshadow);
   padding: 20px;
   border-radius: 10px;
   display: flex;
@@ -293,13 +293,12 @@ const Form = styled.form`
 
 const FormCheckbox = styled.fieldset`
   padding: 10px;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid black;
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const CheckboxLegend = styled.legend`
@@ -317,18 +316,16 @@ const FormInputLabel = styled.label`
 
 const FormInput = styled.input`
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const FormSelect = styled.select`
   font-family: "Poppins-Light";
-  color: #787878;
+  color: var(--primary-color);
   border-radius: 4px;
-  border: 0.5px solid darkslategray;
+  border: 0.5px solid var(--primary-color);
 `;
 
 const SubmitButtonText = styled.p`
-  color: var(--second-font-color);
   margin: 1px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
 `;

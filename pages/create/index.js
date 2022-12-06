@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
 import SpotForm from "../../components/SpotForm";
-import Header from "../../components/Header";
 
 export default function CreateSpot({ setSpot }) {
   function addSpot(
@@ -28,10 +27,5 @@ export default function CreateSpot({ setSpot }) {
     setSpot((spots) => [newSpot, ...spots]);
   }
 
-  return (
-    <>
-      <Header>Spot erstellen</Header>
-      <SpotForm addSpot={addSpot} />
-    </>
-  );
+  return <SpotForm addSpot={addSpot} />;
 }

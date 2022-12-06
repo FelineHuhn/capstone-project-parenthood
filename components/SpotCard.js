@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { useState } from "react";
-import placeholderSpotImage from "../assets/images/suzi-kim-AdPvazshqDU-unsplash.jpg";
+import placeholderSpotImage from "../public/images/placeholder.jpg";
 import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 
@@ -21,8 +21,9 @@ export default function SpotCard({
         <SpotInfos>
           <div>
             <Button
-              type={"button"}
-              variant={"favorite"}
+              type="button"
+              variant="favorite"
+              aria-label="button that marks the spot as a favorite and removes the mark again"
               onClick={() => {
                 toggleFavorite(spot.id);
               }}
@@ -60,7 +61,7 @@ export default function SpotCard({
             <Button
               type="button"
               variant="details"
-              name="detailsbutton"
+              aria-label="button that fold out the details of the spot and fold them in again"
               onClick={() => {
                 setIsShown((prevState) => !prevState);
               }}
@@ -77,7 +78,7 @@ export default function SpotCard({
                   <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
                 </svg>
               ) : (
-                <DetailsButtonText>Details ▾</DetailsButtonText>
+                "Details ▾"
               )}
             </Button>
           </div>
@@ -100,7 +101,7 @@ export default function SpotCard({
               setIsShown((prevState) => !prevState);
             }}
           >
-            <ClosingButtonText>Schließen</ClosingButtonText>
+            Schließen
           </Button>
         </>
       )}
@@ -108,12 +109,9 @@ export default function SpotCard({
   );
 }
 
-/* ↓↓ Styling ↓↓ */
-
 const Card = styled.li`
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background-color: var(--white-color);
+  box-shadow: var(--primary-boxshadow);
   border-radius: 10px;
   margin: 0 15px 30px 15px;
   padding: 10px;
@@ -128,9 +126,7 @@ const SpotImage = styled(Image)`
   width: 47%;
   height: 47%;
   border-radius: 5px;
-  filter: drop-shadow(1px 1px 2px rgb(0 0 0 / 0.8));
-  position: relative;
-  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const SpotInfos = styled.article`
@@ -139,22 +135,17 @@ const SpotInfos = styled.article`
   text-align: right;
   justify-content: space-between;
   width: 50%;
-  overflow-wrap: break-word;
 `;
 
 const FavoriteIcon = styled.svg`
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.2));
-  position: relative;
-  z-index: 10;
-
   :hover  {
-    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
+    filter: var(--primary-dropshadow);
   }
 `;
 
 const SpotCategory = styled.h2`
   color: var(--third-color);
-  font-size: 19px;
+  font-size: 1.2rem;
   font-weight: 500;
   text-shadow: 0.5px 0.5px 1.5px lightgray;
   margin-bottom: -5px;
@@ -162,17 +153,6 @@ const SpotCategory = styled.h2`
 
 const SpotName = styled.p`
   color: var(--first-font-color);
-  filter: drop-shadow(0.5px 0.5px 0.5px rgb(0 0 0 / 0.2));
-  font-size: 17px;
+  font-size: 1.1rem;
   font-family: "ComingSoon";
-`;
-
-const DetailsButtonText = styled.div`
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
-`;
-
-const ClosingButtonText = styled.p`
-  color: var(--second-font-color);
-  margin: 1px;
-  filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.1));
 `;

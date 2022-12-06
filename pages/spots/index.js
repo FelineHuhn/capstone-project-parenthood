@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import SpotCard from "../../components/SpotCard";
-import Header from "../../components/Header";
 import SpotFilter from "../../components/SpotFilter";
 import { useState } from "react";
 
@@ -41,9 +40,8 @@ export default function Spots({ spots, setSpot }) {
 
   return (
     <>
-      <Header>Spots</Header>
       <SpotFilter handleChange={handleCategorySelect} />
-      <StyledSpotsPage>
+      <StyledSpotsSection>
         <SpotList>
           {filterSpots(spots)
             .slice()
@@ -56,8 +54,13 @@ export default function Spots({ spots, setSpot }) {
                 toggleFavorite={toggleFavorite}
               />
             ))}
+          {filterSpots(spots).length === 0 ? (
+            <PlaceholderText>
+              Es gibt noch keine Spots zu dieser Kategorie.
+            </PlaceholderText>
+          ) : null}
         </SpotList>
-      </StyledSpotsPage>
+      </StyledSpotsSection>
     </>
   );
 }
@@ -68,8 +71,14 @@ const SpotList = styled.ul`
   padding: 0;
 `;
 
-const StyledSpotsPage = styled.div`
+const StyledSpotsSection = styled.section`
   margin-bottom: 30px;
 `;
 
-export { StyledSpotsPage, SpotList };
+const PlaceholderText = styled.p`
+  padding: 50px;
+  text-align: center;
+  color: var(--primary-color);
+`;
+
+export { StyledSpotsSection, SpotList };

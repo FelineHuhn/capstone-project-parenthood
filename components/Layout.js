@@ -1,19 +1,12 @@
 import Footer from "./Footer";
-
-import styled from "styled-components";
+import Header from "./Header";
 
 export default function Layout({ children }) {
   return (
     <>
-      <StyledMain>{children}</StyledMain>
+      <Header />
+      <main>{children}</main>
       <Footer />
     </>
   );
 }
-
-const StyledMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-`;

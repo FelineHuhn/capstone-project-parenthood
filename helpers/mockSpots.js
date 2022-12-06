@@ -102,4 +102,16 @@ export const spotsList = [
       "Das Freibad hat nur im Sommer auf, ist immer recht voll mit längerer Schlange am Seiteneingang. Weitere Infos: https://www.baederland.de/baeder/standorte/kaifu-bad/",
     isFavorite: false,
   },
+  {
+    id: "185d0c59-91e0-4304-a538-c4f524d32416",
+    category: "Spielplatz",
+    name: "Weidenallee",
+    addresse: "Fettstraße 22a, 20357 Hamburg",
+    weathersuggestion: ["bei gutem Wetter", "bei mäßigem Wetter"],
+    agesuggestion: ["Kinder 3 - 6 Jahre", "Kinder 6 - 9 Jahre"],
+    tags: ["trampolin", "rutsche", "bagger"],
+    information:
+      "Der Spielplatz wurde vor kurzem komplett neu gestaltet und hat daher nagelneue Spielgeräte. Zusätzlich zu den Geräten gibt es außenrum einen kleinen Umlauf zum Fahrradfahren oder Skaten",
+    isFavorite: false,
+  },
 ];
