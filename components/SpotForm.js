@@ -3,8 +3,12 @@ import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
+  const [imageChanged, setImageChanged] = useState(false);
+  let imageUrl = isEditMode ? spot?.imageUrl : "";
+
   const router = useRouter();
 
   async function handleSubmit(event) {
@@ -12,12 +16,15 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
 
     const formData = new FormData(event.target);
 
-    const response = await fetch("/api/image/upload", {
-      method: "POST",
-      body: formData,
-    });
+    if (imageChanged) {
+      const response = await fetch("/api/image/upload", {
+        method: "POST",
+        body: formData,
+      });
 
-    const imageUrl = await response.json();
+      const imageDetails = await response.json();
+      imageUrl = imageDetails.secureUrl;
+    }
 
     const {
       good_weather,
@@ -57,7 +64,8 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         ageArray,
         tags.trim(),
         information.trim(),
-        spot.isFavorite
+        spot.isFavorite,
+        imageUrl
       );
       router.back();
     } else {
@@ -69,7 +77,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         ageArray,
         tags.trim(),
         information.trim(),
-        imageUrl.secureUrl
+        imageUrl
       );
       router.back();
     }
@@ -83,7 +91,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         href={`/spots`}
         aria-label="link that navigates back to the spots page"
       >
-        <GoBackSVG
+        <GoBackSvg
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"
@@ -92,7 +100,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-        </GoBackSVG>
+        </GoBackSvg>
       </Link>
       <Form onSubmit={handleSubmit}>
         <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
@@ -263,14 +271,26 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           type="text"
           pattern=".*[\S]+.*"
         />
-        <FormInputLabel htmlFor="image_upload">Foto uploaden</FormInputLabel>
-        <input
-          defaultValue={isEditMode ? spot?.imageUrl : ""}
-          id="image_upload"
+        <PhotoUploadInput
           type="file"
+          id="image_upload"
           name="image"
+          onChange={() => setImageChanged(true)}
         />
-        <Button type="submit" variant="submit" name="submit button">
+        <PhotoUploadLabel htmlFor="image_upload">
+          <PhotoUploadSvg
+            xmlns="http://www.w3.org/2000/svg"
+            height="30px"
+            viewBox="0 0 24 24"
+            width="30px"
+            fill="#ffffff"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+          </PhotoUploadSvg>
+          <PhotoUploadLabelText>Foto uploaden</PhotoUploadLabelText>
+        </PhotoUploadLabel>
+        <Button type="submit" variant="submit" name="submit">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
           ) : (
@@ -288,7 +308,7 @@ const FormSection = styled.section`
   color: var(--secondary-color);
 `;
 
-const GoBackSVG = styled.svg`
+const GoBackSvg = styled.svg`
   margin-bottom: 10px;
   color: var(--secondary-color);
 
@@ -344,4 +364,30 @@ const FormSelect = styled.select`
 
 const SubmitButtonText = styled.p`
   margin: 1px;
+`;
+
+const PhotoUploadInput = styled.input`
+  opacity: 0;
+`;
+const PhotoUploadLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  opacity: 0.8;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  :hover {
+    background-color: var(--secondary-color);
+  }
+`;
+
+const PhotoUploadSvg = styled.svg`
+  margin-top: 15px;
+`;
+
+const PhotoUploadLabelText = styled.p`
+  margin-top: 4px;
 `;

@@ -20,7 +20,11 @@ export default function SpotCard({
     <Card>
       <CardStyling>
         <SpotImage
-          src={spot?.imageUrl === undefined ? placeholderUrl : spot?.imageUrl}
+          src={
+            spot?.imageUrl === undefined || !spot?.imageUrl
+              ? placeholderUrl
+              : spot?.imageUrl
+          }
           width="40"
           height="40"
           alt="photo of the spot"
