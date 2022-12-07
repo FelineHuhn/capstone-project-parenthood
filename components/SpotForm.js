@@ -376,7 +376,7 @@ const PhotoUploadLabel = styled.label`
   align-items: center;
   background-color: var(--primary-color);
   color: var(--white-color);
-  opacity: 0.8;
+  opacity: 0.7;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   :hover {
