@@ -19,6 +19,4 @@ export default function SnackBar({ text, onClose }) {
 const SnackText = styled.p`
   color: var(--third-color);
   text-align: center;
-  position: absolute;
-  top: 920px;
 `;
