@@ -291,7 +291,9 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           </PhotoUploadSvg>
           <PhotoUploadLabelText>Foto uploaden</PhotoUploadLabelText>
         </PhotoUploadLabel>
-
+        {imageChanged ? (
+          <UploadStateText>&#10003; Bild hinzugefügt</UploadStateText>
+        ) : null}
         <Button type="submit" variant="submit" name="submit">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
@@ -387,7 +389,7 @@ const PhotoUploadLabel = styled.label`
   opacity: 0.7;
   border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
   :hover {
     background-color: var(--secondary-color);
   }
@@ -399,4 +401,10 @@ const PhotoUploadSvg = styled.svg`
 
 const PhotoUploadLabelText = styled.p`
   margin-top: 4px;
+`;
+
+const UploadStateText = styled.p`
+  color: var(--secondary-color);
+  position: absolute;
+  top: 875px;
 `;
