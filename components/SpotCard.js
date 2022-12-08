@@ -123,7 +123,7 @@ export default function SpotCard({
 const Card = styled.li`
   background-color: var(--white-color);
   box-shadow: var(--primary-boxshadow);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin: 0 15px 30px 15px;
   padding: 10px;
 `;
@@ -136,7 +136,7 @@ const CardStyling = styled.div`
 const SpotImage = styled(Image)`
   width: 47%;
   height: 47%;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 

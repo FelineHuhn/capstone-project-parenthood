@@ -322,7 +322,7 @@ const Form = styled.form`
   background-color: var(--white-color);
   box-shadow: var(--primary-boxshadow);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
 `;
@@ -333,7 +333,7 @@ const FormCheckbox = styled.fieldset`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
@@ -351,14 +351,14 @@ const FormInputLabel = styled.label`
 `;
 
 const FormInput = styled.input`
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
 const FormSelect = styled.select`
   font-family: "Poppins-Light";
   color: var(--primary-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
@@ -377,7 +377,7 @@ const PhotoUploadLabel = styled.label`
   background-color: var(--primary-color);
   color: var(--white-color);
   opacity: 0.7;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   :hover {
     background-color: var(--secondary-color);

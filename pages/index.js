@@ -19,14 +19,14 @@ export default function Home() {
       </StyledContainer>
       <LinkToSpots href={"/spots"}>Hier geht's zu den Spots!</LinkToSpots>
       <AppDescription>
-        Entdecke zahlreiche Spots, die du mit deinen Kids besuchen kannst &
-        teile auch Spots aus deiner Hood!
+        Entdecke und teile Spots, die du mit deinen Kids besuchen kannst!
       </AppDescription>
       <ParenthoodGif
         src="/images/parenthood.gif"
         alt="a magnifying glass over a map"
         height={100}
         width={170}
+        priority
       />
     </main>
   );
@@ -44,9 +44,9 @@ const Background = styled.div`
 
 const StyledContainer = styled.div`
   background-color: var(--white-color);
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: var(--primary-boxshadow);
-  padding: 2px 15px;
+  padding: 10px 20px 5px 20px;
   margin: 15px;
   text-align: center;
   z-index: 10;
@@ -76,16 +76,20 @@ const AppTitle = styled.h1`
 
 const LinkToSpots = styled(Link)`
   color: var(--white-color);
-  background-image: linear-gradient(to right, #2f3737 0%, #4d5b5b 100%);
+  background-color: var(--third-color);
+  text-decoration: none;
   box-shadow: var(--primary-boxshadow);
-  padding: 8px;
-  border-radius: 7px;
+  padding: 5px 10px;
+  border-radius: 3px;
   z-index: 10;
+  margin-top: 390px;
   @media (min-width: 376px) {
     font-size: 1.1rem;
     position: absolute;
-    top: 615px;
+    bottom: 200px;
     z-index: 20;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   }
   :hover {
     cursor: pointer;
@@ -95,25 +99,25 @@ const LinkToSpots = styled(Link)`
 const AppDescription = styled.span`
   background-color: var(--white-color);
   color: var(--primary-color);
-  border-radius: 10px;
+  border-radius: 3px;
   box-shadow: var(--primary-boxshadow);
-  padding: 0 8px;
-  margin: 400px 28px 0 28px;
+  padding: 13px;
+  margin: 10px 30px 0 30px;
   text-align: center;
   z-index: 10;
   @media (min-width: 376px) {
     max-width: 300px;
     font-size: 1.2rem;
+    padding: 30px;
     box-shadow: none;
     position: absolute;
-    top: 55px;
+    top: 430px;
     z-index: 20;
   }
 `;
 
 const ParenthoodGif = styled(Image)`
   display: none;
-
   @media (min-width: 376px) {
     display: inline;
     position: absolute;
