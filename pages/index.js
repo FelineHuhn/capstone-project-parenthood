@@ -13,10 +13,10 @@ export default function Home() {
           width={375}
         />
       </Background>
-      <StyledContainer>
+      <StyledWelcomeMessage>
         <WelcomeText>Willkommen in deiner</WelcomeText>
         <AppTitle>ParentHood</AppTitle>
-      </StyledContainer>
+      </StyledWelcomeMessage>
       <LinkToSpots href={"/spots"}>Hier geht's zu den Spots!</LinkToSpots>
       <AppDescription>
         Entdecke und teile Spots, die du mit deinen Kids besuchen kannst!
@@ -42,7 +42,7 @@ const Background = styled.div`
   }
 `;
 
-const StyledContainer = styled.div`
+const StyledWelcomeMessage = styled.div`
   background-color: var(--white-color);
   border-radius: 3px;
   box-shadow: var(--primary-boxshadow);

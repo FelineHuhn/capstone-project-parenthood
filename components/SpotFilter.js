@@ -5,7 +5,7 @@ export default function SpotFilter({ handleChange }) {
   return (
     <FilterSection>
       <FilterLabel htmlFor="category">Filtern</FilterLabel>
-      <StyledFilterIcon>
+      <FilterIcon>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           enableBackground="new 0 0 24 24"
@@ -20,7 +20,7 @@ export default function SpotFilter({ handleChange }) {
             <path d="M0,0h24v24H0V0z" fill="none" />
           </g>
         </svg>
-      </StyledFilterIcon>
+      </FilterIcon>
 
       <FilterSelect
         id="select-filter"
@@ -54,7 +54,7 @@ const FilterLabel = styled.label`
   margin-top: -3px;
 `;
 
-const StyledFilterIcon = styled.div`
+const FilterIcon = styled.div`
   padding: 0 8px 0 5px;
 `;
 

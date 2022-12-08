@@ -91,7 +91,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         href={`/spots`}
         aria-label="link that navigates back to the spots page"
       >
-        <GoBackSvg
+        <GoBackIcon
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"
@@ -100,7 +100,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-        </GoBackSvg>
+        </GoBackIcon>
       </Link>
       <Form onSubmit={handleSubmit}>
         <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
@@ -308,7 +308,7 @@ const FormSection = styled.section`
   color: var(--secondary-color);
 `;
 
-const GoBackSvg = styled.svg`
+const GoBackIcon = styled.svg`
   margin-bottom: 10px;
   color: var(--secondary-color);
 
