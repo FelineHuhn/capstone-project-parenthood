@@ -42,7 +42,7 @@ const DefaultButton = styled.button`
         font-weight: 400;
         padding: 3px;
         margin: auto;
-        margin-top: 20px;
+        margin-top: 40px;
         border-radius: var(--border-radius);
       `}
 

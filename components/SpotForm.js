@@ -278,6 +278,9 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           name="image"
           onChange={() => setImageChanged(true)}
         />
+        {imageChanged ? (
+          <UploadStateText>&#10003; Bild hinzugefügt</UploadStateText>
+        ) : null}
         <PhotoUploadLabel htmlFor="image_upload">
           <PhotoUploadSvg
             xmlns="http://www.w3.org/2000/svg"
@@ -291,10 +294,19 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           </PhotoUploadSvg>
           <PhotoUploadLabelText>Foto uploaden</PhotoUploadLabelText>
         </PhotoUploadLabel>
-        {imageChanged ? (
-          <UploadStateText>&#10003; Bild hinzugefügt</UploadStateText>
-        ) : null}
 
+        {isEditMode && showSnack && (
+          <SnackBar
+            text={"Spot wurde aktualisiert"}
+            onClose={() => router.push("/spots")}
+          />
+        )}
+        {!isEditMode && showSnack && (
+          <SnackBar
+            text={"Spot wurde erstellt"}
+            onClose={() => router.push("/spots")}
+          />
+        )}
         <Button type="submit" variant="submit" name="submit">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
@@ -302,12 +314,6 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
             <SubmitButtonText>Spot erstellen</SubmitButtonText>
           )}
         </Button>
-        {showSnack && (
-          <SnackBar
-            text={"Spot wurde erfolgreich erstellt."}
-            onClose={() => router.push("/spots")}
-          />
-        )}
       </Form>
     </FormSection>
   );
@@ -390,9 +396,7 @@ const PhotoUploadLabel = styled.label`
   opacity: 0.7;
   border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  :hover {
-    background-color: var(--secondary-color);
-  }
+  margin-top: 15px;
 `;
 
 const PhotoUploadSvg = styled.svg`
@@ -405,5 +409,6 @@ const PhotoUploadLabelText = styled.p`
 
 const UploadStateText = styled.p`
   color: var(--secondary-color);
-  margin-top: 0;
+  position: absolute;
+  top: 775px;
 `;
