@@ -4,9 +4,12 @@ import { formCategoryOptions } from "../helpers/formCategoryOptions";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useState } from "react";
+import SnackBar from "./SnackBar";
 
 export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
   const [imageChanged, setImageChanged] = useState(false);
+  const [showSnack, setShowSnack] = useState(false);
+
   let imageUrl = isEditMode ? spot?.imageUrl : "";
 
   const router = useRouter();
@@ -67,7 +70,6 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         spot.isFavorite,
         imageUrl
       );
-      router.back();
     } else {
       addSpot(
         category,
@@ -79,9 +81,8 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         information.trim(),
         imageUrl
       );
-      router.back();
     }
-
+    setShowSnack(true);
     event.target.reset();
   }
 
@@ -290,6 +291,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           </PhotoUploadSvg>
           <PhotoUploadLabelText>Foto uploaden</PhotoUploadLabelText>
         </PhotoUploadLabel>
+
         <Button type="submit" variant="submit" name="submit">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
@@ -297,6 +299,12 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
             <SubmitButtonText>Spot erstellen</SubmitButtonText>
           )}
         </Button>
+        {showSnack && (
+          <SnackBar
+            text={"Spot wurde erfolgreich erstellt."}
+            onClose={() => router.push("/spots")}
+          />
+        )}
       </Form>
     </FormSection>
   );
@@ -379,6 +387,7 @@ const PhotoUploadLabel = styled.label`
   opacity: 0.7;
   border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 30px;
   :hover {
     background-color: var(--secondary-color);
   }
