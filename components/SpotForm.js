@@ -396,7 +396,6 @@ const PhotoUploadLabel = styled.label`
   opacity: 0.7;
   border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  margin-top: 15px;
 `;
 
 const PhotoUploadSvg = styled.svg`
@@ -409,6 +408,5 @@ const PhotoUploadLabelText = styled.p`
 
 const UploadStateText = styled.p`
   color: var(--secondary-color);
-  position: absolute;
-  top: 775px;
+  margin: 0;
 `;
