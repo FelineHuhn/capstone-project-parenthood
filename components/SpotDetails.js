@@ -202,7 +202,7 @@ const DeleteModal = styled.div`
   top: 50%;
   left: 10%;
   right: 10%;
-  border-radius: 7px;
+  border-radius: var(--border-radius);
 `;
 
 const ModalMessage = styled.h3`

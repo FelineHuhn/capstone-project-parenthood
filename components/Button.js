@@ -10,7 +10,7 @@ export function Button({ type, variant, onClick, children }) {
 
 const DefaultButton = styled.button`
   border: none;
-  border-radius: 3px;
+  border-radius: var(--border-radius);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   background-color: var(--fourth-color);
@@ -42,8 +42,8 @@ const DefaultButton = styled.button`
         font-weight: 400;
         padding: 3px;
         margin: auto;
-        margin-top: 20px;
-        border-radius: 7px;
+        margin-top: 10px;
+        border-radius: var(--border-radius);
       `}
 
     ${({ variant }) =>

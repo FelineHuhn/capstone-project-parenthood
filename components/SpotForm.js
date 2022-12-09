@@ -3,14 +3,32 @@ import { Button } from "./Button";
 import { formCategoryOptions } from "../helpers/formCategoryOptions";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useState } from "react";
+import SnackBar from "./SnackBar";
 
 export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
+  const [imageChanged, setImageChanged] = useState(false);
+  const [showSnack, setShowSnack] = useState(false);
+
+  let imageUrl = isEditMode ? spot?.imageUrl : "";
+
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+
+    if (imageChanged) {
+      const response = await fetch("/api/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const imageDetails = await response.json();
+      imageUrl = imageDetails.secureUrl;
+    }
+
     const {
       good_weather,
       moderate_weather,
@@ -49,9 +67,9 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         ageArray,
         tags.trim(),
         information.trim(),
-        spot.isFavorite
+        spot.isFavorite,
+        imageUrl
       );
-      router.back();
     } else {
       addSpot(
         category,
@@ -60,11 +78,11 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         weatherArray,
         ageArray,
         tags.trim(),
-        information.trim()
+        information.trim(),
+        imageUrl
       );
-      router.back();
     }
-
+    setShowSnack(true);
     event.target.reset();
   }
 
@@ -74,7 +92,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         href={`/spots`}
         aria-label="link that navigates back to the spots page"
       >
-        <GoBackSVG
+        <GoBackIcon
           xmlns="http://www.w3.org/2000/svg"
           height="26px"
           viewBox="0 0 24 24"
@@ -83,7 +101,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
         >
           <path d="M0 0h24v24H0z" fill="none" />
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-        </GoBackSVG>
+        </GoBackIcon>
       </Link>
       <Form onSubmit={handleSubmit}>
         <FormInputLabel htmlFor="category">Kategorie*</FormInputLabel>
@@ -246,7 +264,7 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           pattern=".*[\S]+.*"
           placeholder="parenthood, lieblingsort, ..."
         />
-        <FormInputLabel htmlFor="information">Weitere Infos:</FormInputLabel>
+        <FormInputLabel htmlFor="information">Weitere Infos</FormInputLabel>
         <FormInput
           defaultValue={isEditMode ? spot?.information : null}
           id="information"
@@ -254,7 +272,42 @@ export default function SpotForm({ addSpot, spot, editSpot, isEditMode }) {
           type="text"
           pattern=".*[\S]+.*"
         />
-        <Button type="submit" variant="submit" name="submit button">
+        <PhotoUploadInput
+          type="file"
+          id="image_upload"
+          name="image"
+          onChange={() => setImageChanged(true)}
+        />
+        {imageChanged ? (
+          <UploadStateText>&#10003; Bild hinzugefügt</UploadStateText>
+        ) : null}
+        <PhotoUploadLabel htmlFor="image_upload">
+          <PhotoUploadSvg
+            xmlns="http://www.w3.org/2000/svg"
+            height="30px"
+            viewBox="0 0 24 24"
+            width="30px"
+            fill="#ffffff"
+          >
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+          </PhotoUploadSvg>
+          <PhotoUploadLabelText>Foto uploaden</PhotoUploadLabelText>
+        </PhotoUploadLabel>
+
+        {isEditMode && showSnack && (
+          <SnackBar
+            text={"Spot wurde aktualisiert"}
+            onClose={() => router.push("/spots")}
+          />
+        )}
+        {!isEditMode && showSnack && (
+          <SnackBar
+            text={"Spot wurde erstellt"}
+            onClose={() => router.push("/spots")}
+          />
+        )}
+        <Button type="submit" variant="submit" name="submit">
           {isEditMode ? (
             <SubmitButtonText>Spot aktualisieren</SubmitButtonText>
           ) : (
@@ -272,7 +325,7 @@ const FormSection = styled.section`
   color: var(--secondary-color);
 `;
 
-const GoBackSVG = styled.svg`
+const GoBackIcon = styled.svg`
   margin-bottom: 10px;
   color: var(--secondary-color);
 
@@ -286,7 +339,7 @@ const Form = styled.form`
   background-color: var(--white-color);
   box-shadow: var(--primary-boxshadow);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
 `;
@@ -297,7 +350,7 @@ const FormCheckbox = styled.fieldset`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
@@ -315,17 +368,45 @@ const FormInputLabel = styled.label`
 `;
 
 const FormInput = styled.input`
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
 const FormSelect = styled.select`
   font-family: "Poppins-Light";
   color: var(--primary-color);
-  border-radius: 4px;
+  border-radius: var(--border-radius);
   border: 0.5px solid var(--primary-color);
 `;
 
 const SubmitButtonText = styled.p`
   margin: 1px;
+`;
+
+const PhotoUploadInput = styled.input`
+  opacity: 0;
+`;
+const PhotoUploadLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  opacity: 0.7;
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
+
+const PhotoUploadSvg = styled.svg`
+  margin-top: 15px;
+`;
+
+const PhotoUploadLabelText = styled.p`
+  margin-top: 4px;
+`;
+
+const UploadStateText = styled.p`
+  color: var(--secondary-color);
+  margin: 0;
 `;

@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
+import { Image } from "cloudinary-react";
 import { useState } from "react";
-import placeholderSpotImage from "../public/images/placeholder.jpg";
 import { Button } from "./Button";
 import SpotDetails from "./SpotDetails";
 
@@ -14,10 +13,22 @@ export default function SpotCard({
 }) {
   const [isShown, setIsShown] = useState(false);
 
+  const placeholderUrl =
+    "https://res.cloudinary.com/duvldhych/image/upload/v1670229542/placeholder_gbrfwx.jpg";
+
   return (
     <Card>
       <CardStyling>
-        <SpotImage src={placeholderSpotImage} alt="Placeholder Spot Image" />
+        <SpotImage
+          src={
+            spot?.imageUrl === undefined || !spot?.imageUrl
+              ? placeholderUrl
+              : spot?.imageUrl
+          }
+          width="40"
+          height="40"
+          alt="photo of the spot"
+        />
         <SpotInfos>
           <div>
             <Button
@@ -112,7 +123,7 @@ export default function SpotCard({
 const Card = styled.li`
   background-color: var(--white-color);
   box-shadow: var(--primary-boxshadow);
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   margin: 0 15px 30px 15px;
   padding: 10px;
 `;
@@ -125,7 +136,7 @@ const CardStyling = styled.div`
 const SpotImage = styled(Image)`
   width: 47%;
   height: 47%;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 

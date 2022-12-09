@@ -46,6 +46,7 @@ const Title = styled.h1`
   font-weight: 200;
   margin: 0;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3rem;
 `;
 
 const Headline = styled.h2`

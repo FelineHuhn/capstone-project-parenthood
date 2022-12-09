@@ -41,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
   --fourth-color: #eeedec;
   --white-color: #ffffff;
   --first-font-color: #596969;
+  --border-radius: 3px;
   --primary-dropshadow: drop-shadow(1px 1px 1px rgb(0 0 0 / 0.4));
   --primary-boxshadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
