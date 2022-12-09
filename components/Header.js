@@ -37,7 +37,14 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 2px 0 6px 0;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  background-image: linear-gradient(to right, #2f3737 0%, #4d5b5b 100%);
+  background-image: linear-gradient(
+    0deg,
+    hsl(180deg 8% 33%) 0%,
+    hsl(180deg 8% 30%) 33%,
+    hsl(180deg 8% 26%) 50%,
+    hsl(180deg 8% 23%) 67%,
+    hsl(180deg 8% 20%) 100%
+  );
   z-index: 100;
 `;
 

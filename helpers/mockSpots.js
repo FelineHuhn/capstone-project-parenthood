@@ -42,6 +42,8 @@ export const spotsList = [
     information:
       "Indoor-Spaß für Groß und Klein! Weitere Infos unter: https://www.rabatzz.de/",
     isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670585888/aumi7ujssxta5oxcafhl.png",
   },
   {
     id: "f1c6833e-d3f1-478a-ba5a-a3a5fbc37f8f",
@@ -127,5 +129,58 @@ export const spotsList = [
     isFavorite: false,
     imageUrl:
       "https://res.cloudinary.com/duvldhych/image/upload/v1670341642/3b95a659-c33b-4414-81bd-e685bd5d886d.png",
+  },
+  {
+    id: "abf5689d-b46c-4312-a5b8-c57bd9747988",
+    category: "Spielplatz",
+    name: "Schanzenpark",
+    addresse: "Schröderstiftstraße 32, 20146 Hamburg",
+    weathersuggestion: ["bei gutem Wetter", "bei mäßigem Wetter"],
+    agesuggestion: [
+      "Kinder 1 - 3 Jahre",
+      "Kinder 3 - 6 Jahre",
+      "Kinder 6 - 9 Jahre",
+    ],
+    tags: ["rutsche", "klettern", "seilbahn", "schaukel", "bolzplatz"],
+    information: "Hat eine sehr steile Rutsche, nicht für schwache Nerven!",
+    isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670586019/pwe401ecqrfp7fdcdgjh.png",
+  },
+  {
+    id: "ba6fff87-ac96-4b7d-8df7-e0c09e6c7ca8",
+    category: "Bauernhof",
+    name: "Bienenland",
+    addresse: "Bienenlandstraße 2, 20146 Hamburg",
+    weathersuggestion: ["bei gutem Wetter", "bei mäßigem Wetter"],
+    agesuggestion: [
+      "Kinder 1 - 3 Jahre",
+      "Kinder 3 - 6 Jahre",
+      "Kinder 6 - 9 Jahre",
+    ],
+    tags: ["tiere", "landluft", "mithelfen"],
+    information:
+      "Hier können eure Kinder auf dem Hof mithelfen und unsere Tiere füttern und pflegen",
+    isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670586300/paxhtvjqwnfajlwmurhl.png",
+  },
+  {
+    id: "3463b85c-d018-483f-8a94-b8f84603b975",
+    category: "Spielplatz",
+    name: "Kotti",
+    addresse: "Kottwitzstraße 19, 20253 Hamburg",
+    weathersuggestion: ["bei gutem Wetter", "bei mäßigem Wetter"],
+    agesuggestion: [
+      "Kinder 1 - 3 Jahre",
+      "Kinder 3 - 6 Jahre",
+      "Kinder 6 - 9 Jahre",
+    ],
+    tags: ["rutsche", "schaukel", "bolzplatz"],
+    information:
+      "Sehr familiärer Spielplatz, viele ausrangierte Spielsachen zu finden, was toll ist für die Kids!",
+    isFavorite: false,
+    imageUrl:
+      "https://res.cloudinary.com/duvldhych/image/upload/v1670585736/k4ewpcfhvrue14ukuqjw.png",
   },
 ];

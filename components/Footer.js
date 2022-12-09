@@ -96,7 +96,14 @@ export default function Footer() {
 }
 
 const StyledNavigation = styled.nav`
-  background-image: linear-gradient(to right, #2f3737 0%, #4d5b5b 100%);
+  background-image: linear-gradient(
+    180deg,
+    hsl(180deg 8% 33%) 0%,
+    hsl(180deg 8% 30%) 33%,
+    hsl(180deg 8% 26%) 50%,
+    hsl(180deg 8% 23%) 67%,
+    hsl(180deg 8% 20%) 100%
+  );
   padding: 2px 20px 1px 30px;
   position: fixed;
   bottom: 0;
