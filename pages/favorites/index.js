@@ -56,7 +56,7 @@ export default function FavoriteSpots({ spots, setSpot }) {
 }
 
 const StyledFavoritesSection = styled.section`
-  margin: 60px 0 30px 0;
+  margin: 80px 0 30px 0;
 `;
 
 const PlaceholderText = styled.p`
