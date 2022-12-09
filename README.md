@@ -2,6 +2,10 @@
 
 ParentHood is an app that lists spots that parents can visit with their children in their free time. A detailed description of each individual place shows whether a visit is worth. Own local "insider tips" can be shared with the community and favorite spots can be saved.
 
+![Landingpage](/public/images/landingpage.jpg)
+![Spots](/public/images/spots.png)
+![Spotdetails](/public/images/spotdetails.png)
+![Favorites](/public/images/favoritespots.png)
 
 ## Demo:
 
@@ -14,19 +18,18 @@ You can find the hosted version on [Vercel](https://parent-hood.vercel.app)
 - React
 - React Router
 - React Testing Library / Jest
-- Next.js 
-- Node.js 
+- Next.js
+- Node.js
 - JavaScript
 - Styled Components
 - LocalStorage
 - Cloudinary
 
-
 ## How to setup?
 
 - Clone this repository
 - Install all dependencies with `$ npm install`
-- create a Cloudinary account and change the cloudname in the App.js 
+- create a Cloudinary account and change the cloudname in the App.js
 - insert your API_Key, API_Secret and Cloudname as an enviroment variable in the terminal
 - Run app in dev mode with `$ npm run dev`
 - Server: [http://localhost:3000/](http://localhost:3000/)
