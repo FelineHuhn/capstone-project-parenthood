@@ -2,10 +2,7 @@
 
 ParentHood is an app that lists spots that parents can visit with their children in their free time. A detailed description of each individual place shows whether a visit is worth. Own local "insider tips" can be shared with the community and favorite spots can be saved.
 
-![Landingpage](/public/images/landingpage.jpg)
-![Spots](/public/images/spots.png)
-![Spotdetails](/public/images/spotdetails.png)
-![Favorites](/public/images/favoritespots.png)
+![Screenshots](/public/images/app-screenshots.png)
 
 ## Demo:
 
